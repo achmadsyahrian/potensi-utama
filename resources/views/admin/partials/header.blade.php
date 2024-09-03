@@ -162,14 +162,17 @@
                    <span class="avatar avatar-sm"
                        style="background-image: url(./static/avatars/000m.jpg)"></span>
                    <div class="d-none d-xl-block ps-2">
-                       <div>Paweł Kuna</div>
-                       <div class="mt-1 small text-muted">UI Designer</div>
+                       <div>{{ $currentUser->name }}</div>
+                       <div class="mt-1 small text-muted">{{ auth()->user()->role }}</div>
                    </div>
                </a>
                <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
                    <a href="./profile.html" class="dropdown-item">Profile</a>
                    <div class="dropdown-divider"></div>
-                   <a href="./sign-in.html" class="dropdown-item">Logout</a>
+                   <form id="logout-form" action="{{ route('admin.auth.logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
+                    <a href="#" class="dropdown-item" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
                </div>
            </div>
        </div>

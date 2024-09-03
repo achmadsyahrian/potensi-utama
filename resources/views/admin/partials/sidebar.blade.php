@@ -195,7 +195,10 @@
                 <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
                     <a href="./profile.html" class="dropdown-item">Profile</a>
                     <div class="dropdown-divider"></div>
-                    <a href="./sign-in.html" class="dropdown-item">Logout</a>
+                    <form id="logout-form" action="{{ route('admin.auth.logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
+                    <a href="#" class="dropdown-item" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
                 </div>
             </div>
         </div>

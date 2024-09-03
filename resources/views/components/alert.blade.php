@@ -1,7 +1,9 @@
+@props(['align' => 'start'])
+
 @if (session()->has('error'))
     <div class="card bg-danger-lt mb-4">
         <div class="card-body">
-            <h3 class="card-title d-flex align-items-center justify-content-center">
+            <h3 class="card-title d-flex align-items-center {{ $align === 'center' ? 'justify-content-center' : 'justify-content-start' }}">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                     class="icon icon-tabler icons-tabler-outline icon-tabler-xbox-x">
@@ -18,7 +20,7 @@
 @if (session()->has('success'))
     <div class="card bg-success-lt mb-4">
         <div class="card-body">
-            <h3 class="card-title d-flex align-items-center justify-content-center">
+            <h3 class="card-title d-flex align-items-center {{ $align === 'center' ? 'justify-content-center' : 'justify-content-start' }}">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                     class="icon icon-tabler icons-tabler-outline icon-tabler-circle-dashed-check">

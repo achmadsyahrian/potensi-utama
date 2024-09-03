@@ -160,14 +160,14 @@
                <a href="#" class="nav-link d-flex lh-1 text-reset p-0" data-bs-toggle="dropdown"
                    aria-label="Open user menu">
                    <span class="avatar avatar-sm"
-                       style="background-image: url(./static/avatars/000m.jpg)"></span>
+                       style="background-image: url({{asset('landing/assets/img/Logopotensiutama.png')}})"></span>
                    <div class="d-none d-xl-block ps-2">
                        <div>{{ $currentUser->name }}</div>
                        <div class="mt-1 small text-muted">{{ auth()->user()->role }}</div>
                    </div>
                </a>
                <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                   <a href="./profile.html" class="dropdown-item">Profile</a>
+                   <a href="{{route('admin.profile.index')}}" class="dropdown-item">Profile</a>
                    <div class="dropdown-divider"></div>
                    <form id="logout-form" action="{{ route('admin.auth.logout') }}" method="POST" style="display: none;">
                         @csrf

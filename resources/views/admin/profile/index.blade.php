@@ -1,16 +1,6 @@
 @extends('admin.layouts.app')
 @section('content')
-    <div class="page-header d-print-none">
-        <div class="container-xl">
-            <div class="row g-2 align-items-center">
-                <div class="col">
-                    <h2 class="page-title">
-                        Profile Saya
-                    </h2>
-                </div>
-            </div>
-        </div>
-    </div>
+    {{-- <x-page-header name="admin.profile.index"></x-page-header> --}}
     
     <div class="page-body">
         <div class="container-xl">

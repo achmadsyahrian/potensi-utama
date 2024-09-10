@@ -1,7 +1,7 @@
 @props(['align' => 'start'])
 
 @if (session()->has('error'))
-    <div class="card bg-danger-lt mb-4">
+    <div id="error-message" class="card bg-danger-lt mb-4">
         <div class="card-body">
             <h3 class="card-title d-flex align-items-center {{ $align === 'center' ? 'justify-content-center' : 'justify-content-start' }}">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -18,7 +18,7 @@
     </div>
 @endif
 @if (session()->has('success'))
-    <div class="card bg-success-lt mb-4">
+    <div id="success-message" class="card bg-success-lt mb-4">
         <div class="card-body">
             <h3 class="card-title d-flex align-items-center {{ $align === 'center' ? 'justify-content-center' : 'justify-content-start' }}">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -40,3 +40,17 @@
         </div>
     </div>
 @endif
+
+<script>
+    // Hide messages after 8 seconds (8000 ms)
+    setTimeout(function() {
+        var errorMessage = document.getElementById('error-message');
+        var successMessage = document.getElementById('success-message');
+        if (errorMessage) {
+            errorMessage.style.display = 'none';
+        }
+        if (successMessage) {
+            successMessage.style.display = 'none';
+        }
+    }, 8000); // 8000 ms = 8 seconds
+</script>

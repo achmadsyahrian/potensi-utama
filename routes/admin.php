@@ -12,6 +12,9 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'auth'], fu
 
     Route::get('/my-profile', [ProfileController::class, 'index'])->name('profile.index');
     Route::patch('/my-profile', [ProfileController::class, 'update'])->name('profile.update');
+
+    Route::resource('users', UserController::class)->names('users');
+    Route::patch('/users/{id}/reset-password', [UserController::class, 'resetPassword'])->name('users.resetPassword');
 });
 
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'guest'], function() {

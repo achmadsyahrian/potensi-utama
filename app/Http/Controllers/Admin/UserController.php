@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use Diglactic\Breadcrumbs\Breadcrumbs;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
@@ -63,7 +64,7 @@ class UserController extends Controller
         // Simpan user
         $user->save();
 
-        return redirect()->route('admin.users.index')->with('success', 'User Berhasil ditambah.');
+        return redirect()->route('admin.users.index')->with('success', "User '{$user->name}' berhasil ditambah.");
     }
 
 
@@ -99,7 +100,7 @@ class UserController extends Controller
         $user->update($validatedData);
 
         // Redirect dengan pesan sukses
-        return redirect()->route('admin.users.index')->with('success', 'User berhasil diperbarui.');
+        return redirect()->route('admin.users.index')->with('success', "User '{$validatedData['name']}' berhasil diperbarui.");
     }
 
 

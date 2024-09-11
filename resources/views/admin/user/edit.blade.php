@@ -24,7 +24,6 @@
         </div>
     </div>
 
-
     <div class="page-body">
         <form action="{{ route('admin.users.update', $user) }}" method="post">
             @csrf

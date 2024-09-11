@@ -312,7 +312,10 @@
                         </div>
                     </div>
                 </li>
-                <li class="nav-item dropdown">
+                @php
+                    $activeRoutes = ['admin.categories.index', 'admin.categories.create', 'admin.categories.edit'];
+                @endphp
+                <li class="nav-item dropdown {{ in_array(Route::currentRouteName(), $activeRoutes) ? 'active' : '' }}">
                     <a class="nav-link dropdown-toggle" href="#navbar-help" data-bs-toggle="dropdown"
                         data-bs-auto-close="false" role="button" aria-expanded="false">
                         <span
@@ -332,7 +335,7 @@
                         </span>
                     </a>
                     <div class="dropdown-menu show">
-                        <a class="dropdown-item" href="#" target="_blank" rel="noopener">
+                        <a class="dropdown-item" href="{{route('admin.categories.index')}}" rel="noopener">
                             Categories
                         </a>
                         <a class="dropdown-item" href="#">

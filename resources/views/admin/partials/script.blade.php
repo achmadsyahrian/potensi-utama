@@ -3,6 +3,7 @@
 <script src="{{ asset('admin/dist/libs/jsvectormap/dist/maps/world.js?1684106062') }}" defer></script>
 <script src="{{ asset('admin/dist/libs/jsvectormap/dist/maps/world-merc.js?1684106062') }}" defer></script>
 <!-- Tabler Core -->
+<script src="{{asset('admin/dist/libs/tinymce/tinymce.min.js?1684106062')}}" defer></script>
 <script src="{{ asset('admin/dist/js/tabler.min.js?1684106062') }}" defer></script>
 <script src="{{ asset('admin/dist/js/demo.min.js?1684106062') }}" defer></script>
 

@@ -6,15 +6,7 @@
                 <div class="col">
                     <div class="page-pretitle">
                         <ol class="breadcrumb breadcrumb-arrows">
-                            @foreach (Breadcrumbs::generate('admin.dashboard') as $breadcrumb)
-                                <li class="breadcrumb-item">
-                                    @if ($breadcrumb->url)
-                                        <a href="{{ $breadcrumb->url }}">{{ $breadcrumb->title }}</a>
-                                    @else
-                                        {{ $breadcrumb->title }}
-                                    @endif
-                                </li>
-                            @endforeach
+                            <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">Dashboard</a></li>
                         </ol>
                     </div>
                     <h2 class="page-title">

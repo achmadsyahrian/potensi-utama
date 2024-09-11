@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\TagController;
 use Illuminate\Support\Facades\Route;
 
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'auth'], function() {
@@ -19,6 +20,9 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'auth'], fu
 
     Route::resource('categories', CategoryController::class)->names('categories');
     Route::get('/categories/{id}', [CategoryController::class, 'show'])->name('categories.show');
+
+    Route::resource('tags', TagController::class)->names('tags');
+    Route::get('/tags/{id}', [CategoryController::class, 'show'])->name('tags.show');
 });
 
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'guest'], function() {

@@ -313,7 +313,7 @@
                     </div>
                 </li>
                 @php
-                    $activeRoutes = ['admin.categories.index', 'admin.categories.create', 'admin.categories.edit'];
+                    $activeRoutes = ['admin.categories.index', 'admin.categories.create', 'admin.categories.edit', 'admin.tags.index', 'admin.tags.create', 'admin.tags.edit'];
                 @endphp
                 <li class="nav-item dropdown {{ in_array(Route::currentRouteName(), $activeRoutes) ? 'active' : '' }}">
                     <a class="nav-link dropdown-toggle" href="#navbar-help" data-bs-toggle="dropdown"
@@ -338,7 +338,7 @@
                         <a class="dropdown-item" href="{{route('admin.categories.index')}}" rel="noopener">
                             Categories
                         </a>
-                        <a class="dropdown-item" href="#">
+                        <a class="dropdown-item" href="{{route('admin.tags.index')}}">
                             Tags
                         </a>
                     </div>

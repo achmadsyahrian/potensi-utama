@@ -44,62 +44,9 @@
                             </div><!-- End meta top -->
               
                             <div class="content">
-                              <p>
-                                Similique neque nam consequuntur ad non maxime aliquam quas. Quibusdam animi praesentium. Aliquam et
-                                laboriosam eius aut nostrum quidem aliquid dicta.
-                                Et eveniet enim. Qui velit est ea dolorem doloremque deleniti aperiam unde soluta. Est cum et quod
-                                quos aut ut et sit sunt. Voluptate porro consequatur assumenda perferendis dolore.
-                              </p>
+                              <div><strong>Isi Konten Berita!!<br><br></strong><figure data-trix-attachment="{&quot;contentType&quot;:&quot;image/png&quot;,&quot;filename&quot;:&quot;logo-potensi-utama.png&quot;,&quot;filesize&quot;:16578,&quot;height&quot;:98,&quot;url&quot;:&quot;/storage/posts/content/files/1726546028.png&quot;,&quot;width&quot;:388}" data-trix-content-type="image/png" data-trix-attributes="{&quot;presentation&quot;:&quot;gallery&quot;}" class="attachment attachment--preview attachment--png"><img src="/storage/posts/content/files/1726546028.png" width="388" height="98"><figcaption class="attachment__caption"><span class="attachment__name">logo-potensi-utama.png</span> <span class="attachment__size">16.19 KB</span></figcaption></figure><br><br>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto enim, necessitatibus placeat velit reiciendis quae aut, magnam blanditiis voluptatum perspiciatis nulla eum labore accusantium soluta impedit quas error obcaecati omnis quod ab tenetur. Illum commodi earum maiores accusamus natus iste numquam perspiciatis animi id. Itaque debitis sunt nemo, nesciunt molestiae qui vitae exercitationem recusandae blanditiis facere repudiandae laborum maxime doloremque consequatur accusantium molestias, distinctio ratione, ipsa at deleniti! Expedita, sint! Quidem deserunt ut vero repellat iusto alias id fuga ratione omnis aspernatur quia quo, cumque, quas nam accusamus error, unde praesentium soluta magni? Sint illum asperiores ullam quas officiis totam.<br><br>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Qui eaque maiores sequi possimus exercitationem voluptatem deserunt magni mollitia deleniti, vel repellendus suscipit error provident, repudiandae ipsum obcaecati fugit hic commodi molestiae fuga quam. Ab repudiandae odio labore autem perferendis sunt reiciendis vitae necessitatibus? Voluptas corporis dolore facere blanditiis maxime vero, voluptatibus error tenetur doloribus. Labore veritatis voluptate esse enim obcaecati recusandae, officiis quia cumque, error eveniet quo quibusdam. Molestias, hic! Ipsam tempore eos autem sapiente quasi. <br><br><figure data-trix-attachment="{&quot;contentType&quot;:&quot;image/jpeg&quot;,&quot;filename&quot;:&quot;background_zoom - Copy.jpg&quot;,&quot;filesize&quot;:204257,&quot;height&quot;:720,&quot;url&quot;:&quot;/storage/posts/content/files/1726546684.jpg&quot;,&quot;width&quot;:1280}" data-trix-content-type="image/jpeg" data-trix-attributes="{&quot;presentation&quot;:&quot;gallery&quot;}" class="attachment attachment--preview attachment--jpg"><img src="/storage/posts/content/files/1726546684.jpg" width="1280" height="720"><figcaption class="attachment__caption"><span class="attachment__name">background_zoom - Copy.jpg</span> <span class="attachment__size">199.47 KB</span></figcaption></figure><br><br>Exercitationem soluta voluptatum, voluptate dignissimos fugiat iste, ut assumenda officia eum harum veritatis, similique quaerat itaque voluptatibus aspernatur! Excepturi, minus! Odio in eligendi velit cumque, consequuntur consequatur necessitatibus obcaecati ipsam accusamus. Pariatur asperiores libero voluptatem quod quis quae autem eaque, officia minus necessitatibus cum, temporibus maxime. Molestias porro maxime excepturi quia fugit voluptatum quod.</div>
               
-                              <p>
-                                Sit repellat hic cupiditate hic ut nemo. Quis nihil sunt non reiciendis. Sequi in accusamus harum vel
-                                aspernatur. Excepturi numquam nihil cumque odio. Et voluptate cupiditate.
-                              </p>
-              
-                              <blockquote>
-                                <p>
-                                  Et vero doloremque tempore voluptatem ratione vel aut. Deleniti sunt animi aut. Aut eos aliquam
-                                  doloribus minus autem quos.
-                                </p>
-                              </blockquote>
-              
-                              <p>
-                                Sed quo laboriosam qui architecto. Occaecati repellendus omnis dicta inventore tempore provident
-                                voluptas mollitia aliquid. Id repellendus quia. Asperiores nihil magni dicta est suscipit
-                                perspiciatis. Voluptate ex rerum assumenda dolores nihil quaerat.
-                                Dolor porro tempora et quibusdam voluptas. Beatae aut at ad qui tempore corrupti velit quisquam rerum.
-                                Omnis dolorum exercitationem harum qui qui blanditiis neque.
-                                Iusto autem itaque. Repudiandae hic quae aspernatur ea neque qui. Architecto voluptatem magni. Vel
-                                magnam quod et tempora deleniti error rerum nihil tempora.
-                              </p>
-              
-                              <h3>Et quae iure vel ut odit alias.</h3>
-                              <p>
-                                Officiis animi maxime nulla quo et harum eum quis a. Sit hic in qui quos fugit ut rerum atque. Optio
-                                provident dolores atque voluptatem rem excepturi molestiae qui. Voluptatem laborum omnis ullam
-                                quibusdam perspiciatis nulla nostrum. Voluptatum est libero eum nesciunt aliquid qui.
-                                Quia et suscipit non sequi. Maxime sed odit. Beatae nesciunt nesciunt accusamus quia aut ratione
-                                aspernatur dolor. Sint harum eveniet dicta exercitationem minima. Exercitationem omnis asperiores
-                                natus aperiam dolor consequatur id ex sed. Quibusdam rerum dolores sint consequatur quidem ea.
-                                Beatae minima sunt libero soluta sapiente in rem assumenda. Et qui odit voluptatem. Cum quibusdam
-                                voluptatem voluptatem accusamus mollitia aut atque aut.
-                              </p>
-                              <img src="{{asset('landing/assets/img/blog/blog-inside-post.jpg')}}" class="img-fluid" alt="">
-              
-                              <h3>Ut repellat blanditiis est dolore sunt dolorum quae.</h3>
-                              <p>
-                                Rerum ea est assumenda pariatur quasi et quam. Facilis nam porro amet nostrum. In assumenda quia quae
-                                a id praesentium. Quos deleniti libero sed occaecati aut porro autem. Consectetur sed excepturi sint
-                                non placeat quia repellat incidunt labore. Autem facilis hic dolorum dolores vel.
-                                Consectetur quasi id et optio praesentium aut asperiores eaque aut. Explicabo omnis quibusdam esse. Ex
-                                libero illum iusto totam et ut aut blanditiis. Veritatis numquam ut illum ut a quam vitae.
-                              </p>
-                              <p>
-                                Alias quia non aliquid. Eos et ea velit. Voluptatem maxime enim omnis ipsa voluptas incidunt. Nulla
-                                sit eaque mollitia nisi asperiores est veniam.
-                              </p>
-              
-                            </div><!-- End post content -->
+                            </div>
               
                             <div class="meta-bottom">
                               <i class="bi bi-folder"></i>

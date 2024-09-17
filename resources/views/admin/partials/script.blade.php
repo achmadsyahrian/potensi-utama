@@ -9,6 +9,10 @@
 
 {{-- My JS --}}
 <script src="{{ asset('admin/js/my.js') }}"></script>
+<script src="{{asset('admin/dist/libs/nouislider/dist/nouislider.min.js?1684106062')}}" defer></script>
+<script src="{{asset('admin/dist/libs/litepicker/dist/litepicker.js?1684106062')}}" defer></script>
+<script src="{{asset('admin/dist/libs/tom-select/dist/js/tom-select.base.min.js?1684106062')}}" defer></script>
+
 <script src="https://kit.fontawesome.com/23dde1eb1b.js" crossorigin="anonymous"></script>
 
 <script>

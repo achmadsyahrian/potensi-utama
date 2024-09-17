@@ -5,7 +5,9 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\NewsController;
 use App\Http\Controllers\Admin\TagController;
+use App\Http\Controllers\Admin\PostController;
 use Illuminate\Support\Facades\Route;
 
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'auth'], function() {
@@ -22,7 +24,11 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'auth'], fu
     Route::get('/categories/{id}', [CategoryController::class, 'show'])->name('categories.show');
 
     Route::resource('tags', TagController::class)->names('tags');
-    Route::get('/tags/{id}', [CategoryController::class, 'show'])->name('tags.show');
+    Route::get('/tags/{id}', [TagController::class, 'show'])->name('tags.show');
+
+    Route::post('/post/upload-file', [PostController::class, 'upload']);
+    
+    Route::resource('news', NewsController::class)->names('news');
 });
 
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'guest'], function() {

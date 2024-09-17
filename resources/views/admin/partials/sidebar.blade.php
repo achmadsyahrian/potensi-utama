@@ -275,7 +275,10 @@
                         </div>
                     </div>
                 </li>
-                <li class="nav-item dropdown">
+                @php
+                    $activeRoutes = ['admin.news.index', 'admin.news.create', 'admin.news.edit'];
+                @endphp
+                <li class="nav-item dropdown {{ in_array(Route::currentRouteName(), $activeRoutes) ? 'active' : '' }}">
                     <a class="nav-link dropdown-toggle" href="#navbar-extra" data-bs-toggle="dropdown"
                         data-bs-auto-close="false" role="button" aria-expanded="false">
                         <span
@@ -299,7 +302,7 @@
                     <div class="dropdown-menu show">
                         <div class="dropdown-menu-columns">
                             <div class="dropdown-menu-column">
-                                <a class="dropdown-item" href="./empty.html">
+                                <a class="dropdown-item" href="{{route('admin.news.index')}}">
                                     Berita Kampus
                                 </a>
                                 <a class="dropdown-item" href="./cookie-banner.html">
@@ -312,6 +315,7 @@
                         </div>
                     </div>
                 </li>
+
                 @php
                     $activeRoutes = ['admin.categories.index', 'admin.categories.create', 'admin.categories.edit', 'admin.tags.index', 'admin.tags.create', 'admin.tags.edit'];
                 @endphp

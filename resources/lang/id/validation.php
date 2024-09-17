@@ -7,6 +7,7 @@ return [
         'phone' => 'nomor handphone',
         'new_password' => 'password baru',
         'description' => 'deskripsi',
+        'title' => 'judul',
     ],
     'regex' => 'Kolom :attribute harus memenuhi format yang benar.',
     'email' => 'Kolom :attribute harus berupa alamat email yang valid.',

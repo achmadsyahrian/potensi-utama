@@ -20,196 +20,109 @@
         <!-- ======= Berita Section ======= -->
         <section id="news" class="news">
             <div class="container" data-aos="fade-up" data-aos-delay="100">
-
                 <div class="row gy-4">
+
                     <!-- Konten Utama -->
                     <div class="col-xl-8 content" data-aos="fade-up" data-aos-delay="200">
                         <div class="row gy-4 posts-list">
-                            <div class="col-lg-6 col-md-6">
-                                <div class="post-item position-relative h-100">
-                                    <div class="post-img position-relative overflow-hidden">
-                                        <img src="{{asset('landing/assets/img/blog/blog-1.jpg')}}" class="img-fluid" alt="">
-                                        <span class="post-date">December 12</span>
-                                    </div>
-                                    <div class="post-content d-flex flex-column">
-                                        <h3 class="post-title">Dolorum optio tempore voluptas dignissimos cumque fuga qui quibusdam quia</h3>
-                                        <div class="meta d-flex align-items-center">
-                                            <div class="d-flex align-items-center">
-                                                <i class="bi bi-person"></i> <span class="ps-2">John Doe</span>
-                                            </div>
-                                            <span class="px-3 text-black-50">/</span>
-                                            <div class="d-flex align-items-center">
-                                                <i class="bi bi-folder2"></i> <span class="ps-2">Politics</span>
-                                            </div>
+                            @foreach ($data as $item)
+                                <div class="col-lg-6 col-md-6">
+                                    <div class="post-item position-relative h-100">
+                                        <div class="post-img position-relative overflow-hidden">
+                                            <img src="{{ asset($item->thumbnail) }}" class="img-fluid"
+                                                style="width: 415px; height:310px; object-fit:cover;"alt="">
+                                            <span class="post-date">{{ $item->updated_at->format('F j') }}</span>
                                         </div>
-                                        <p>Similique neque nam consequuntur ad non maxime aliquam quas. Quibusdam animi praesentium. Aliquam et laboriosam eius aut nostrum quidem aliquid dicta.</p>
-                                        <hr>
-                                        <a href="{{route('landing.announcement.show')}}" class="readmore stretched-link"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
+                                        <div class="post-content d-flex flex-column">
+                                            <h3 class="post-title" title="{{ $item->title }}">
+                                                {{ \Illuminate\Support\Str::limit($item->title, 50, '...') }}</h3>
+                                            <div class="meta d-flex align-items-center">
+                                                <div class="d-flex align-items-center">
+                                                    <i class="bi bi-person"></i> <span
+                                                        class="ps-2">{{ $item->user->name }}</span>
+                                                </div>
+                                                <span class="px-3 text-black-50">/</span>
+                                                <div class="d-flex align-items-center">
+                                                    <i class="bi bi-folder2"></i> <span
+                                                        class="ps-2">{{ $item->category->name }}</span>
+                                                </div>
+                                            </div>
+
+                                            <x-filtered-content :content="$item->content" class="mt-4" />
+
+                                            <hr>
+                                            <a href="{{ route('landing.announcement.show', $item->slug) }}"
+                                                class="readmore stretched-link"><span>Baca Selengkapnya</span><i
+                                                    class="bi bi-arrow-right"></i></a>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-lg-6 col-md-6">
-                                <div class="post-item position-relative h-100">
-                                    <div class="post-img position-relative overflow-hidden">
-                                        <img src="{{asset('landing/assets/img/blog/blog-2.jpg')}}" class="img-fluid" alt="">
-                                        <span class="post-date">March 19</span>
-                                    </div>
-                                    <div class="post-content d-flex flex-column">
-                                        <h3 class="post-title">Nisi magni odit consequatur autem nulla dolorem</h3>
-                                        <div class="meta d-flex align-items-center">
-                                            <div class="d-flex align-items-center">
-                                                <i class="bi bi-person"></i> <span class="ps-2">Julia Parker</span>
-                                            </div>
-                                            <span class="px-3 text-black-50">/</span>
-                                            <div class="d-flex align-items-center">
-                                                <i class="bi bi-folder2"></i> <span class="ps-2">Economics</span>
-                                            </div>
-                                        </div>
-                                        <p>Incidunt voluptate sit temporibus aperiam. Quia vitae aut sint ullam quis illum voluptatum et. Quo libero rerum voluptatem pariatur nam.</p>
-                                        <hr>
-                                        <a href="blog-details.html" class="readmore stretched-link"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
-                                    </div>
+                            @endforeach
+                        </div>
+                    </div>
+
+                    <!-- Sidebar -->
+                    @if (!$data->isEmpty())
+                        <div class="col-xl-4" data-aos="fade-up" data-aos-delay="300">
+                            <div class="sidebar">
+
+                                <div class="sidebar-item search-form">
+                                    <h3 class="sidebar-title">Pencarian</h3>
+                                    <form action="{{ route('landing.announcement.index') }}" method="GET" class="mt-3">
+                                        <input type="text" name="search" placeholder="Masukkan judul" value="{{ request('search') }}">
+                                        <input type="hidden" name="category" value="{{ request('category') }}">
+                                        <input type="hidden" name="tag" value="{{ request('tag') }}">
+                                        <button type="submit"><i class="bi bi-search text-white"></i></button>
+                                    </form>
                                 </div>
-                            </div>
-                            <div class="col-lg-6 col-md-6">
-                                <div class="post-item position-relative h-100">
-                                    <div class="post-img position-relative overflow-hidden">
-                                        <img src="{{asset('landing/assets/img/blog/blog-1.jpg')}}" class="img-fluid" alt="">
-                                        <span class="post-date">December 12</span>
-                                    </div>
-                                    <div class="post-content d-flex flex-column">
-                                        <h3 class="post-title">Dolorum optio tempore voluptas dignissimos cumque fuga qui quibusdam quia</h3>
-                                        <div class="meta d-flex align-items-center">
-                                            <div class="d-flex align-items-center">
-                                                <i class="bi bi-person"></i> <span class="ps-2">John Doe</span>
+                                <div class="sidebar-item recent-posts">
+                                    <h3 class="sidebar-title">Recent Posts</h3>
+
+                                    <div class="mt-3">
+
+                                        @foreach ($dataRecent as $item)
+                                            <div class="post-item mt-3">
+                                                <img src="{{ asset($item->thumbnail) }}"
+                                                    alt="" style="width: 100px; height:60px; object-fit:cover;">
+                                                <div>
+                                                    <h4><a href="{{ route('landing.announcement.show', $item->slug) }}">{{ \Illuminate\Support\Str::limit($item->title, 40, '...') }}</a></h4>
+                                                    <time datetime="{{ $item->updated_at->format('Y-m-d') }}">
+                                                        {{ $item->updated_at->format('M j, Y') }}
+                                                    </time>                                                    
+                                                </div>
                                             </div>
-                                            <span class="px-3 text-black-50">/</span>
-                                            <div class="d-flex align-items-center">
-                                                <i class="bi bi-folder2"></i> <span class="ps-2">Politics</span>
-                                            </div>
-                                        </div>
-                                        <p>Similique neque nam consequuntur ad non maxime aliquam quas. Quibusdam animi praesentium. Aliquam et laboriosam eius aut nostrum quidem aliquid dicta.</p>
-                                        <hr>
-                                        <a href="blog-details.html" class="readmore stretched-link"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
+                                        @endforeach
+
                                     </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-6 col-md-6">
-                                <div class="post-item position-relative h-100">
-                                    <div class="post-img position-relative overflow-hidden">
-                                        <img src="{{asset('landing/assets/img/blog/blog-2.jpg')}}" class="img-fluid" alt="">
-                                        <span class="post-date">March 19</span>
-                                    </div>
-                                    <div class="post-content d-flex flex-column">
-                                        <h3 class="post-title">Nisi magni odit consequatur autem nulla dolorem</h3>
-                                        <div class="meta d-flex align-items-center">
-                                            <div class="d-flex align-items-center">
-                                                <i class="bi bi-person"></i> <span class="ps-2">Julia Parker</span>
-                                            </div>
-                                            <span class="px-3 text-black-50">/</span>
-                                            <div class="d-flex align-items-center">
-                                                <i class="bi bi-folder2"></i> <span class="ps-2">Economics</span>
-                                            </div>
-                                        </div>
-                                        <p>Incidunt voluptate sit temporibus aperiam. Quia vitae aut sint ullam quis illum voluptatum et. Quo libero rerum voluptatem pariatur nam.</p>
-                                        <hr>
-                                        <a href="blog-details.html" class="readmore stretched-link"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
-                                    </div>
+
+                                </div><!-- End sidebar recent posts-->
+
+                                <div class="sidebar-item tags">
+                                    <h3 class="sidebar-title">Tags</h3>
+                                    <ul class="mt-3">
+                                        @foreach ($tags as $tag)
+                                            <li>
+                                                <a href="{{ route('landing.announcement.index', [
+                                                    'category' => request('category'), 
+                                                    'tag' => $tag->slug, 
+                                                    'search' => request('search')
+                                                ]) }}">
+                                                    {{ $tag->name }}
+                                                </a>
+                                            </li>
+                                        @endforeach
+                                    </ul>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                
-                    <!-- Sidebar -->
-                    <div class="col-xl-4" data-aos="fade-up" data-aos-delay="300">
-                        <div class="sidebar">
-
-                            <div class="sidebar-item search-form">
-                              <h3 class="sidebar-title">Pencarian</h3>
-                              <form action="" class="mt-3">
-                                <input type="text">
-                                <button type="submit"><i class="bi bi-search text-white"></i></button>
-                              </form>
-                            </div><!-- End sidebar search formn-->
-              
-                            <div class="sidebar-item recent-posts">
-                              <h3 class="sidebar-title">Recent Posts</h3>
-              
-                              <div class="mt-3">
-              
-                                <div class="post-item mt-3">
-                                  <img src="{{asset('landing/assets/img/blog/blog-recent-1.jpg')}}" alt="">
-                                  <div>
-                                    <h4><a href="blog-details.html">Nihil blanditiis at in nihil autem</a></h4>
-                                    <time datetime="2020-01-01">Jan 1, 2020</time>
-                                  </div>
-                                </div><!-- End recent post item-->
-              
-                                <div class="post-item">
-                                  <img src="{{asset('landing/assets/img/blog/blog-recent-2.jpg')}}" alt="">
-                                  <div>
-                                    <h4><a href="blog-details.html">Quidem autem et impedit</a></h4>
-                                    <time datetime="2020-01-01">Jan 1, 2020</time>
-                                  </div>
-                                </div><!-- End recent post item-->
-              
-                                <div class="post-item">
-                                  <img src="{{asset('landing/assets/img/blog/blog-recent-3.jpg')}}" alt="">
-                                  <div>
-                                    <h4><a href="blog-details.html">Id quia et et ut maxime similique occaecati ut</a></h4>
-                                    <time datetime="2020-01-01">Jan 1, 2020</time>
-                                  </div>
-                                </div><!-- End recent post item-->
-              
-                                <div class="post-item">
-                                  <img src="{{asset('landing/assets/img/blog/blog-recent-4.jpg')}}" alt="">
-                                  <div>
-                                    <h4><a href="blog-details.html">Laborum corporis quo dara net para</a></h4>
-                                    <time datetime="2020-01-01">Jan 1, 2020</time>
-                                  </div>
-                                </div><!-- End recent post item-->
-              
-                                <div class="post-item">
-                                  <img src="{{asset('landing/assets/img/blog/blog-recent-5.jpg')}}" alt="">
-                                  <div>
-                                    <h4><a href="blog-details.html">Et dolores corrupti quae illo quod dolor</a></h4>
-                                    <time datetime="2020-01-01">Jan 1, 2020</time>
-                                  </div>
-                                </div><!-- End recent post item-->
-              
-                              </div>
-              
-                            </div><!-- End sidebar recent posts-->
-              
-                            <div class="sidebar-item tags">
-                              <h3 class="sidebar-title">Tags</h3>
-                              <ul class="mt-3">
-                                <li><a href="#">App</a></li>
-                                <li><a href="#">IT</a></li>
-                                <li><a href="#">Business</a></li>
-                                <li><a href="#">Mac</a></li>
-                                <li><a href="#">Design</a></li>
-                                <li><a href="#">Office</a></li>
-                                <li><a href="#">Creative</a></li>
-                                <li><a href="#">Studio</a></li>
-                                <li><a href="#">Smart</a></li>
-                                <li><a href="#">Tips</a></li>
-                                <li><a href="#">Marketing</a></li>
-                              </ul>
-                            </div><!-- End sidebar tags-->
-              
-                          </div>
-                    </div>
+                    @else
+                        <p class="text-center">Belum ada pengumuman yg tersedia <i class="far fa-sad-tear"></i></p>
+                    @endif
+                    
                 </div>
-                
-                <div class="news-pagination">
-                    <ul class="justify-content-center">
-                        <li><a href="#">1</a></li>
-                        <li class="active"><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                    </ul>
-                </div><!-- End blog pagination -->
-
+                @if (!$data->isEmpty())
+                    <x-landing-pagination :data="$data"></x-landing-pagination>
+                @endif
             </div>
         </section>
         <!-- End Berita -->

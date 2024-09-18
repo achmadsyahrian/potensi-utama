@@ -10,7 +10,8 @@
                 <h2>Pengumuman</h2>
                 <ol>
                     <li><a href="{{ route('landing.home') }}">Beranda</a></li>
-                    <li>Pengumuman Detail</li>
+                    <li><a href="{{ route('landing.announcement.index') }}">Pengumuman</a></li>
+                    <li>Detail</li>
                 </ol>
 
             </div>
@@ -27,133 +28,141 @@
                         <article class="news-details">
 
                             <div class="post-img">
-                              <img src="{{asset('landing/assets/img/blog/blog-1.jpg')}}" alt="" class="img-fluid">
+                                <img src="{{ asset($post->thumbnail) }}" alt=""
+                                    style="width: 850px; height:500px; object-fit:cover;" class="img-fluid">
                             </div>
-              
-                            <h2 class="title">Dolorum optio tempore voluptas dignissimos cumque fuga qui quibusdam quia</h2>
-              
+
+                            <h2 class="title">{{ $post->title }}</h2>
+
                             <div class="meta-top">
-                              <ul>
-                                <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="blog-details.html">John
-                                    Doe</a></li>
-                                <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="blog-details.html"><time
-                                      datetime="2020-01-01">Jan 1, 2022</time></a></li>
-                                <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="blog-details.html">12
-                                    Comments</a></li>
-                              </ul>
+                                <ul>
+                                    <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a
+                                            href="#">{{ $post->user->name }}</a></li>
+                                    <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a
+                                            href="#"><time
+                                                datetime="2020-01-01">{{ $post->updated_at->format('M j, Y') }}</time></a>
+                                    </li>
+                                </ul>
                             </div><!-- End meta top -->
-              
+                            <style>
+                                .content img {
+                                    width: 500px;
+                                    height: 300px;
+                                    object-fit: cover;
+                                    display: block;
+                                    /* margin: 0 auto; */
+                                }
+
+                                .content .attachment__caption .attachment__name {
+                                    /* text-align: center; */
+                                    display: block;
+                                    margin: 0 auto;
+                                }
+
+                                .content .attachment__caption .attachment__size {
+                                    display: none;
+                                }
+
+                                .content h1 {
+                                    font-size: 22px;
+                                    margin-top: 10px;
+                                }
+                            </style>
                             <div class="content">
-                              <div><strong>Isi Konten Berita!!<br><br></strong><figure data-trix-attachment="{&quot;contentType&quot;:&quot;image/png&quot;,&quot;filename&quot;:&quot;logo-potensi-utama.png&quot;,&quot;filesize&quot;:16578,&quot;height&quot;:98,&quot;url&quot;:&quot;/storage/posts/content/files/1726546028.png&quot;,&quot;width&quot;:388}" data-trix-content-type="image/png" data-trix-attributes="{&quot;presentation&quot;:&quot;gallery&quot;}" class="attachment attachment--preview attachment--png"><img src="/storage/posts/content/files/1726546028.png" width="388" height="98"><figcaption class="attachment__caption"><span class="attachment__name">logo-potensi-utama.png</span> <span class="attachment__size">16.19 KB</span></figcaption></figure><br><br>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto enim, necessitatibus placeat velit reiciendis quae aut, magnam blanditiis voluptatum perspiciatis nulla eum labore accusantium soluta impedit quas error obcaecati omnis quod ab tenetur. Illum commodi earum maiores accusamus natus iste numquam perspiciatis animi id. Itaque debitis sunt nemo, nesciunt molestiae qui vitae exercitationem recusandae blanditiis facere repudiandae laborum maxime doloremque consequatur accusantium molestias, distinctio ratione, ipsa at deleniti! Expedita, sint! Quidem deserunt ut vero repellat iusto alias id fuga ratione omnis aspernatur quia quo, cumque, quas nam accusamus error, unde praesentium soluta magni? Sint illum asperiores ullam quas officiis totam.<br><br>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Qui eaque maiores sequi possimus exercitationem voluptatem deserunt magni mollitia deleniti, vel repellendus suscipit error provident, repudiandae ipsum obcaecati fugit hic commodi molestiae fuga quam. Ab repudiandae odio labore autem perferendis sunt reiciendis vitae necessitatibus? Voluptas corporis dolore facere blanditiis maxime vero, voluptatibus error tenetur doloribus. Labore veritatis voluptate esse enim obcaecati recusandae, officiis quia cumque, error eveniet quo quibusdam. Molestias, hic! Ipsam tempore eos autem sapiente quasi. <br><br><figure data-trix-attachment="{&quot;contentType&quot;:&quot;image/jpeg&quot;,&quot;filename&quot;:&quot;background_zoom - Copy.jpg&quot;,&quot;filesize&quot;:204257,&quot;height&quot;:720,&quot;url&quot;:&quot;/storage/posts/content/files/1726546684.jpg&quot;,&quot;width&quot;:1280}" data-trix-content-type="image/jpeg" data-trix-attributes="{&quot;presentation&quot;:&quot;gallery&quot;}" class="attachment attachment--preview attachment--jpg"><img src="/storage/posts/content/files/1726546684.jpg" width="1280" height="720"><figcaption class="attachment__caption"><span class="attachment__name">background_zoom - Copy.jpg</span> <span class="attachment__size">199.47 KB</span></figcaption></figure><br><br>Exercitationem soluta voluptatum, voluptate dignissimos fugiat iste, ut assumenda officia eum harum veritatis, similique quaerat itaque voluptatibus aspernatur! Excepturi, minus! Odio in eligendi velit cumque, consequuntur consequatur necessitatibus obcaecati ipsam accusamus. Pariatur asperiores libero voluptatem quod quis quae autem eaque, officia minus necessitatibus cum, temporibus maxime. Molestias porro maxime excepturi quia fugit voluptatum quod.</div>
-              
+                                {!! $post->content !!}
                             </div>
-              
+
                             <div class="meta-bottom">
-                              <i class="bi bi-folder"></i>
-                              <ul class="cats">
-                                <li><a href="#">Business</a></li>
-                              </ul>
-              
-                              <i class="bi bi-tags"></i>
-                              <ul class="tags">
-                                <li><a href="#">Creative</a></li>
-                                <li><a href="#">Tips</a></li>
-                                <li><a href="#">Marketing</a></li>
-                              </ul>
-                            </div><!-- End meta bottom -->
-              
-                          </article>
+                                <i class="bi bi-folder"></i>
+                                <ul class="cats">
+                                    <li>
+                                        <a
+                                            href="{{ route('landing.announcement.index', ['category' => $post->category->slug]) }}">
+                                            {{ $post->category->name }}
+                                        </a>
+                                    </li>
+                                </ul>
+
+                                <i class="bi bi-tags"></i>
+                                <ul class="tags">
+                                    @forelse ($post->tags as $tag)
+                                        <li>
+                                            <a
+                                                href="{{ route('landing.announcement.index', [
+                                                    'category' => request('category'),
+                                                    'tag' => $tag->slug,
+                                                    'search' => request('search'),
+                                                ]) }}">
+                                                {{ $tag->name }}
+                                            </a>
+                                        </li>
+                                    @empty
+                                        <li><a>Tidak ada tags</a></li>
+                                    @endforelse
+                                </ul>
+                            </div>
+
+                        </article>
                     </div>
-                
+
                     <!-- Sidebar -->
                     <div class="col-xl-4" data-aos="fade-up" data-aos-delay="300">
                         <div class="sidebar">
 
                             <div class="sidebar-item search-form">
-                              <h3 class="sidebar-title">Pencarian</h3>
-                              <form action="" class="mt-3">
-                                <input type="text">
-                                <button type="submit"><i class="bi bi-search text-white"></i></button>
-                              </form>
-                            </div><!-- End sidebar search formn-->
-              
+                                <h3 class="sidebar-title">Pencarian</h3>
+                                <form action="{{ route('landing.announcement.index') }}" method="GET" class="mt-3">
+                                    <input type="text" name="search" placeholder="Masukkan judul"
+                                        value="{{ request('search') }}">
+                                    <button type="submit"><i class="bi bi-search text-white"></i></button>
+                                </form>
+                            </div>
+
                             <div class="sidebar-item recent-posts">
-                              <h3 class="sidebar-title">Recent Posts</h3>
-              
-                              <div class="mt-3">
-              
-                                <div class="post-item mt-3">
-                                  <img src="{{asset('landing/assets/img/blog/blog-recent-1.jpg')}}" alt="">
-                                  <div>
-                                    <h4><a href="blog-details.html">Nihil blanditiis at in nihil autem</a></h4>
-                                    <time datetime="2020-01-01">Jan 1, 2020</time>
-                                  </div>
-                                </div><!-- End recent post item-->
-              
-                                <div class="post-item">
-                                  <img src="{{asset('landing/assets/img/blog/blog-recent-2.jpg')}}" alt="">
-                                  <div>
-                                    <h4><a href="blog-details.html">Quidem autem et impedit</a></h4>
-                                    <time datetime="2020-01-01">Jan 1, 2020</time>
-                                  </div>
-                                </div><!-- End recent post item-->
-              
-                                <div class="post-item">
-                                  <img src="{{asset('landing/assets/img/blog/blog-recent-3.jpg')}}" alt="">
-                                  <div>
-                                    <h4><a href="blog-details.html">Id quia et et ut maxime similique occaecati ut</a></h4>
-                                    <time datetime="2020-01-01">Jan 1, 2020</time>
-                                  </div>
-                                </div><!-- End recent post item-->
-              
-                                <div class="post-item">
-                                  <img src="{{asset('landing/assets/img/blog/blog-recent-4.jpg')}}" alt="">
-                                  <div>
-                                    <h4><a href="blog-details.html">Laborum corporis quo dara net para</a></h4>
-                                    <time datetime="2020-01-01">Jan 1, 2020</time>
-                                  </div>
-                                </div><!-- End recent post item-->
-              
-                                <div class="post-item">
-                                  <img src="{{asset('landing/assets/img/blog/blog-recent-5.jpg')}}" alt="">
-                                  <div>
-                                    <h4><a href="blog-details.html">Et dolores corrupti quae illo quod dolor</a></h4>
-                                    <time datetime="2020-01-01">Jan 1, 2020</time>
-                                  </div>
-                                </div><!-- End recent post item-->
-              
-                              </div>
-              
-                            </div><!-- End sidebar recent posts-->
-              
+                                <h3 class="sidebar-title">Recent Posts</h3>
+
+                                <div class="mt-3">
+
+                                    @foreach ($dataRecent as $item)
+                                        <div class="post-item mt-3">
+                                            <img src="{{ asset($item->thumbnail) }}" alt=""
+                                                style="width: 100px; height:60px; object-fit:cover;">
+                                            <div>
+                                                <h4><a
+                                                        href="{{ route('landing.announcement.show', $item->slug) }}">{{ \Illuminate\Support\Str::limit($item->title, 40, '...') }}</a>
+                                                </h4>
+                                                <time datetime="{{ $item->updated_at->format('Y-m-d') }}">
+                                                    {{ $item->updated_at->format('M j, Y') }}
+                                                </time>
+                                            </div>
+                                        </div>
+                                    @endforeach
+
+                                </div>
+
+                            </div>
+
                             <div class="sidebar-item tags">
-                              <h3 class="sidebar-title">Tags</h3>
-                              <ul class="mt-3">
-                                <li><a href="#">App</a></li>
-                                <li><a href="#">IT</a></li>
-                                <li><a href="#">Business</a></li>
-                                <li><a href="#">Mac</a></li>
-                                <li><a href="#">Design</a></li>
-                                <li><a href="#">Office</a></li>
-                                <li><a href="#">Creative</a></li>
-                                <li><a href="#">Studio</a></li>
-                                <li><a href="#">Smart</a></li>
-                                <li><a href="#">Tips</a></li>
-                                <li><a href="#">Marketing</a></li>
-                              </ul>
+                                <h3 class="sidebar-title">Tags</h3>
+                                <ul class="mt-3">
+                                    @foreach ($tags as $tag)
+                                        <li>
+                                            <a
+                                                href="{{ route('landing.announcement.index', [
+                                                    'category' => request('category'),
+                                                    'tag' => $tag->slug,
+                                                    'search' => request('search'),
+                                                ]) }}">
+                                                {{ $tag->name }}
+                                            </a>
+                                        </li>
+                                    @endforeach
+                                </ul>
                             </div><!-- End sidebar tags-->
-              
-                          </div>
+
+                        </div>
                     </div>
                 </div>
-                
-                <div class="news-pagination">
-                    <ul class="justify-content-center">
-                        <li><a href="#">1</a></li>
-                        <li class="active"><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                    </ul>
-                </div><!-- End blog pagination -->
 
             </div>
         </section>

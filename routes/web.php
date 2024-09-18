@@ -34,7 +34,7 @@ Route::group(['namespace' => 'Landing', 'as' => 'landing.'], function() {
 
         // Pengumuman
         Route::get('/pengumuman', [AnnouncementController::class, 'index'])->name('announcement.index');
-        Route::get('/pengumuman/detail/pengumuman-detail', [AnnouncementController::class, 'show'])->name('announcement.show');
+        Route::get('/pengumuman/{slug}', [AnnouncementController::class, 'show'])->name('announcement.show');
 
         // Pengabdian Masyarakat
         Route::get('/pengabdian-masyarakat', [CommunityController::class, 'index'])->name('community.index');

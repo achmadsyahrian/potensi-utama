@@ -102,7 +102,7 @@
                 </div>                
                 <div class="btn-list mt-3">
                     <button type="submit" class="btn btn-primary">
-                        Tambah
+                        Simpan
                     </button>
                     <a href="{{ route('admin.news.index') }}" class="btn">
                         Batal

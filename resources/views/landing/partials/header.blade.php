@@ -64,7 +64,7 @@
                 </li>
                 <li class="dropdown">
                     @php
-                        $activeRoutes = ['landing.news.index', 'landing.news.show'];
+                        $activeRoutes = ['landing.news.index', 'landing.news.show', 'landing.announcement.index', 'landing.announcement.show'];
                     @endphp
                     <a href="#" class="{{ in_array(Route::currentRouteName(), $activeRoutes) ? 'active' : '' }}">
                         <span>Informasi</span>

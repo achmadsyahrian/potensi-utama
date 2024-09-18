@@ -120,3 +120,37 @@ document.getElementById("removeImage").addEventListener("click", function () {
     imgPreview.classList.add("d-none");
     fileInput.value = "";
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener("trix-attachment-add", function(event) {
+        if (event.attachment.file) {
+            uploadFile(event.attachment);
+        }
+    });
+
+    function uploadFile(attachment) {
+        let formData = new FormData();
+        formData.append('file', attachment.file);
+
+        fetch('/admin/post/upload-file', {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.url) {
+                attachment.setAttributes({ url: data.url });
+            } else {
+                attachment.remove();
+                alert('Gagal mengunggah file. Pastikan Anda hanya mengunggah gambar.');
+            }
+        })
+        .catch(() => {
+            attachment.remove();
+            alert('Gagal mengunggah file. Pastikan Anda hanya mengunggah gambar.');
+        });
+    }
+});

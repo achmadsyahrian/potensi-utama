@@ -71,7 +71,15 @@
                                        <img src="{{asset($item->thumbnail)}}" width="70" height="50" style="object-fit: cover" alt="">
                                     </td>
                                     <td>{{ \Illuminate\Support\Str::limit($item->title, 30, '...') }}</td>
-                                    <td><i class="fas fa-user-circle me-1"></i> {{$item->user->name}}</td>
+                                    <td>
+                                        @if (Auth::check() && Auth::user()->id === $item->user->id)
+                                            <i class="fas fa-user-circle me-1 text-success"></i>
+                                            <span class="text-success">Anda</span>
+                                        @else
+                                            <i class="fas fa-user-circle me-1"></i>
+                                            {{ $item->user->name }}
+                                        @endif
+                                    </td>                                    
                                     <td>
                                         @if($item->is_published)
                                             <span class="badge bg-success-lt">Published</span>
@@ -85,7 +93,7 @@
                                         <a href="{{route('admin.news.show', $item->id)}}" class="fw-bold text-secondary detail-button">View</a>
 
                                         <i class="fas fa-edit text-primary ms-3"></i>
-                                        <a href="#" class="fw-bold text-primary edit-button" data-bs-toggle="modal" data-bs-target="#modal-edit" data-id="{{ $item->id }}" data-action="{{ route('admin.news.update', $item->id) }}">Edit</a>
+                                        <a href="{{route('admin.news.edit', $item->id)}}" class="fw-bold text-primary edit-button">Edit</a>
                                         
 
                                         <i class="fas fa-trash-alt text-danger ms-3"></i>

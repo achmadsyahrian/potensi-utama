@@ -6,9 +6,9 @@
                 <div class="col">
                     <div class="page-pretitle">
                         <ol class="breadcrumb breadcrumb-arrows">
-                            <li class="breadcrumb-item"><a href="{{ route('admin.users.index') }}">Users</a></li>
+                            <li class="breadcrumb-item"><a href="{{ route('admin.news.index') }}">Berita</a></li>
                             <li class="breadcrumb-item"><a
-                                    href="{{ route('admin.users.edit', $post) }}">{{ $post->title }}</a></li>
+                                    href="{{ route('admin.news.show', $post) }}">{{ $post->title }}</a></li>
                             <li class="breadcrumb-item active"><a href="#">Edit</a></li>
                         </ol>
                     </div>
@@ -61,7 +61,7 @@
                                         @forelse($post->tags as $tag)
                                             <li class="badge bg-primary text-white me-1">{{ $tag->name }}</li>
                                         @empty
-                                            <li>Tidak ada tag untuk postingan ini.</li>
+                                            <li class="text-secondary">Tidak ada tag untuk postingan ini.</li>
                                         @endforelse
                                     </ul>
                                 </div>

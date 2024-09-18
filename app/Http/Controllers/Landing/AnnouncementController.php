@@ -80,22 +80,4 @@ class AnnouncementController extends Controller
         return view('landing.information.announcement.detail', compact('post', 'dataRecent', 'tags'));
     }
 
-    public function showByCategory($slug) {
-        $category = Category::where('slug', $slug)->firstOrFail();
-        
-        $post = Post::with('category', 'user')->where('category_id', $category->id)->firstOrFail();
-
-        $dataRecent = Post::with('user', 'category')
-                        ->where('type', 'announcement')
-                        ->where('is_published', 1)
-                        ->orderBy('updated_at', 'desc')
-                        ->take(5)
-                        ->get();
-                        
-        $tags = Tag::all();
-
-        return view('landing.information.announcement.detail', compact('post', 'dataRecent', 'tags'));
-    }
-
-
 }

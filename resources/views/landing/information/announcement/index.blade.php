@@ -17,7 +17,7 @@
         </div>
         <!-- End Breadcrumbs -->
 
-        <!-- ======= Berita Section ======= -->
+        <!-- ======= Pengumuman Section ======= -->
         <section id="news" class="news">
             <div class="container" data-aos="fade-up" data-aos-delay="100">
                 <div class="row gy-4">
@@ -125,7 +125,7 @@
                 @endif
             </div>
         </section>
-        <!-- End Berita -->
+        <!-- End Pengumuman -->
 
     </main>
 @endsection

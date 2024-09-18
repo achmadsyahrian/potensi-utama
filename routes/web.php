@@ -30,7 +30,7 @@ Route::group(['namespace' => 'Landing', 'as' => 'landing.'], function() {
     // Informasi
         // Berita
         Route::get('/berita', [NewsController::class, 'index'])->name('news.index');
-        Route::get('/berita/detail/berita-detail', [NewsController::class, 'show'])->name('news.show');
+        Route::get('/berita/{slug}', [NewsController::class, 'show'])->name('news.show');
 
         // Pengumuman
         Route::get('/pengumuman', [AnnouncementController::class, 'index'])->name('announcement.index');

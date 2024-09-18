@@ -6,9 +6,9 @@
                 <div class="col">
                     <div class="page-pretitle">
                         <ol class="breadcrumb breadcrumb-arrows">
-                            <li class="breadcrumb-item"><a href="{{ route('admin.news.index') }}">Berita</a></li>
+                            <li class="breadcrumb-item"><a href="{{ route('admin.announcement.index') }}">Pengumuman</a></li>
                             <li class="breadcrumb-item"><a
-                                    href="{{ route('admin.news.show', $post) }}">{{ $post->title }}</a></li>
+                                    href="{{ route('admin.announcement.show', $post) }}">{{ $post->title }}</a></li>
                             <li class="breadcrumb-item active"><a href="#">Detail</a></li>
                         </ol>
                     </div>

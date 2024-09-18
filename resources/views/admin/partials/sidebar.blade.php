@@ -276,7 +276,10 @@
                     </div>
                 </li>
                 @php
-                    $activeRoutes = ['admin.news.index', 'admin.news.create', 'admin.news.edit'];
+                    $activeRoutes = [
+                        'admin.news.index', 'admin.news.create', 'admin.news.edit',
+                        'admin.announcement.index', 'admin.announcement.create', 'admin.announcement.edit'
+                    ];
                 @endphp
                 <li class="nav-item dropdown {{ in_array(Route::currentRouteName(), $activeRoutes) ? 'active' : '' }}">
                     <a class="nav-link dropdown-toggle" href="#navbar-extra" data-bs-toggle="dropdown"
@@ -305,7 +308,7 @@
                                 <a class="dropdown-item" href="{{route('admin.news.index')}}">
                                     Berita Kampus
                                 </a>
-                                <a class="dropdown-item" href="./cookie-banner.html">
+                                <a class="dropdown-item" href="{{route('admin.announcement.index')}}">
                                     Pengumuman
                                 </a>
                                 <a class="dropdown-item" href="./activity.html">

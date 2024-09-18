@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\Rule;
 
-class NewsController extends Controller
+class AnnouncementController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -21,7 +21,7 @@ class NewsController extends Controller
         $search = $request->input('search');
         
         // Query builder dengan kondisi pencarian
-        $data = Post::with('user')->where('type', 'news')
+        $data = Post::with('user')->where('type', 'announcement')
                     ->when($search, function ($query, $search) {
                         return $query->where('title', 'like', "%{$search}%");
                     })
@@ -29,7 +29,7 @@ class NewsController extends Controller
                     ->paginate(10);
 
         // Kirim data ke view
-        return view('admin.news.index', compact('data'));
+        return view('admin.announcement.index', compact('data'));
     }
 
     /**
@@ -40,7 +40,7 @@ class NewsController extends Controller
         $categories = Category::all();
         $tags = Tag::all();
 
-        return view('admin.news.create', compact('categories', 'tags'));
+        return view('admin.announcement.create', compact('categories', 'tags'));
     }
 
     /**
@@ -66,7 +66,7 @@ class NewsController extends Controller
             $thumbnailUrl = Storage::url($thumbnailPath);
         }
 
-        // Simpan berita
+        // Simpan Pengumuman
         $post = new Post();
         $post->title = $request->input('title');
         $post->slug = $request->input('slug');
@@ -74,14 +74,14 @@ class NewsController extends Controller
         $post->thumbnail = $thumbnailUrl;
         $post->content = $request->input('content');
         $post->is_published = $request->input('is_published', 0);
-        $post->type = 'news';
+        $post->type = 'announcement';
         $post->user_id = auth()->user()->id;
         $post->save();
 
         // Simpan tags
         $post->tags()->sync($request->input('tags_id', []));
 
-        return redirect()->route('admin.news.index')->with('success', "Berita '{$request->input('title')}' berhasil ditambah!");
+        return redirect()->route('admin.announcement.index')->with('success', "Pengumuman '{$request->input('title')}' berhasil ditambah!");
     }
 
 
@@ -92,7 +92,7 @@ class NewsController extends Controller
     {
         $post = Post::find($id);
 
-        return view('admin.news.show', compact('post'));
+        return view('admin.announcement.show', compact('post'));
     }
 
     /**
@@ -104,7 +104,7 @@ class NewsController extends Controller
         $categories = Category::all();
         $tags = Tag::all();
 
-        return view('admin.news.edit', compact('post', 'categories', 'tags'));
+        return view('admin.announcement.edit', compact('post', 'categories', 'tags'));
     }
 
     /**
@@ -154,7 +154,7 @@ class NewsController extends Controller
         // Sinkronisasi tags
         $post->tags()->sync($request->input('tags_id', []));
 
-        return redirect()->route('admin.news.index')->with('success', "Berita '{$oldTitle}' berhasil diperbarui!");
+        return redirect()->route('admin.announcement.index')->with('success', "Pengumuman '{$oldTitle}' berhasil diperbarui!");
     }
 
 
@@ -168,7 +168,7 @@ class NewsController extends Controller
         
         // Pastikan post ditemukan
         if (!$post) {
-            return redirect()->route('admin.news.index')->with('error', 'Berita tidak ditemukan.');
+            return redirect()->route('admin.announcement.index')->with('error', 'Pengumuman tidak ditemukan.');
         }
 
         // Hapus file thumbnail jika ada
@@ -186,7 +186,7 @@ class NewsController extends Controller
         $post->delete();
 
         // Redirect dengan pesan sukses
-        return redirect()->route('admin.news.index')->with('success', 'Berita berhasil dihapus.');
+        return redirect()->route('admin.announcement.index')->with('success', 'Pengumuman berhasil dihapus.');
     }
 
     private function deleteFilesFromContent($content)

@@ -7,10 +7,10 @@
             style="background-image: url({{ asset('landing/assets/img/breadcrumbs/gedung-upu.jpg') }});">
             <div class="container position-relative d-flex flex-column align-items-center" data-aos="fade">
 
-                <h2>Pengumuman</h2>
+                <h2>Berita</h2>
                 <ol>
                     <li><a href="{{ route('landing.home') }}">Beranda</a></li>
-                    <li><a href="{{ route('landing.news.index') }}">Pengumuman</a></li>
+                    <li><a href="{{ route('landing.news.index') }}">Berita</a></li>
                     <li>Detail</li>
                 </ol>
 

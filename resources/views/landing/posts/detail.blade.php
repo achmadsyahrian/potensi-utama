@@ -7,10 +7,10 @@
             style="background-image: url({{ asset('landing/assets/img/breadcrumbs/gedung-upu.jpg') }});">
             <div class="container position-relative d-flex flex-column align-items-center" data-aos="fade">
 
-                <h2>Pengumuman</h2>
+                <h2>{{$title}}</h2>
                 <ol>
                     <li><a href="{{ route('landing.home') }}">Beranda</a></li>
-                    <li><a href="{{ route('landing.announcement.index') }}">Pengumuman</a></li>
+                    <li><a href="{{ route($route . '.index') }}">{{$title}}</a></li>
                     <li>Detail</li>
                 </ol>
 
@@ -46,15 +46,14 @@
                             </div><!-- End meta top -->
                             <style>
                                 .content img {
+                                    max-width: 100%;
                                     width: 500px;
                                     height: 300px;
                                     object-fit: cover;
                                     display: block;
-                                    /* margin: 0 auto; */
                                 }
 
                                 .content .attachment__caption .attachment__name {
-                                    /* text-align: center; */
                                     display: block;
                                     margin: 0 auto;
                                 }
@@ -67,9 +66,24 @@
                                     font-size: 22px;
                                     margin-top: 10px;
                                 }
+                                .content .files-name:hover {
+                                    color: red;
+                                }
                             </style>
                             <div class="content">
                                 {!! $post->content !!}
+
+                                {{-- File Tambahan yg bisa diunduh users --}}
+                                @if ($post->files->isNotEmpty())
+                                    <h3>File Tambahan</h3>
+                                    <ul>
+                                        @foreach($post->files as $file)
+                                            <li>
+                                                <a class="files-name" href="{{asset($file->file_path)}}" download>{{ $file->file_name }}</a>
+                                            </li>
+                                        @endforeach
+                                    </ul>
+                                @endif
                             </div>
 
                             <div class="meta-bottom">
@@ -77,7 +91,7 @@
                                 <ul class="cats">
                                     <li>
                                         <a
-                                            href="{{ route('landing.announcement.index', ['category' => $post->category->slug]) }}">
+                                            href="{{ route($route . '.index', ['category' => $post->category->slug]) }}">
                                             {{ $post->category->name }}
                                         </a>
                                     </li>
@@ -88,7 +102,7 @@
                                     @forelse ($post->tags as $tag)
                                         <li>
                                             <a
-                                                href="{{ route('landing.announcement.index', [
+                                                href="{{ route($route . '.index', [
                                                     'category' => request('category'),
                                                     'tag' => $tag->slug,
                                                     'search' => request('search'),
@@ -111,7 +125,7 @@
 
                             <div class="sidebar-item search-form">
                                 <h3 class="sidebar-title">Pencarian</h3>
-                                <form action="{{ route('landing.announcement.index') }}" method="GET" class="mt-3">
+                                <form action="{{ route($route . '.index') }}" method="GET" class="mt-3">
                                     <input type="text" name="search" placeholder="Masukkan judul"
                                         value="{{ request('search') }}">
                                     <button type="submit"><i class="bi bi-search text-white"></i></button>
@@ -129,7 +143,7 @@
                                                 style="width: 100px; height:60px; object-fit:cover;">
                                             <div>
                                                 <h4><a
-                                                        href="{{ route('landing.announcement.show', $item->slug) }}">{{ \Illuminate\Support\Str::limit($item->title, 40, '...') }}</a>
+                                                        href="{{ route($route . '.show', $item->slug) }}">{{ \Illuminate\Support\Str::limit($item->title, 40, '...') }}</a>
                                                 </h4>
                                                 <time datetime="{{ $item->updated_at->format('Y-m-d') }}">
                                                     {{ $item->updated_at->format('M j, Y') }}
@@ -148,7 +162,7 @@
                                     @foreach ($tags as $tag)
                                         <li>
                                             <a
-                                                href="{{ route('landing.announcement.index', [
+                                                href="{{ route($route . '.index', [
                                                     'category' => request('category'),
                                                     'tag' => $tag->slug,
                                                     'search' => request('search'),

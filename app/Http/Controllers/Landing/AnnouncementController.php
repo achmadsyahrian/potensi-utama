@@ -12,6 +12,9 @@ class AnnouncementController extends Controller
 {
     public function index(Request $request)
     {
+        $title = "Pengumuman";
+        $route = "landing.announcement";
+        
         // Ambil nilai dari query string
         $search = $request->input('search');
         $category = $request->input('category');
@@ -61,13 +64,15 @@ class AnnouncementController extends Controller
         // Ambil semua tags
         $tags = Tag::all();
 
-        return view('landing.information.announcement.index', compact('data', 'dataRecent', 'tags'));
+        return view('landing.posts.index', compact('data', 'dataRecent', 'tags', 'title', 'route'));
     }
 
 
     public function show($slug) {
-        $post = Post::with('category', 'user')->where('slug', $slug)->firstOrFail();
+        $title = "Pengumuman";
+        $route = "landing.announcement";
 
+        $post = Post::with('category', 'user')->where('slug', $slug)->firstOrFail();
         $dataRecent = Post::with('user', 'category')
                         ->where('type', 'announcement')
                         ->where('is_published', 1)
@@ -77,7 +82,7 @@ class AnnouncementController extends Controller
                         
         $tags = Tag::all();
 
-        return view('landing.information.announcement.detail', compact('post', 'dataRecent', 'tags'));
+        return view('landing.posts.detail', compact('post', 'dataRecent', 'tags', 'title', 'route'));
     }
 
 }

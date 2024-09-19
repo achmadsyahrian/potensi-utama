@@ -47,6 +47,9 @@
                             <a href="{{ route('admin.posts.index') }}" class="btn btn-warning btn-pill">
                                 Reset Pencarian <i class="fas fa-undo ms-2"></i>
                             </a>
+                            <div class="cursor-pointer" data-bs-toggle="modal" data-bs-target="#modal-search">
+                                <i class="fas fa-filter fs-2 ms-3"></i>
+                            </div>
                         </div>
                     </div>
                 </div>                
@@ -117,4 +120,7 @@
     {{-- Modal Delete --}}
     @include('admin.posts.modal.delete')
     
+    {{-- Modal Search --}}
+    @include('admin.posts.modal.search')
+
 @endsection

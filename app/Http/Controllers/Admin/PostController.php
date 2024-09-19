@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Post;
 use App\Models\Tag;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\Rule;
@@ -20,18 +21,42 @@ class PostController extends Controller
     {
         // Ambil input pencarian
         $search = $request->input('search');
+        $searchType = $request->input('search_type');
+        $searchCategory = $request->input('search_category');
+        $searchAuthor = $request->input('search_author');
 
         // Query builder dengan kondisi pencarian
-        $data = Post::with('user')
+        $query = Post::with('user')
             ->when($search, function ($query, $search) {
                 return $query->where('title', 'like', "%{$search}%");
             })
-            ->orderBy('created_at', 'desc')
-            ->paginate(10);
+            ->when($searchType, function ($query, $searchType) {
+                return $query->where('type', $searchType);
+            })
+            ->when($searchCategory, function ($query, $searchCategory) {
+                return $query->where('category_id', $searchCategory);
+            })
+            ->when($searchAuthor, function ($query, $searchAuthor) {
+                return $query->where('user_id', $searchAuthor);
+            })
+            ->orderBy('created_at', 'desc');
 
+        // Tambahkan parameter pencarian ke pagination
+        $data = $query->paginate(10)->appends([
+            'search' => $search,
+            'search_type' => $searchType,
+            'search_category' => $searchCategory,
+            'search_author' => $searchAuthor
+        ]);
+
+        $categories = Category::all();
+        $authors = User::all();
+        
         // Kirim data ke view
-        return view('admin.posts.index', compact('data'));
+        return view('admin.posts.index', compact('data', 'categories', 'authors'));
     }
+
+
 
     /**
      * Show the form for creating a new resource.

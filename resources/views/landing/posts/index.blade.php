@@ -7,10 +7,10 @@
             style="background-image: url({{ asset('landing/assets/img/breadcrumbs/gedung-upu.jpg') }});">
             <div class="container position-relative d-flex flex-column align-items-center" data-aos="fade">
 
-                <h2>Berita</h2>
+                <h2>{{$title}}</h2>
                 <ol>
                     <li><a href="{{ route('landing.home') }}">Beranda</a></li>
-                    <li>Berita</li>
+                    <li>{{$title}}</li>
                 </ol>
 
             </div>
@@ -51,7 +51,7 @@
                                             <x-filtered-content :content="$item->content" class="mt-4" />
 
                                             <hr>
-                                            <a href="{{ route('landing.news.show', $item->slug) }}"
+                                            <a href="{{ route( $route . '.show', $item->slug) }}"
                                                 class="readmore stretched-link"><span>Baca Selengkapnya</span><i
                                                     class="bi bi-arrow-right"></i></a>
                                         </div>
@@ -68,7 +68,7 @@
 
                                 <div class="sidebar-item search-form">
                                     <h3 class="sidebar-title">Pencarian</h3>
-                                    <form action="{{ route('landing.news.index') }}" method="GET" class="mt-3">
+                                    <form action="{{ route($route . '.index') }}" method="GET" class="mt-3">
                                         <input type="text" name="search" placeholder="Masukkan judul"
                                             value="{{ request('search') }}">
                                         <input type="hidden" name="category" value="{{ request('category') }}">
@@ -87,7 +87,7 @@
                                                     style="width: 100px; height:60px; object-fit:cover;">
                                                 <div>
                                                     <h4><a
-                                                            href="{{ route('landing.news.show', $item->slug) }}">{{ \Illuminate\Support\Str::limit($item->title, 40, '...') }}</a>
+                                                            href="{{ route($route . '.show', $item->slug) }}">{{ \Illuminate\Support\Str::limit($item->title, 40, '...') }}</a>
                                                     </h4>
                                                     <time datetime="{{ $item->updated_at->format('Y-m-d') }}">
                                                         {{ $item->updated_at->format('M j, Y') }}
@@ -106,7 +106,7 @@
                                         @foreach ($tags as $tag)
                                             <li>
                                                 <a
-                                                    href="{{ route('landing.news.index', [
+                                                    href="{{ route($route . '.index', [
                                                         'category' => request('category'),
                                                         'tag' => $tag->slug,
                                                         'search' => request('search'),

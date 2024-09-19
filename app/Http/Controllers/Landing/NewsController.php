@@ -11,6 +11,9 @@ class NewsController extends Controller
 {
     public function index(Request $request)
     {
+        $title = "Berita";
+        $route = "landing.news";
+        
         // Ambil nilai dari query string
         $search = $request->input('search');
         $category = $request->input('category');
@@ -60,10 +63,13 @@ class NewsController extends Controller
         // Ambil semua tags
         $tags = Tag::all();
 
-        return view('landing.information.news.index', compact('data', 'dataRecent', 'tags'));
+        return view('landing.posts.index', compact('data', 'dataRecent', 'tags', 'title', 'route'));
     }
 
     public function show($slug) {
+        $title = "Berita";
+        $route = "landing.news";
+
         $post = Post::with('category', 'user', 'files')->where('slug', $slug)->firstOrFail();
 
         $dataRecent = Post::with('user', 'category')
@@ -75,6 +81,6 @@ class NewsController extends Controller
                         
         $tags = Tag::all();
 
-        return view('landing.information.news.detail', compact('post', 'dataRecent', 'tags'));
+        return view('landing.posts.detail', compact('post', 'dataRecent', 'tags', 'title', 'route'));
     }
 }

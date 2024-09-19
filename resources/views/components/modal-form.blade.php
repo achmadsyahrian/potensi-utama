@@ -3,15 +3,20 @@
     'title' => 'Modal Title',
     'actionUrl' => '#',
     'method' => 'post', 
-    'submitText' => 'Simpan'
+    'submitText' => 'Simpan',
+    'size' => 'modal-lg',
+    'position' => 'centered',
+    'methodForm' => 'post'
 ])
 
 <div class="modal modal-blur fade" id="{{ $id }}" tabindex="-1" role="dialog" aria-hidden="true">
-    <form action="{{ $actionUrl }}" method="post" class="d-inline">
-         @csrf
+    <form action="{{ $actionUrl }}" method="{{$methodForm}}" class="d-inline">
+         @if ($methodForm != 'get')
+            @csrf
+         @endif
          @method($method)
 
-        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+        <div class="modal-dialog {{$size}} modal-dialog-{{$position}}" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">{{ $title }}</h5>

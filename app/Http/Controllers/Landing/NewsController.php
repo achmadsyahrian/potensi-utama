@@ -64,7 +64,7 @@ class NewsController extends Controller
     }
 
     public function show($slug) {
-        $post = Post::with('category', 'user')->where('slug', $slug)->firstOrFail();
+        $post = Post::with('category', 'user', 'files')->where('slug', $slug)->firstOrFail();
 
         $dataRecent = Post::with('user', 'category')
                         ->where('type', 'news')

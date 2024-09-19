@@ -82,20 +82,44 @@
                         </div>
                     </div>
                 </div>
-                <div class="card mt-5">
-                    <div class="card-header">
-                        <div class="form-label">Thumbnail</div>
-                    </div>
-                    <div class="card-body">
-                        <div class="row g-3 mt-1">
-                            <div class="col-md">
-                                <div class="img-preview mb-3 d-flex justify-content-center d-none" id="imgPreview">
-                                    <img class="rounded-4" id="previewImage" src="" width="500" height="300"
-                                        style="object-fit: cover;" alt="Image preview">
-                                    <i id="removeImage" class="fas fa-times-circle text-danger cursor-pointer"
-                                        title="Hapus Foto"></i>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="card mt-5">
+                            <div class="card-header">
+                                <div class="form-label">Files Tambahan</div>
+                            </div>
+                            <div class="card-body">
+                                <div class="row g-3 mt-1">
+                                    <div class="col-md">
+                                        <div id="filePreview"></div>
+                                        <div class="mb-3">
+                                            <input class="form-control @error('files') is-invalid @enderror" type="file" name="files[]" id="fileInput" multiple accept=".xlsx,.xls,.doc,.docx,.pdf,.jpg,.png,.jpeg" />
+                                            @error('files')
+                                                <div class="invalid-feedback">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+                                    </div>
                                 </div>
-                                <x-form-input type="file" name="thumbnail" id="fileInput" value="" readonly />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="card mt-5">
+                            <div class="card-header">
+                                <div class="form-label required">Thumbnail</div>
+                            </div>
+                            <div class="card-body">
+                                <div class="row g-3 mt-1">
+                                    <div class="col-md">
+                                        <div class="img-preview mb-3 d-flex justify-content-center d-none" id="imgPreview">
+                                            <img class="rounded-4" id="previewImage" src="" width="500" height="300"
+                                                style="object-fit: cover;" alt="Image preview">
+                                            <i id="removeImage" class="fas fa-times-circle text-danger cursor-pointer"
+                                                title="Hapus Foto"></i>
+                                        </div>
+                                        <x-form-input type="file" name="thumbnail" id="thumbInput" value="" readonly />
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

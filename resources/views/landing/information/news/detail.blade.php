@@ -67,9 +67,26 @@
                                     font-size: 22px;
                                     margin-top: 10px;
                                 }
+                                .content .files-name:hover {
+                                    color: red;
+                                }
                             </style>
                             <div class="content">
                                 {!! $post->content !!}
+
+                                {{-- File Tambahan yg bisa diunduh users --}}
+                                @if ($post->files->isNotEmpty())
+                                    <h3>File Tambahan</h3>
+                                    <ul>
+                                        @foreach($post->files as $file)
+                                            <li>
+                                                <a class="files-name" href="{{asset($file->file_path)}}" download>{{ $file->file_name }}</a>
+                                            </li>
+                                        @endforeach
+                                    </ul>
+                                @else
+                                    <p>Tidak ada file tambahan.</p>
+                                @endif
                             </div>
 
                             <div class="meta-bottom">

@@ -95,7 +95,7 @@
                                     <i id="removeImage" class="fas fa-times-circle text-danger cursor-pointer"
                                         title="Hapus Foto"></i>
                                 </div>
-                                <x-form-input type="file" name="thumbnail" id="fileInput" value="" readonly />
+                                <x-form-input type="file" name="thumbnail" id="thumbInput" value="" readonly />
                             </div>
                         </div>
                     </div>

@@ -95,7 +95,7 @@
                                     <img class="rounded-4" id="previewImage" src="{{ $post->thumbnail ? asset($post->thumbnail) : '' }}" width="500" height="300" style="object-fit: cover;" alt="Image preview">
                                     <i id="removeImage" class="fas fa-times-circle text-danger cursor-pointer" title="Hapus Foto"></i>
                                 </div>
-                                <x-form-input type="file" name="thumbnail" id="fileInput" value="" readonly />
+                                <x-form-input type="file" name="thumbnail" id="thumbInput" value="" readonly />
                             </div>
                         </div>
                     </div>

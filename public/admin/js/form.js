@@ -99,7 +99,7 @@ document.addEventListener("DOMContentLoaded", function () {
 // @formatter:on
 
 document
-    .getElementById("fileInput")
+    .getElementById("thumbInput")
     .addEventListener("change", function (event) {
         const file = event.target.files[0];
         if (file) {
@@ -116,9 +116,9 @@ document
 
 document.getElementById("removeImage").addEventListener("click", function () {
     const imgPreview = document.getElementById("imgPreview");
-    const fileInput = document.getElementById("fileInput");
+    const thumbInput = document.getElementById("thumbInput");
     imgPreview.classList.add("d-none");
-    fileInput.value = "";
+    thumbInput.value = "";
 });
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -153,4 +153,66 @@ document.addEventListener('DOMContentLoaded', function() {
             alert('Gagal mengunggah file. Pastikan Anda hanya mengunggah gambar.');
         });
     }
+});
+
+document.getElementById('fileInput').addEventListener('change', function(event) {
+    const fileInput = event.target;
+    const filePreview = document.getElementById('filePreview');
+    const files = fileInput.files;
+
+    // Clear previous preview
+    filePreview.innerHTML = '';
+
+    const remainingFiles = [];
+    
+    // Loop through selected files
+    for (let i = 0; i < files.length; i++) {
+        const file = files[i];
+
+        // Create a container for each file preview
+        const fileDiv = document.createElement('div');
+        fileDiv.classList.add('file-item', 'd-flex', 'align-items-center', 'mb-2');
+
+        // Create a span for file name
+        const fileName = document.createElement('span');
+        fileName.textContent = file.name;
+        fileName.classList.add('me-2');
+
+        // Create a button to remove the file
+        const removeButton = document.createElement('i');
+        removeButton.classList.add('fas', 'fa-times-circle', 'text-danger', 'cursor-pointer');
+        removeButton.title = 'Hapus File';
+        removeButton.style.cursor = 'pointer';
+
+        // Add click event to remove the file
+        removeButton.addEventListener('click', function() {
+            fileDiv.remove(); // Remove the file from the preview
+            // Remove the file from the file input
+            const fileArray = Array.from(fileInput.files);
+            const updatedFiles = fileArray.filter(f => f !== file);
+            const dataTransfer = new DataTransfer();
+            updatedFiles.forEach(f => dataTransfer.items.add(f));
+            fileInput.files = dataTransfer.files;
+            
+            // Optionally reset the file input if necessary
+            if (filePreview.children.length === 0) {
+                fileInput.value = ''; // Clear file input
+            }
+        });
+
+        // Append the file name and remove button to the file div
+        fileDiv.appendChild(fileName);
+        fileDiv.appendChild(removeButton);
+
+        // Append the file preview div to the filePreview container
+        filePreview.appendChild(fileDiv);
+
+        // Add the file to the remainingFiles array
+        remainingFiles.push(file);
+    }
+
+    // Update the file input with remaining files
+    const dataTransfer = new DataTransfer();
+    remainingFiles.forEach(file => dataTransfer.items.add(file));
+    fileInput.files = dataTransfer.files;
 });

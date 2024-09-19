@@ -22,6 +22,18 @@ class PostController extends Controller
         return response()->json(['url' => Storage::url($path)]);
     }
 
+    public function destroyAllFiles($postId)
+    {
+        
+        $post = Post::findOrFail($postId);
+        $files = $post->files;
 
+        foreach ($files as $file) {
+            Storage::delete(str_replace('/storage', 'public', $file->file_path));
+            $file->delete();
+        }
+
+        return redirect()->back()->with('success', 'Files tambahan berhasil dihapus.');
+    }
 
 }

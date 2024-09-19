@@ -29,6 +29,12 @@ class Post extends Model
         return $this->belongsToMany(Tag::class, 'post_tag');
     }
 
+    public function files()
+    {
+        return $this->hasMany(PostFile::class);
+    }
+
+
     public static function boot()
     {
         parent::boot();

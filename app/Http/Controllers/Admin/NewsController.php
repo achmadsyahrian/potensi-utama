@@ -56,6 +56,7 @@ class NewsController extends Controller
             'thumbnail' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
             'is_published' => 'nullable|boolean',
             'content' => 'required|string',
+            'files.*' => 'nullable|mimes:pdf,doc,docx,xlsx,jpeg,png,jpg|max:2048', 
         ]);
 
         // Simpan thumbnail
@@ -81,9 +82,22 @@ class NewsController extends Controller
         // Simpan tags
         $post->tags()->sync($request->input('tags_id', []));
 
+        // Simpan file tambahan
+        if ($request->hasFile('files')) {
+            foreach ($request->file('files') as $file) {
+                $filePath = $file->store('public/posts/files');
+                $fileName = $file->getClientOriginalName();
+                
+                // Simpan detail file ke database
+                $post->files()->create([
+                    'file_name' => $fileName,
+                    'file_path' => Storage::url($filePath),
+                ]);
+            }
+        }
+
         return redirect()->route('admin.news.index')->with('success', "Berita '{$request->input('title')}' berhasil ditambah!");
     }
-
 
     /**
      * Display the specified resource.
@@ -113,7 +127,7 @@ class NewsController extends Controller
     public function update(Request $request, $id)
     {
         $post = Post::find($id);
-        
+
         // Validasi data
         $request->validate([
             'title' => 'required|string|max:255',
@@ -123,6 +137,7 @@ class NewsController extends Controller
             'thumbnail' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'is_published' => 'nullable|boolean',
             'content' => 'required|string',
+            'files.*' => 'nullable|mimes:pdf,doc,docx,xlsx,jpeg,png,jpg|max:2048', 
         ]);
 
         // Simpan thumbnail jika ada
@@ -141,7 +156,7 @@ class NewsController extends Controller
 
         // Data Lama
         $oldTitle = $post->title;
-        
+
         // Update data post
         $post->title = $request->input('title');
         $post->slug = $request->input('slug');
@@ -154,8 +169,33 @@ class NewsController extends Controller
         // Sinkronisasi tags
         $post->tags()->sync($request->input('tags_id', []));
 
+        // Hapus file lama jika ada
+        if ($request->hasFile('files')) {
+            // Ambil file lama dari database
+            $oldFiles = $post->files()->get();
+
+            // Hapus file lama dari storage dan database
+            foreach ($oldFiles as $file) {
+                Storage::delete(str_replace('/storage', 'public', $file->file_path));
+                $file->delete();
+            }
+
+            // Simpan file baru
+            foreach ($request->file('files') as $file) {
+                $filePath = $file->store('public/posts/files');
+                $fileName = $file->getClientOriginalName();
+                
+                // Simpan detail file ke database
+                $post->files()->create([
+                    'file_name' => $fileName,
+                    'file_path' => Storage::url($filePath),
+                ]);
+            }
+        }
+
         return redirect()->route('admin.news.index')->with('success', "Berita '{$oldTitle}' berhasil diperbarui!");
     }
+
 
 
     /**
@@ -165,7 +205,8 @@ class NewsController extends Controller
     {
         // Temukan post berdasarkan ID
         $post = Post::find($id);
-        
+        $oldTitle = $post->title;
+
         // Pastikan post ditemukan
         if (!$post) {
             return redirect()->route('admin.news.index')->with('error', 'Berita tidak ditemukan.');
@@ -179,14 +220,24 @@ class NewsController extends Controller
             }
         }
 
-        // Hapus file dari konten
+        // Hapus file terkait post
+        $files = $post->files;
+        foreach ($files as $file) {
+            $filePath = str_replace('/storage', 'public', $file->file_path);
+            if (Storage::exists($filePath)) {
+                Storage::delete($filePath);
+            }
+            $file->delete(); // Hapus record file dari database
+        }
+
+        // Hapus file dari konten jika ada
         $this->deleteFilesFromContent($post->content);
 
         // Hapus post
         $post->delete();
 
         // Redirect dengan pesan sukses
-        return redirect()->route('admin.news.index')->with('success', 'Berita berhasil dihapus.');
+        return redirect()->route('admin.news.index')->with('success', "Berita '{$oldTitle}' berhasil dihapus.");
     }
 
     private function deleteFilesFromContent($content)

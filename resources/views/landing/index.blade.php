@@ -148,75 +148,34 @@
             <div class="container" data-aos="fade-up">
                 <div class=" section-header">
                     <h2>UPU NEWS</h2>
-                    <p>In commodi voluptatem excepturi quaerat nihil error autem voluptate ut et officia consequuntu</p>
+                    <p>Informasi terkini mengenai kegiatan dan perkembangan di Universitas Potensi Utama</p>
                 </div>
                 <div class="row gy-5">
-                    <div class="col-xl-3 col-md-4" data-aos="fade-up" data-aos-delay="100">
-                        <div class="post-item position-relative h-100">
-                            <div class="post-img position-relative overflow-hidden">
-                                <img src="{{ asset('landing/assets/img/blog/blog-1.jpg') }}" class="img-fluid"
-                                    alt="">
-                                <span class="post-date">12 Februari 2022</span>
-                            </div>
-                            <div class="post-content d-flex flex-column">
-                                <h3 class="post-title">Eum ad dolor et. Autem aut fugiat debitis</h3>
-                                <hr>
-                                <a href="blog-details.html" class="readmore stretched-link"><span>Baca Selengkapnya</span><i
-                                        class="bi bi-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-md-4" data-aos="fade-up" data-aos-delay="100">
-                        <div class="post-item position-relative h-100">
-                            <div class="post-img position-relative overflow-hidden">
-                                <img src="{{ asset('landing/assets/img/blog/blog-1.jpg') }}" class="img-fluid"
-                                    alt="">
-                                <span class="post-date">12 Februari 2022</span>
-                            </div>
-                            <div class="post-content d-flex flex-column">
-                                <h3 class="post-title">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad doloribus est sed!</h3>
-                                <hr>
-                                <a href="blog-details.html" class="readmore stretched-link"><span>Baca Selengkapnya</span><i
-                                        class="bi bi-arrow-right"></i></a>
+                    @forelse ($news as $item)
+                        <div class="col-xl-3 col-md-4" data-aos="fade-up" data-aos-delay="100">
+                            <div class="post-item position-relative h-100">
+                                <div class="post-img position-relative overflow-hidden">
+                                    <img src="{{ asset($item->thumbnail) }}" style="width:400px; height:200px; object-fit:cover;" class="img-fluid"
+                                        alt="">
+                                    <span class="post-date">{{ \Carbon\Carbon::parse($item->created_at)->translatedFormat('d F Y') }}</span>
+                                </div>
+                                <div class="post-content d-flex flex-column">
+                                    <h3 class="post-title" title="{{ $item->title }}">{{ \Illuminate\Support\Str::limit($item->title, 50, '...') }}</h3>
+                                    <hr>
+                                    <a href="{{ route('landing.news.show', $item->slug) }}" class="readmore stretched-link"><span>Baca Selengkapnya</span><i
+                                            class="bi bi-arrow-right"></i></a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-xl-3 col-md-4" data-aos="fade-up" data-aos-delay="100">
-                        <div class="post-item position-relative h-100">
-                            <div class="post-img position-relative overflow-hidden">
-                                <img src="{{ asset('landing/assets/img/blog/blog-1.jpg') }}" class="img-fluid"
-                                    alt="">
-                                <span class="post-date">12 Februari 2022</span>
-                            </div>
-                            <div class="post-content d-flex flex-column">
-                                <h3 class="post-title">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis iste nulla sit nobis similique soluta odit!</h3>
-                                <hr>
-                                <a href="blog-details.html" class="readmore stretched-link"><span>Baca Selengkapnya</span><i
-                                        class="bi bi-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-md-4" data-aos="fade-up" data-aos-delay="100">
-                        <div class="post-item position-relative h-100">
-                            <div class="post-img position-relative overflow-hidden">
-                                <img src="{{ asset('landing/assets/img/blog/blog-1.jpg') }}" class="img-fluid"
-                                    alt="">
-                                <span class="post-date">12 Februari 2022</span>
-                            </div>
-                            <div class="post-content d-flex flex-column">
-                                <h3 class="post-title">Eum ad dolor et. Autem aut fugiat debitis</h3>
-                                <hr>
-                                <a href="blog-details.html" class="readmore stretched-link"><span>Baca Selengkapnya</span><i
-                                        class="bi bi-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
+                    @empty
+                        <p class="text-center">Belum ada pengumuman yg tersedia <i class="far fa-sad-tear"></i></p>
+                    @endforelse
                 </div>
                 <div class="row mt-3">
                     <div class="col-lg-12 col-md-12 mt-3">
                         <div class="text-center">
                             <a data-aos="fade-up" data-aos-delay="200"
-                                href="#" target="_blank"
+                                href="{{route('landing.news.index')}}" target="_blank"
                                 class="btn-get-all text-uppercase">Lihat Selengkapnya</a>
                         </div>
                     </div>
@@ -230,73 +189,44 @@
             <div class="container" data-aos="fade-up"">
                 <div class=" section-header">
                     <h2>UPU INFO</h2>
-                    <p>In commodi voluptatem excepturi quaerat nihil error autem voluptate ut et officia consequuntu</p>
+                    <p>Pengumuman terkini dan informasi penting dari Universitas Potensi Utama untuk Anda</p>
                 </div>
 
                 <div class="row gy-5">
-                    <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-                        <div class="post-item position-relative h-100">
-                            <div class="post-content d-flex flex-column">
-                                <h3 class="post-title">PENGUMUMAN SIDANG SKRIPSI FAKULTAS ILMU SOSI...</h3>
-                                <div class="meta d-flex align-items-center">
-                                    <div class="d-flex align-items-center">
-                                        <i class="far fa-newspaper"></i> <span class="ps-2">Pendaftaran</span>
+                    @forelse ($announcements as $item)
+                        <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                            <div class="post-item position-relative h-100">
+                                <div class="post-content d-flex flex-column">
+                                    <h3 class="post-title" title="{{ $item->title }}">{{ \Illuminate\Support\Str::limit($item->title, 60, '...') }}</h3>
+                                    <div class="meta d-flex align-items-center">
+                                        <div class="d-flex align-items-center">
+                                            <i class="far fa-newspaper"></i> <span class="ps-2">{{$item->category->name}}</span>
+                                        </div>
+                                        <span class="px-3 text-black-50">/</span>
+                                        <div class="d-flex align-items-center">
+                                            <i class="fas fa-tags"></i>
+                                            @forelse ($item->tags as $tag)
+                                                <span class="tag ms-1">{{ $tag->name }}</span>,
+                                            @empty
+                                                <span>Tidak ada tags</span>
+                                            @endforelse
+                                        </div>                                        
                                     </div>
-                                    <span class="px-3 text-black-50">/</span>
-                                    <div class="d-flex align-items-center">
-                                        <i class="fas fa-tags"></i> <span class="ps-2">Registrasi Online</span>
-                                    </div>
+                                    <hr>
+                                    <a href="{{ route('landing.announcement.show', $item->slug) }}" class="readmore stretched-link"><span>Baca Selengkapnya</span><i
+                                            class="bi bi-arrow-right"></i></a>
                                 </div>
-                                <hr>
-                                <a href="blog-details.html" class="readmore stretched-link"><span>Baca Selengkapnya</span><i
-                                        class="bi bi-arrow-right"></i></a>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-                        <div class="post-item position-relative h-100">
-                            <div class="post-content d-flex flex-column">
-                                <h3 class="post-title">PENGUMUMAN SIDANG SKRIPSI FAKULTAS ILMU SOSI...</h3>
-                                <div class="meta d-flex align-items-center">
-                                    <div class="d-flex align-items-center">
-                                        <i class="far fa-newspaper"></i> <span class="ps-2">Pendaftaran</span>
-                                    </div>
-                                    <span class="px-3 text-black-50">/</span>
-                                    <div class="d-flex align-items-center">
-                                        <i class="fas fa-tags"></i> <span class="ps-2">Registrasi Online</span>
-                                    </div>
-                                </div>
-                                <hr>
-                                <a href="blog-details.html" class="readmore stretched-link"><span>Baca Selengkapnya</span><i
-                                        class="bi bi-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-                        <div class="post-item position-relative h-100">
-                            <div class="post-content d-flex flex-column">
-                                <h3 class="post-title">PENGUMUMAN SIDANG SKRIPSI FAKULTAS ILMU SOSI...</h3>
-                                <div class="meta d-flex align-items-center">
-                                    <div class="d-flex align-items-center">
-                                        <i class="far fa-newspaper"></i> <span class="ps-2">Pendaftaran</span>
-                                    </div>
-                                    <span class="px-3 text-black-50">/</span>
-                                    <div class="d-flex align-items-center">
-                                        <i class="fas fa-tags"></i> <span class="ps-2">Registrasi Online</span>
-                                    </div>
-                                </div>
-                                <hr>
-                                <a href="blog-details.html" class="readmore stretched-link"><span>Baca Selengkapnya</span><i
-                                        class="bi bi-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
+                    @empty
+                        <p class="text-center">Belum ada pengumuman yg tersedia <i class="far fa-sad-tear"></i></p>
+                    @endforelse
                 </div>
                 <div class="row mt-3">
                     <div class="col-lg-12 col-md-12 mt-3">
                         <div class="text-center">
                             <a data-aos="fade-up" data-aos-delay="200"
-                                href="#" target="_blank"
+                                href="{{route('landing.announcement.index')}}" target="_blank"
                                 class="btn-get-all text-uppercase">Lihat Selengkapnya</a>
                         </div>
                     </div>

@@ -84,22 +84,59 @@
                         </div>                        
                     </div>
                 </div>
-                <div class="card mt-5">
-                    <div class="card-header">
-                        <div class="form-label">Thumbnail</div>
-                    </div>
-                    <div class="card-body">
-                        <div class="row g-3 mt-1">
-                            <div class="col-md">
-                                <div class="img-preview mb-3 d-flex justify-content-center {{ $post->thumbnail ? '' : 'd-none' }}" id="imgPreview">
-                                    <img class="rounded-4" id="previewImage" src="{{ $post->thumbnail ? asset($post->thumbnail) : '' }}" width="500" height="300" style="object-fit: cover;" alt="Image preview">
-                                    <i id="removeImage" class="fas fa-times-circle text-danger cursor-pointer" title="Hapus Foto"></i>
-                                </div>
-                                <x-form-input type="file" name="thumbnail" id="fileInput" value="" readonly />
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="card mt-5">
+                            <div class="card-header">
+                                <div class="form-label">Files Tambahan</div>
                             </div>
-                        </div>
+                            <div class="card-body">
+                                <div class="row g-3 mt-1">
+                                    <div class="col-md">
+                                        <!-- Display existing files -->
+                                        <div id="filePreview">
+                                            @foreach($post->files as $index => $file)
+                                                <div class="file-item d-flex align-items-center mb-2">
+                                                    <span class="me-2">{{ $file->file_name }}</span>
+                                                    <a href="{{asset($file->file_path)}}" target="_blank" class="me-2">Unduh</a>
+                                                </div>
+                                            @endforeach
+                                        </div>
+                                        <div class="mb-3">
+                                            <input class="form-control @error('files') is-invalid @enderror" type="file" name="files[]" id="fileInput" multiple accept=".xlsx,.xls,.doc,.docx,.pdf,.jpg,.png,.jpeg" />
+                                            @error('files')
+                                                <div class="invalid-feedback">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <a href="#" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modal-delete">
+                                    <i class="fas fa-trash-alt me-1"></i> Hapus Files
+                                </a>
+                            </div>
+                        </div>                        
                     </div>
-                </div>                
+                    <div class="col-lg-6">
+                        <div class="card mt-5">
+                            <div class="card-header">
+                                <div class="form-label">Thumbnail</div>
+                            </div>
+                            <div class="card-body">
+                                <div class="row g-3 mt-1">
+                                    <div class="col-md">
+                                        <div class="img-preview mb-3 d-flex justify-content-center {{ $post->thumbnail ? '' : 'd-none' }}" id="imgPreview">
+                                            <img class="rounded-4" id="previewImage" src="{{ $post->thumbnail ? asset($post->thumbnail) : '' }}" width="500" height="300" style="object-fit: cover;" alt="Image preview">
+                                            <i id="removeImage" class="fas fa-times-circle text-danger cursor-pointer" title="Hapus Foto"></i>
+                                        </div>
+                                        <x-form-input type="file" name="thumbnail" id="thumbInput" value="" readonly />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>                
+                    </div>
+                </div>
                 <div class="btn-list mt-3">
                     <button type="submit" class="btn btn-primary">
                         Simpan
@@ -111,6 +148,16 @@
             </div>
         </form>
     </div>
+
+    <x-confirm-modal
+        modalId="modal-delete"
+        method="delete"
+        title="Apa kamu yakin?"
+        type="danger"
+        confirmMessage="Ya, Hapus"
+        message="Anda yakin ingin menghapus semua files tambahan postingan ini?"
+        :actionUrl="route('admin.posts.destroyAllFiles', $post->id)"
+    />
     
     <script src="{{ asset('admin/js/form.js') }}"></script>
 @endsection

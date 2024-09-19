@@ -28,6 +28,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'auth'], fu
     Route::get('/tags/{id}', [TagController::class, 'show'])->name('tags.show');
 
     Route::post('/post/upload-file', [PostController::class, 'upload']);
+    Route::delete('/post/{post}/files', [PostController::class, 'destroyAllFiles'])->name('posts.destroyAllFiles');
     
     Route::resource('news', NewsController::class)->names('news');
     Route::resource('announcement', AnnouncementController::class)->names('announcement');

@@ -1,5 +1,5 @@
 <x-confirm-modal modalId="modal-delete" method="delete" title="Apa kamu yakin?" type="danger" confirmMessage="Ya, Hapus"
-    message="" :actionUrl="route('admin.news.destroy', '__ID__')" />
+    message="" :actionUrl="route('admin.posts.destroy', '__ID__')" />
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {

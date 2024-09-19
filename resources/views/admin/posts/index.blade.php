@@ -4,19 +4,19 @@
         <div class="container-xl">
             <div class="row g-2 align-items-center justify-content-between">
                 <div class="col">
-                    <div class="page-pretitle">
+                    <div class="page-pretitle d-none d-md-block">
                         <ol class="breadcrumb breadcrumb-arrows">
-                            <li class="breadcrumb-item"><a href="#">Pengumuman</a></li>
+                            <li class="breadcrumb-item"><a href="#">Posts</a></li>
                             <li class="breadcrumb-item active"><a href="#">List</a></li>
                         </ol>
                     </div>
                     <h2 class="page-title">
-                        Pengumuman
+                        Posts
                     </h2>
                 </div>
                 <div class="col-auto">
-                    <a href="{{route('admin.announcement.create')}}" class="btn btn-primary">
-                        Pengumuman Baru
+                    <a href="{{route('admin.posts.create')}}" class="btn btn-primary">
+                        Post Baru
                     </a>
                 </div>
             </div>
@@ -30,7 +30,7 @@
                 <div class="card-body border-bottom py-3">
                     <div class="row">
                         <div class="col-6 d-flex align-items-center">
-                            <form action="{{ route('admin.announcement.index') }}" method="get" class="w-100">
+                            <form action="{{ route('admin.posts.index') }}" method="get" class="w-100">
                                 <div class="input-icon d-flex">
                                     <input type="text" name="search" value="{{ request('search') }}" class="form-control form-control-rounded" placeholder="Cari…">
                                     <span class="input-icon-addon">
@@ -44,7 +44,7 @@
                             </form>
                         </div>
                         <div class="col-6 d-flex justify-content-end align-items-center">
-                            <a href="{{ route('admin.announcement.index') }}" class="btn btn-warning btn-pill">
+                            <a href="{{ route('admin.posts.index') }}" class="btn btn-warning btn-pill">
                                 Reset Pencarian <i class="fas fa-undo ms-2"></i>
                             </a>
                         </div>
@@ -90,14 +90,14 @@
                                     <td>{{ \Carbon\Carbon::parse($item->created_at)->format('j F, Y') }}</td>
                                     <td class="text-center">
                                         <i class="fas fa-eye text-secondary"></i>
-                                        <a href="{{route('admin.announcement.show', $item->id)}}" class="fw-bold text-secondary detail-button">View</a>
+                                        <a href="{{route('admin.posts.show', $item->id)}}" class="fw-bold text-secondary detail-button">View</a>
 
                                         <i class="fas fa-edit text-primary ms-3"></i>
-                                        <a href="{{route('admin.announcement.edit', $item->id)}}" class="fw-bold text-primary edit-button">Edit</a>
+                                        <a href="{{route('admin.posts.edit', $item->id)}}" class="fw-bold text-primary edit-button">Edit</a>
                                         
 
                                         <i class="fas fa-trash-alt text-danger ms-3"></i>
-                                        <a href="#" class="fw-bold text-danger" data-bs-toggle="modal" data-bs-target="#modal-delete" data-id="{{ $item->id }}" data-action="{{ route('admin.announcement.destroy', $item->id) }}" data-message="Anda yakin ingin mengghapus pengumuman '{{ \Illuminate\Support\Str::limit($item->title, 30, '...') }}'?">Hapus</a>
+                                        <a href="#" class="fw-bold text-danger" data-bs-toggle="modal" data-bs-target="#modal-delete" data-id="{{ $item->id }}" data-action="{{ route('admin.posts.destroy', $item->id) }}" data-message="Anda yakin ingin menghapus postingan '{{ \Illuminate\Support\Str::limit($item->title, 30, '...') }}'?">Hapus</a>
                                     </td>
                                 </tr>
                             @empty
@@ -115,6 +115,6 @@
     </div>
 
     {{-- Modal Delete --}}
-    @include('admin.announcement.modal.delete')
+    @include('admin.posts.modal.delete')
     
 @endsection

@@ -27,11 +27,10 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'auth'], fu
     Route::resource('tags', TagController::class)->names('tags');
     Route::get('/tags/{id}', [TagController::class, 'show'])->name('tags.show');
 
+
+    Route::resource('posts', PostController::class)->names('posts');
     Route::post('/post/upload-file', [PostController::class, 'upload']);
     Route::delete('/post/{post}/files', [PostController::class, 'destroyAllFiles'])->name('posts.destroyAllFiles');
-    
-    Route::resource('news', NewsController::class)->names('news');
-    Route::resource('announcement', AnnouncementController::class)->names('announcement');
 });
 
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'guest'], function() {

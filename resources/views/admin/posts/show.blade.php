@@ -4,11 +4,11 @@
         <div class="container-xl">
             <div class="row g-2 align-items-center justify-content-between">
                 <div class="col">
-                    <div class="page-pretitle">
+                    <div class="page-pretitle d-none d-md-block">
                         <ol class="breadcrumb breadcrumb-arrows">
-                            <li class="breadcrumb-item"><a href="{{ route('admin.announcement.index') }}">Pengumuman</a></li>
+                            <li class="breadcrumb-item"><a href="{{ route('admin.posts.index') }}">Posts</a></li>
                             <li class="breadcrumb-item"><a
-                                    href="{{ route('admin.announcement.show', $post) }}">{{ $post->title }}</a></li>
+                                    href="{{ route('admin.posts.show', $post) }}">{{ $post->title }}</a></li>
                             <li class="breadcrumb-item active"><a href="#">Detail</a></li>
                         </ol>
                     </div>
@@ -24,7 +24,22 @@
         <div class="container-xl">
             <div class="card mb-5">
                 <div class="card-header">
-                    <h3 class="card-title">Informasi</h3>
+                    <h3 class="card-title">
+                        Informasi 
+                        @switch($post->type)
+                            @case('news')
+                                Berita
+                                @break
+                            @case('announcement')
+                                Pengumuman
+                                @break
+                            @case('community_service')
+                                Pengabdian Masyarakat
+                                @break
+                            @default
+                                Tidak Diketahui
+                        @endswitch
+                    </h3>                    
                 </div>
                 <div class="card-body">
                     <div class="row">
@@ -89,7 +104,7 @@
                   height: 300px;
                   object-fit: cover;
                   display: block;
-                  margin: 0 auto;
+                  /* margin: 0 auto; */
                }
                .content .attachment__caption .attachment__name {
                   text-align: center;
@@ -99,6 +114,9 @@
                .content .attachment__caption .attachment__size {
                   display: none;
                }
+               .content .files-name:hover {
+                    color: red;
+                }
             </style>
 
             <div class="card">
@@ -108,6 +126,18 @@
                 <div class="card-body">
                     <div class="row content">
                         {!! $post->content !!}
+
+                        {{-- File Tambahan yg bisa diunduh users --}}
+                        @if ($post->files->isNotEmpty())
+                        <h3 class="mt-3">File Tambahan</h3>
+                        <ul>
+                                @foreach($post->files as $file)
+                                    <li>
+                                        <a class="files-name" href="{{asset($file->file_path)}}" download>{{ $file->file_name }}</a>
+                                    </li>
+                                @endforeach
+                            </ul>
+                        @endif
                     </div>
                 </div>
             </div>

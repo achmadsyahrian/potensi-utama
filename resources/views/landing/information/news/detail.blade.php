@@ -46,15 +46,14 @@
                             </div><!-- End meta top -->
                             <style>
                                 .content img {
+                                    max-width: 100%;
                                     width: 500px;
                                     height: 300px;
                                     object-fit: cover;
                                     display: block;
-                                    /* margin: 0 auto; */
                                 }
 
                                 .content .attachment__caption .attachment__name {
-                                    /* text-align: center; */
                                     display: block;
                                     margin: 0 auto;
                                 }
@@ -84,8 +83,6 @@
                                             </li>
                                         @endforeach
                                     </ul>
-                                @else
-                                    <p>Tidak ada file tambahan.</p>
                                 @endif
                             </div>
 

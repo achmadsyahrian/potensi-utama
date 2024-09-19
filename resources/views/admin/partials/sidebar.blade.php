@@ -6,7 +6,8 @@
         </button>
         <h1 class="navbar-brand">
             <a href=".">
-                <img src="{{asset('landing/assets/img/logo-main.png')}}" alt="Potensi Utama" width="180" class="">
+                <img src="{{ asset('landing/assets/img/logo-main.png') }}" alt="Potensi Utama" width="180"
+                    class="">
             </a>
         </h1>
         <div class="navbar-nav flex-row d-lg-none">
@@ -186,15 +187,18 @@
             <div class="nav-item dropdown">
                 <a href="#" class="nav-link d-flex lh-1 text-reset p-0" data-bs-toggle="dropdown"
                     aria-label="Open user menu">
-                    <span class="avatar avatar-sm" style="background-image: url({{asset('landing/assets/img/Logopotensiutama.png')}})"></span>
+                    <span class="avatar avatar-sm"
+                        style="background-image: url({{ asset('landing/assets/img/Logopotensiutama.png') }})"></span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                    <a href="{{route('admin.profile.index')}}" class="dropdown-item">Profile</a>
+                    <a href="{{ route('admin.profile.index') }}" class="dropdown-item">Profile</a>
                     <div class="dropdown-divider"></div>
-                    <form id="logout-form" action="{{ route('admin.auth.logout') }}" method="POST" style="display: none;">
+                    <form id="logout-form" action="{{ route('admin.auth.logout') }}" method="POST"
+                        style="display: none;">
                         @csrf
                     </form>
-                    <a href="#" class="dropdown-item" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
+                    <a href="#" class="dropdown-item"
+                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
                 </div>
             </div>
         </div>
@@ -205,8 +209,7 @@
                 @endphp
                 <li class="nav-item {{ in_array(Route::currentRouteName(), $activeRoutes) ? 'active' : '' }}">
                     <a class="nav-link" href="./">
-                        <span
-                            class="nav-link-icon d-md-none d-lg-inline-block">
+                        <span class="nav-link-icon d-md-none d-lg-inline-block">
                             <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
                                 viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
                                 stroke-linecap="round" stroke-linejoin="round">
@@ -225,9 +228,8 @@
                     $activeRoutes = ['admin.users.index', 'admin.users.create', 'admin.users.edit'];
                 @endphp
                 <li class="nav-item {{ in_array(Route::currentRouteName(), $activeRoutes) ? 'active' : '' }}">
-                    <a class="nav-link" href="{{route('admin.users.index')}}">
-                        <span
-                            class="nav-link-icon d-md-none d-lg-inline-block">
+                    <a class="nav-link" href="{{ route('admin.users.index') }}">
+                        <span class="nav-link-icon d-md-none d-lg-inline-block">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                 viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                                 stroke-linecap="round" stroke-linejoin="round"
@@ -275,17 +277,9 @@
                         </div>
                     </div>
                 </li>
-                @php
-                    $activeRoutes = [
-                        'admin.news.index', 'admin.news.create', 'admin.news.edit',
-                        'admin.announcement.index', 'admin.announcement.create', 'admin.announcement.edit'
-                    ];
-                @endphp
-                <li class="nav-item dropdown {{ in_array(Route::currentRouteName(), $activeRoutes) ? 'active' : '' }}">
-                    <a class="nav-link dropdown-toggle" href="#navbar-extra" data-bs-toggle="dropdown"
-                        data-bs-auto-close="false" role="button" aria-expanded="false">
-                        <span
-                            class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/star -->
+                <li class="nav-item {{ in_array(Route::currentRouteName(), $activeRoutes) ? 'active' : '' }}">
+                    <a class="nav-link" href="{{ route('admin.posts.index') }}">
+                        <span class="nav-link-icon d-md-none d-lg-inline-block">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                 viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                                 stroke-linecap="round" stroke-linejoin="round"
@@ -299,28 +293,19 @@
                             </svg>
                         </span>
                         <span class="nav-link-title">
-                            Informasi & Berita
+                            Posts
                         </span>
                     </a>
-                    <div class="dropdown-menu show">
-                        <div class="dropdown-menu-columns">
-                            <div class="dropdown-menu-column">
-                                <a class="dropdown-item" href="{{route('admin.news.index')}}">
-                                    Berita Kampus
-                                </a>
-                                <a class="dropdown-item" href="{{route('admin.announcement.index')}}">
-                                    Pengumuman
-                                </a>
-                                <a class="dropdown-item" href="./activity.html">
-                                    Pengabdian Masyarakat
-                                </a>
-                            </div>
-                        </div>
-                    </div>
                 </li>
-
                 @php
-                    $activeRoutes = ['admin.categories.index', 'admin.categories.create', 'admin.categories.edit', 'admin.tags.index', 'admin.tags.create', 'admin.tags.edit'];
+                    $activeRoutes = [
+                        'admin.categories.index',
+                        'admin.categories.create',
+                        'admin.categories.edit',
+                        'admin.tags.index',
+                        'admin.tags.create',
+                        'admin.tags.edit',
+                    ];
                 @endphp
                 <li class="nav-item dropdown {{ in_array(Route::currentRouteName(), $activeRoutes) ? 'active' : '' }}">
                     <a class="nav-link dropdown-toggle" href="#navbar-help" data-bs-toggle="dropdown"
@@ -342,18 +327,17 @@
                         </span>
                     </a>
                     <div class="dropdown-menu show">
-                        <a class="dropdown-item" href="{{route('admin.categories.index')}}" rel="noopener">
+                        <a class="dropdown-item" href="{{ route('admin.categories.index') }}" rel="noopener">
                             Categories
                         </a>
-                        <a class="dropdown-item" href="{{route('admin.tags.index')}}">
+                        <a class="dropdown-item" href="{{ route('admin.tags.index') }}">
                             Tags
                         </a>
                     </div>
                 </li>
                 <li class="nav-item mt-3 mb-3 d-flex justify-content-center">
-                    <a class=" btn btn-primary" href="{{route('landing.home')}}" target="_blank">
-                        <span
-                            class="nav-link-icon d-md-none d-lg-inline-block">
+                    <a class=" btn btn-primary" href="{{ route('landing.home') }}" target="_blank">
+                        <span class="nav-link-icon d-md-none d-lg-inline-block">
                             <svg class="text-white" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                 viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                                 stroke-linecap="round" stroke-linejoin="round"

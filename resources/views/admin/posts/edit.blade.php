@@ -4,24 +4,29 @@
         <div class="container-xl">
             <div class="row g-2 align-items-center justify-content-between">
                 <div class="col">
-                    <div class="page-pretitle">
+                    <div class="page-pretitle d-none d-md-block">
                         <ol class="breadcrumb breadcrumb-arrows">
-                            <li class="breadcrumb-item"><a href="{{ route('admin.news.index') }}">Berita</a></li>
+                            <li class="breadcrumb-item"><a href="{{ route('admin.posts.index') }}">Posts</a></li>
                             <li class="breadcrumb-item"><a
-                                href="{{ route('admin.news.show', $post) }}">{{ $post->title }}</a></li>
+                                href="{{ route('admin.posts.show', $post) }}">{{ $post->title }}</a></li>
                             <li class="breadcrumb-item active"><a href="#">Edit</a></li>
                         </ol>
                     </div>
                     <h2 class="page-title">
-                        Berita
+                        {{$post->title}}
                     </h2>
+                </div>
+                <div class="col-auto">
+                    <a href="#" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modal-delete-data">
+                        <i class="fas fa-trash-alt me-1"></i> Hapus
+                    </a>
                 </div>
             </div>
         </div>
     </div>
 
     <div class="page-body">
-        <form action="{{route('admin.news.update', $post)}}" method="post" id="myForm" enctype="multipart/form-data">
+        <form action="{{route('admin.posts.update', $post)}}" method="post" id="myForm" enctype="multipart/form-data">
             @csrf
             @method('patch')
             <div class="container-xl">
@@ -50,6 +55,18 @@
                             </div>
                         </div>
                         <div class="row g-3 mt-1">
+                            <div class="col-md">
+                                <label class="form-label required">Type</label>
+                                <select class="form-select @error('type') is-invalid @enderror" name="type" id="select-categories">
+                                    <option disabled>Pilih Type</option>
+                                    <option value="news" {{ old('type', $post->type) === 'news' ? 'selected' : '' }}>Berita</option>
+                                    <option value="announcement" {{ old('type', $post->type) === 'announcement' ? 'selected' : '' }}>Pengumuman</option>
+                                    <option value="community_service" {{ old('type', $post->type) === 'community_service' ? 'selected' : '' }}>Pengabdian Masyarakat</option>
+                                </select>                                
+                                @error('type')
+                                    <p class="text-danger text-sm">{{ $message }}</p>
+                                @enderror
+                            </div>
                             <div class="col-md">
                                 <label class="form-label required">Category</label>
                                 <select type="text" class="form-select" name="category_id" id="select-categories">
@@ -111,11 +128,13 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="card-footer">
-                                <a href="#" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modal-delete">
-                                    <i class="fas fa-trash-alt me-1"></i> Hapus Files
-                                </a>
-                            </div>
+                            @if ($post->files->isNotEmpty())
+                                <div class="card-footer">
+                                    <a href="#" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modal-delete">
+                                        <i class="fas fa-trash-alt me-1"></i> Hapus Files
+                                    </a>
+                                </div>
+                            @endif
                         </div>                        
                     </div>
                     <div class="col-lg-6">
@@ -141,7 +160,7 @@
                     <button type="submit" class="btn btn-primary">
                         Simpan
                     </button>
-                    <a href="{{ route('admin.news.index') }}" class="btn">
+                    <a href="{{ route('admin.posts.index') }}" class="btn">
                         Batal
                     </a>
                 </div>
@@ -149,6 +168,7 @@
         </form>
     </div>
 
+    {{-- Hapus File Tambahan --}}
     <x-confirm-modal
         modalId="modal-delete"
         method="delete"
@@ -157,6 +177,17 @@
         confirmMessage="Ya, Hapus"
         message="Anda yakin ingin menghapus semua files tambahan postingan ini?"
         :actionUrl="route('admin.posts.destroyAllFiles', $post->id)"
+    />
+
+    {{-- Hapus Data --}}
+    <x-confirm-modal
+        modalId="modal-delete-data"
+        method="delete"
+        title="Apa kamu yakin?"
+        type="danger"
+        confirmMessage="Ya, Hapus"
+        message="Anda yakin ingin menghapus postingan ini?."
+        :actionUrl="route('admin.posts.destroy', $post->id)"
     />
     
     <script src="{{ asset('admin/js/form.js') }}"></script>

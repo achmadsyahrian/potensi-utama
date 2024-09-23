@@ -1,4 +1,10 @@
 @extends('landing.layouts.app')
+{{-- Head --}}
+@section('title', 'Fasilitas - Universitas Potensi Utama')
+@section('meta_description', 'Dengan akreditasi BAN-PT, Universitas Potensi Utama membuktikan kualitas pendidikan yang setara dengan standar nasional. Pilih program studi yang telah terakreditasi BAN-PT dan dapatkan pendidikan terbaik.')
+@section('meta_keywords', 'fasilitas upu, fasilitas potensi utama, fasilitas pendidikan, fasilitas kampus upu')
+@section('canonical', 'https://potensi-utama.ac.id/sarana-prasarana')
+
 @section('app')
     <main id="main">
 

@@ -1,5 +1,12 @@
 @extends('landing.layouts.app')
+{{-- Head --}}
+@section('title', 'Sejarah - Universitas Potensi Utama')
+@section('meta_description', 'Pelajari sejarah Universitas Potensi Utama, dari awal berdirinya sebagai PLSM Potensi Utama hingga berkembang menjadi STMIK Potensi Utama dan akhirnya menjadi Universitas Potensi Utama. Temukan perjalanan kami dalam mengembangkan pendidikan tinggi di Medan.')
+@section('meta_keywords', 'sejarah upu, sejarah potensi utama')
+@section('canonical', 'https://potensi-utama.ac.id/sejarah')
+
 @section('app')
+
     <main id="main">
 
         <!-- ======= Breadcrumbs ======= -->

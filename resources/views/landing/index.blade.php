@@ -1,5 +1,8 @@
 @extends('landing.layouts.app')
+{{-- Head --}}
+@section('title', 'Beranda - Universitas Potensi Utama')
 @section('app')
+
     <!-- ======= Hero Section ======= -->
     <section id="hero" class="hero">
 
@@ -70,7 +73,7 @@
                                 <div class="icon-box d-flex justify-content-start position-relative mt-4" data-aos="fade-up"
                                     data-aos-delay="200">
                                     <img src="{{ asset('landing/assets/img/person/nuriandy1.png') }}"
-                                        style="margin-right: 20px;" alt="">
+                                        style="margin-right: 20px;" alt="Hj. Nuriandy, BA" title="Hj. Nuriandy, BA">
                                     <div>
                                         <h4>Hj. Nuriandy, BA</h4>
                                         <p class="text-primary text-uppercase">Founder</p>
@@ -78,7 +81,7 @@
                                 </div>
                             </div>
                             <div class="col-lg-6 order-1 order-lg-2 text-center" data-aos="fade-up" data-aos-delay="200">
-                                <img src="{{ asset('landing/assets/img/hero/gedung-upu.jpg') }}" alt=""
+                                <img src="{{ asset('landing/assets/img/hero/gedung-upu.jpg') }}" alt="Gedung Potensi Utama" title="Gedung Utama Potensi Utama"
                                     class="img-fluid">
                             </div>
                         </div>

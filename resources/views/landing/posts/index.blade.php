@@ -1,4 +1,22 @@
 @extends('landing.layouts.app')
+
+{{-- Head --}}
+@section('title', $title . ' - Universitas Potensi Utama')
+@if ($title == 'Berita')
+    @section('meta_description', 'Temukan berita terbaru dari Universitas Potensi Utama. Informasi pendidikan terkini, aktivitas kampus, dan prestasi mahasiswa kami.')
+    @section('meta_keywords', 'berita upu, berita potensi utama, berita pendidikan, berita kampus upu')
+    @section('canonical', 'https://potensi-utama.ac.id/berita')
+@elseif($title == 'Pengumuman')
+    @section('meta_description', 'Lihat pengumuman resmi dari Universitas Potensi Utama. Informasi terbaru seputar kegiatan akademik, pendaftaran, dan berita penting lainnya.')
+    @section('meta_keywords', 'pengumuman upu, pengumuman potensi utama, pengumuman pendidikan, pengumuman kampus upu, upu info')
+    @section('canonical', 'https://potensi-utama.ac.id/pengumuman')
+@elseif($title == 'Pengabdian Masyarakat')
+    @section('meta_description', 'Universitas Potensi Utama berperan aktif dalam pengabdian kepada masyarakat. Pelajari lebih lanjut tentang kegiatan sosial dan kontribusi kami.')
+    @section('meta_keywords', 'abdimas upu, abdimas potensi utama, abdimas pendidikan, abdimas kampus upu, pengabdian masyarakat potensi utama')
+    @section('canonical', 'https://potensi-utama.ac.id/pengabdian-masyarakat')
+@endif
+
+
 @section('app')
     <main id="main">
 

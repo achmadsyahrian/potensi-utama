@@ -1,5 +1,12 @@
 @extends('landing.layouts.app')
+{{-- Head --}}
+@section('title', 'Visi Misi - Universitas Potensi Utama')
+@section('meta_description', 'Mulai dari kursus komputer sederhana hingga menjadi universitas terkemuka di Medan, ikuti perjalanan inspiratif Universitas Potensi Utama. Temukan bagaimana kami tumbuh dan berkembang, serta komitmen kami dalam mencetak generasi muda yang berkualitas.')
+@section('meta_keywords', 'visi upu, misi potensi utama, visi misi upu, visi misi potensi utama')
+@section('canonical', 'https://potensi-utama.ac.id/visi-misi')
+
 @section('app')
+
     <main id="main">
 
         <!-- ======= Breadcrumbs ======= -->

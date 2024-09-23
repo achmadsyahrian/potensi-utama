@@ -65,7 +65,7 @@
                             <a href="{{route('landing.history')}}">Sejarah</a>
                             <a href="#" class="active">Visi & Misi</a>
                             <a href="{{route('landing.accreditation')}}">Akreditasi</a>
-                            <a href="{{route('landing.facility')}}">Sarana & Prasarana</a>
+                            <a href="{{route('landing.facility')}}">Fasilitas</a>
                         </div>
 
                         <img src="{{asset('landing/assets/img/bilboard/dapatkan_750.jpg')}}" width="100%" alt="">

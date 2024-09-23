@@ -4,13 +4,13 @@
 @section('meta_description',  Str::limit($post->title, 100))
 @if ($title == 'Berita')
     @section('meta_keywords', 'berita upu, berita potensi utama, berita pendidikan, berita kampus upu')
-    @section('canonical', 'https://potensi-utama.ac.id/berita')
+    @section('canonical', 'https://potensi-utama.ac.id/berita/' . $post->slug)
 @elseif($title == 'Pengumuman')
     @section('meta_keywords', 'pengumuman upu, pengumuman potensi utama, pengumuman pendidikan, pengumuman kampus upu, upu info')
-    @section('canonical', 'https://potensi-utama.ac.id/pengumuman')
+    @section('canonical', 'https://potensi-utama.ac.id/pengumuman/' . $post->slug)
 @elseif($title == 'Pengabdian Masyarakat')
     @section('meta_keywords', 'abdimas upu, abdimas potensi utama, abdimas pendidikan, abdimas kampus upu, pengabdian masyarakat potensi utama')
-    @section('canonical', 'https://potensi-utama.ac.id/pengabdian-masyarakat')
+    @section('canonical', 'https://potensi-utama.ac.id/pengabdian-masyarakat/' . $post->slug)
 @endif
 
 @section('app')

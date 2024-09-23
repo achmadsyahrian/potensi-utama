@@ -24,7 +24,7 @@
                         <li><a href="{{ route('landing.history') }}">Sejarah</a></li>
                         <li><a href="{{ route('landing.purpose') }}">Visi & Misi</a></li>
                         <li><a href="{{ route('landing.accreditation') }}">Akreditasi</a></li>
-                        <li><a href="{{ route('landing.facility') }}">Sarana & Prasarana</a></li>
+                        <li><a href="{{ route('landing.facility') }}">Fasilitas</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">

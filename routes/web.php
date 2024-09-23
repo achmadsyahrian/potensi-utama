@@ -11,6 +11,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('sitemap.xml', function () {
+    return response()->file(public_path('sitemap.xml'));
+});
+
 
 Route::group(['namespace' => 'Landing', 'as' => 'landing.'], function() {
     Route::get('/', [HomeController::class, 'index'])->name('home');
@@ -25,8 +29,8 @@ Route::group(['namespace' => 'Landing', 'as' => 'landing.'], function() {
         // Akreditasi
         Route::view('/akreditasi', 'landing.about.accreditation')->name('accreditation');
 
-        // Sarana & Prasarana
-        Route::view('/sarana-prasarana', 'landing.about.facility')->name('facility');
+        // Fasilitas
+        Route::view('/fasilitas', 'landing.about.facility')->name('facility');
 
     // Informasi
         // Berita

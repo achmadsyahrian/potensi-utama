@@ -306,7 +306,7 @@
             <div class="container" data-aos="fade-up">
 
                 <div class="section-header-responsive">
-                    <h2>Sarana & Prasarana</h2>
+                    <h2>Fasilitas</h2>
                     <p>Fasilitas modern untuk mendukung pembelajaran dan kesejahteraan mahasiswa.</p>
                 </div>
 

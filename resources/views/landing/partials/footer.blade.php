@@ -40,7 +40,7 @@
                         <li><a href="#">Beranda</a></li>
                         <li><a href="{{route('landing.history')}}">Sejarah</a></li>
                         <li><a href="{{route('landing.purpose')}}">Visi & Misi</a></li>
-                        <li><a href="{{route('landing.facility')}}">Sarana & Prasarana</a></li>
+                        <li><a href="{{route('landing.facility')}}">Fasilitas</a></li>
                     </ul>
                 </div><!-- End footer links column-->
 

@@ -5,6 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Artisan;
+
 
 class Post extends Model
 {
@@ -49,6 +51,20 @@ class Post extends Model
         }
     }
 
+    public function getTypeLabelSlug()
+    {
+        switch ($this->type) {
+            case 'news':
+                return 'berita';
+            case 'announcement':
+                return 'pengumuman';
+            case 'community_service':
+                return 'pengabdian-masyarakat';
+            default:
+                return 'Tidak Diketahui';
+        }
+    }
+
     
     public static function boot()
     {
@@ -56,6 +72,14 @@ class Post extends Model
 
         static::creating(function ($post) {
             $post->slug = Str::slug($post->title);
+        });
+
+        static::saved(function ($post) {
+            Artisan::call('sitemap:generate');
+        });
+    
+        static::deleted(function ($post) {
+            Artisan::call('sitemap:generate');
         });
     }
 

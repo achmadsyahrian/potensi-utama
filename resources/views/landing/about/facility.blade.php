@@ -24,96 +24,176 @@
                 <div class="portfolio-isotope" data-portfolio-filter="*" data-portfolio-layout="masonry"
                     data-portfolio-sort="original-order">
 
-                    <ul class="portfolio-flters" data-aos="fade-up" data-aos-delay="100">
-                        <li data-filter="*" class="filter-active">Semua</li>
-                        <li data-filter=".filter-gedung-a">Gedung A</li>
-                        <li data-filter=".filter-gedung-b">Gedung B</li>
-                    </ul><!-- End Projects Filters -->
-
                     <div class="row gy-4 portfolio-container" data-aos="fade-up" data-aos-delay="200">
 
-                        <div class="col-lg-4 col-md-6 portfolio-item filter-gedung-a">
+                        <div class="col-lg-3 col-md-6 portfolio-item">
                             <div class="portfolio-content h-100">
-                                <img src="{{ asset('landing/assets/img/projects/remodeling-1.jpg') }}" class="img-fluid"
+                                <img src="{{ asset('landing/assets/img/fasilitas/aula-gedung-B-768x484.jpg') }}" class="img-fluid"
                                     alt="">
                                 <div class="portfolio-info">
-                                    <h4>Remodeling 1</h4>
-                                    <p>Lorem ipsum, dolor sit amet consectetur</p>
-                                    <a href="{{ asset('landing/assets/img/projects/remodeling-1.jpg') }}"
+                                    <p>Aula Universitas</p>
+                                    <a href="{{ asset('landing/assets/img/fasilitas/aula-gedung-B-768x484.jpg') }}"
                                         title="Remodeling 1" data-gallery="portfolio-gallery-remodeling"
                                         class="glightbox preview-link"><i class="bi bi-eye"></i></a>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-6 portfolio-item filter-gedung-b">
+                        <div class="col-lg-3 col-md-6 portfolio-item">
                             <div class="portfolio-content h-100">
-                                <img src="{{ asset('landing/assets/img/projects/construction-1.jpg') }}" class="img-fluid"
+                                <img src="{{ asset('landing/assets/img/fasilitas/peradilan-semu.jpg') }}" class="img-fluid"
                                     alt="">
                                 <div class="portfolio-info">
-                                    <h4>Construction 1</h4>
-                                    <p>Lorem ipsum, dolor sit amet consectetur</p>
-                                    <a href="{{ asset('landing/assets/img/projects/construction-1.jpg') }}"
-                                        title="Construction 1" data-gallery="portfolio-gallery-construction"
+                                    <p>Ruang Peradilan Semu</p>
+                                    <a href="{{ asset('landing/assets/img/fasilitas/peradilan-semu.jpg') }}"
+                                        title="Remodeling 1" data-gallery="portfolio-gallery-remodeling"
                                         class="glightbox preview-link"><i class="bi bi-eye"></i></a>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-6 portfolio-item filter-gedung-a">
+                        <div class="col-lg-3 col-md-6 portfolio-item">
                             <div class="portfolio-content h-100">
-                                <img src="{{ asset('landing/assets/img/projects/remodeling-2.jpg') }}" class="img-fluid"
+                                <img src="{{ asset('landing/assets/img/fasilitas/internasioanl.jpg') }}" class="img-fluid"
                                     alt="">
                                 <div class="portfolio-info">
-                                    <h4>Remodeling 2</h4>
-                                    <p>Lorem ipsum, dolor sit amet consectetur</p>
-                                    <a href="{{ asset('landing/assets/img/projects/remodeling-2.jpg') }}"
-                                        title="Remodeling 2" data-gallery="portfolio-gallery-remodeling"
+                                    <p>Internasional Relation Lab</p>
+                                    <a href="{{ asset('landing/assets/img/fasilitas/internasioanl.jpg') }}"
+                                        title="Remodeling 1" data-gallery="portfolio-gallery-remodeling"
                                         class="glightbox preview-link"><i class="bi bi-eye"></i></a>
-
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-6 portfolio-item filter-gedung-b">
+                        <div class="col-lg-3 col-md-6 portfolio-item">
                             <div class="portfolio-content h-100">
-                                <img src="{{ asset('landing/assets/img/projects/construction-2.jpg') }}" class="img-fluid"
+                                <img src="{{ asset('landing/assets/img/fasilitas/studio.jpg') }}" class="img-fluid"
                                     alt="">
                                 <div class="portfolio-info">
-                                    <h4>Construction 2</h4>
-                                    <p>Lorem ipsum, dolor sit amet consectetur</p>
-                                    <a href="{{ asset('landing/assets/img/projects/construction-2.jpg') }}"
-                                        title="Construction 2" data-gallery="portfolio-gallery-construction"
+                                    <p>Studio Film & Fotografi</p>
+                                    <a href="{{ asset('landing/assets/img/fasilitas/studio.jpg') }}"
+                                        title="Remodeling 1" data-gallery="portfolio-gallery-remodeling"
                                         class="glightbox preview-link"><i class="bi bi-eye"></i></a>
-
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-6 portfolio-item filter-gedung-a">
-                            <div class="portfolio-content h-100"> <img
-                                    src="{{ asset('landing/assets/img/projects/remodeling-3.jpg') }}" class="img-fluid"
+                        <div class="col-lg-3 col-md-6 portfolio-item">
+                            <div class="portfolio-content h-100">
+                                <img src="{{ asset('landing/assets/img/fasilitas/mushola.jpg') }}" class="img-fluid"
                                     alt="">
                                 <div class="portfolio-info">
-                                    <h4>Remodeling 3</h4>
-                                    <p>Lorem ipsum, dolor sit amet consectetur</p>
-                                    <a href="{{ asset('landing/assets/img/projects/remodeling-3.jpg') }}"
-                                        title="Remodeling 3" data-gallery="portfolio-gallery-remodeling"
+                                    <p>Mushollah</p>
+                                    <a href="{{ asset('landing/assets/img/fasilitas/mushola.jpg') }}"
+                                        title="Remodeling 1" data-gallery="portfolio-gallery-remodeling"
                                         class="glightbox preview-link"><i class="bi bi-eye"></i></a>
-
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-6 portfolio-item filter-gedung-b">
+                        <div class="col-lg-3 col-md-6 portfolio-item">
                             <div class="portfolio-content h-100">
-                                <img src="{{ asset('landing/assets/img/projects/construction-3.jpg') }}"
-                                    class="img-fluid" alt="">
+                                <img src="{{ asset('landing/assets/img/fasilitas/podcast.jpg') }}" class="img-fluid"
+                                    alt="">
                                 <div class="portfolio-info">
-                                    <h4>Construction 3</h4>
-                                    <p>Lorem ipsum, dolor sit amet consectetur</p>
-                                    <a href="{{ asset('landing/assets/img/projects/construction-3.jpg') }}"
-                                        title="Construction 3" data-gallery="portfolio-gallery-construction"
+                                    <p>Podcast Studio</p>
+                                    <a href="{{ asset('landing/assets/img/fasilitas/podcast.jpg') }}"
+                                        title="Remodeling 1" data-gallery="portfolio-gallery-remodeling"
                                         class="glightbox preview-link"><i class="bi bi-eye"></i></a>
-
                                 </div>
                             </div>
                         </div>
+                        <div class="col-lg-3 col-md-6 portfolio-item">
+                            <div class="portfolio-content h-100">
+                                <img src="{{ asset('landing/assets/img/fasilitas/library.jpg') }}" class="img-fluid"
+                                    alt="">
+                                <div class="portfolio-info">
+                                    <p>Perpustakaan</p>
+                                    <a href="{{ asset('landing/assets/img/fasilitas/library.jpg') }}"
+                                        title="Remodeling 1" data-gallery="portfolio-gallery-remodeling"
+                                        class="glightbox preview-link"><i class="bi bi-eye"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 portfolio-item">
+                            <div class="portfolio-content h-100">
+                                <img src="{{ asset('landing/assets/img/fasilitas/Lab-fisika.jpg') }}" class="img-fluid"
+                                    alt="">
+                                <div class="portfolio-info">
+                                    <p>Lab Fisika</p>
+                                    <a href="{{ asset('landing/assets/img/fasilitas/Lab-fisika.jpg') }}"
+                                        title="Remodeling 1" data-gallery="portfolio-gallery-remodeling"
+                                        class="glightbox preview-link"><i class="bi bi-eye"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 portfolio-item">
+                            <div class="portfolio-content h-100">
+                                <img src="{{ asset('landing/assets/img/fasilitas/Lab-Komputer.jpg') }}" class="img-fluid"
+                                    alt="">
+                                <div class="portfolio-info">
+                                    <p>Lab Komputer</p>
+                                    <a href="{{ asset('landing/assets/img/fasilitas/Lab-Komputer.jpg') }}"
+                                        title="Remodeling 1" data-gallery="portfolio-gallery-remodeling"
+                                        class="glightbox preview-link"><i class="bi bi-eye"></i></a>
+                                </div>
+                            </div>
+                        </div><div class="col-lg-3 col-md-6 portfolio-item">
+                            <div class="portfolio-content h-100">
+                                <img src="{{ asset('landing/assets/img/fasilitas/investment.jpg') }}" class="img-fluid"
+                                    alt="">
+                                <div class="portfolio-info">
+                                    <p>Investment Gallery</p>
+                                    <a href="{{ asset('landing/assets/img/fasilitas/investment.jpg') }}"
+                                        title="Remodeling 1" data-gallery="portfolio-gallery-remodeling"
+                                        class="glightbox preview-link"><i class="bi bi-eye"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 portfolio-item">
+                            <div class="portfolio-content h-100">
+                                <img src="{{ asset('landing/assets/img/fasilitas/Incubator.jpg') }}" class="img-fluid"
+                                    alt="">
+                                <div class="portfolio-info">
+                                    <p>Ruang Incubator Bisnis</p>
+                                    <a href="{{ asset('landing/assets/img/fasilitas/Incubator.jpg') }}"
+                                        title="Remodeling 1" data-gallery="portfolio-gallery-remodeling"
+                                        class="glightbox preview-link"><i class="bi bi-eye"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 portfolio-item">
+                            <div class="portfolio-content h-100">
+                                <img src="{{ asset('landing/assets/img/fasilitas/mini-bank.jpg') }}" class="img-fluid"
+                                    alt="">
+                                <div class="portfolio-info">
+                                    <p>Mini Bank</p>
+                                    <a href="{{ asset('landing/assets/img/fasilitas/mini-bank.jpg') }}"
+                                        title="Remodeling 1" data-gallery="portfolio-gallery-remodeling"
+                                        class="glightbox preview-link"><i class="bi bi-eye"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 portfolio-item">
+                            <div class="portfolio-content h-100">
+                                <img src="{{ asset('landing/assets/img/fasilitas/konseling.jpg') }}" class="img-fluid"
+                                    alt="">
+                                <div class="portfolio-info">
+                                    <p>Ruang Konseling</p>
+                                    <a href="{{ asset('landing/assets/img/fasilitas/konseling.jpg') }}"
+                                        title="Remodeling 1" data-gallery="portfolio-gallery-remodeling"
+                                        class="glightbox preview-link"><i class="bi bi-eye"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 portfolio-item">
+                            <div class="portfolio-content h-100">
+                                <img src="{{ asset('landing/assets/img/fasilitas/area-Mural.jpg') }}" class="img-fluid"
+                                    alt="">
+                                <div class="portfolio-info">
+                                    <p>Area Mural</p>
+                                    <a href="{{ asset('landing/assets/img/fasilitas/area-Mural.jpg') }}"
+                                        title="Remodeling 1" data-gallery="portfolio-gallery-remodeling"
+                                        class="glightbox preview-link"><i class="bi bi-eye"></i></a>
+                                </div>
+                            </div>
+                        </div>
+
 
                     </div>
                 </div>

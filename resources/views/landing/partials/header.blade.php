@@ -86,7 +86,6 @@
                         {{-- <li><a href="#">Kalender Akademik</a></li> --}}
                         <li><a href="{{ route('landing.community.index') }}">Pengabdian Masyarakat</a></li>
                         <li><a href="#">Penelitian</a></li>
-                        <li><a href="#">Tenaga Pengajar</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">

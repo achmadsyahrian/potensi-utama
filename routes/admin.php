@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\NewsController;
 use App\Http\Controllers\Admin\TagController;
 use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\AnnouncementController;
+use App\Http\Controllers\Admin\ResearchController;
 use Illuminate\Support\Facades\Route;
 
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'auth'], function() {
@@ -31,6 +32,10 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'auth'], fu
     Route::resource('posts', PostController::class)->names('posts');
     Route::post('/post/upload-file', [PostController::class, 'upload']);
     Route::delete('/post/{post}/files', [PostController::class, 'destroyAllFiles'])->name('posts.destroyAllFiles');
+
+    Route::resource('researches', ResearchController::class)->names('researches');
+    Route::post('/research/upload-file', [ResearchController::class, 'upload']);
+    Route::delete('/research/{research}/files', [ResearchController::class, 'destroyAllFiles'])->name('researches.destroyAllFiles');
 });
 
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'guest'], function() {

@@ -357,7 +357,7 @@
                         <div class="col-lg-12 col-md-12 mt-3">
                             <div class="text-center">
                                 <a data-aos="fade-up" data-aos-delay="200"
-                                    href="https://pendaftaran.potensi-utama.ac.id/" target="_blank"
+                                    href="{{route('landing.facility')}}" target="_blank"
                                     class="btn-get-all text-uppercase">Lihat Selengkapnya</a>
                             </div>
                         </div>

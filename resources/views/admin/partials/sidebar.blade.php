@@ -245,38 +245,31 @@
                         </span>
                     </a>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#navbar-base" data-bs-toggle="dropdown"
-                        data-bs-auto-close="false" role="button" aria-expanded="false">
-                        <span
-                            class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/package -->
+                @php
+                    $activeRoutes = ['admin.researches.index', 'admin.researches.create', 'admin.researches.edit'];
+                @endphp
+                <li class="nav-item {{ in_array(Route::currentRouteName(), $activeRoutes) ? 'active' : '' }}">
+                    <a class="nav-link" href="{{ route('admin.researches.index') }}">
+                        <span class="nav-link-icon d-md-none d-lg-inline-block">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                 viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                                 stroke-linecap="round" stroke-linejoin="round"
-                                class="icon icon-tabler icons-tabler-outline icon-tabler-database">
+                                class="icon icon-tabler icons-tabler-outline icon-tabler-license">
                                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                <path d="M12 6m-8 0a8 3 0 1 0 16 0a8 3 0 1 0 -16 0" />
-                                <path d="M4 6v6a8 3 0 0 0 16 0v-6" />
-                                <path d="M4 12v6a8 3 0 0 0 16 0v-6" />
+                                <path
+                                    d="M15 21h-9a3 3 0 0 1 -3 -3v-1h10v2a2 2 0 0 0 4 0v-14a2 2 0 1 1 2 2h-2m2 -4h-11a3 3 0 0 0 -3 3v11" />
+                                <path d="M9 7l4 0" />
+                                <path d="M9 11l4 0" />
                             </svg>
                         </span>
                         <span class="nav-link-title">
-                            Data Kampus
+                            Penelitian
                         </span>
                     </a>
-                    <div class="dropdown-menu">
-                        <div class="dropdown-menu-columns">
-                            <div class="dropdown-menu-column">
-                                <a class="dropdown-item" href="./accordion.html">
-                                    Tenaga Pengajar
-                                </a>
-                                <a class="dropdown-item" href="./blank.html">
-                                    Fasilitas
-                                </a>
-                            </div>
-                        </div>
-                    </div>
                 </li>
+                @php
+                    $activeRoutes = ['admin.posts.index', 'admin.posts.create', 'admin.posts.edit', 'admin.posts.show'];
+                @endphp
                 <li class="nav-item {{ in_array(Route::currentRouteName(), $activeRoutes) ? 'active' : '' }}">
                     <a class="nav-link" href="{{ route('admin.posts.index') }}">
                         <span class="nav-link-icon d-md-none d-lg-inline-block">
@@ -307,7 +300,8 @@
                         'admin.tags.edit',
                     ];
                 @endphp
-                <li class="nav-item dropdown {{ in_array(Route::currentRouteName(), $activeRoutes) ? 'active' : '' }}">
+                <li
+                    class="nav-item dropdown {{ in_array(Route::currentRouteName(), $activeRoutes) ? 'active' : '' }}">
                     <a class="nav-link dropdown-toggle" href="#navbar-help" data-bs-toggle="dropdown"
                         data-bs-auto-close="false" role="button" aria-expanded="false">
                         <span

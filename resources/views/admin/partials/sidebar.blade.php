@@ -208,7 +208,7 @@
                     $activeRoutes = ['admin.dashboard'];
                 @endphp
                 <li class="nav-item {{ in_array(Route::currentRouteName(), $activeRoutes) ? 'active' : '' }}">
-                    <a class="nav-link" href="./">
+                    <a class="nav-link" href="{{route('admin.dashboard')}}">
                         <span class="nav-link-icon d-md-none d-lg-inline-block">
                             <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
                                 viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
@@ -227,24 +227,26 @@
                 @php
                     $activeRoutes = ['admin.users.index', 'admin.users.create', 'admin.users.edit'];
                 @endphp
-                <li class="nav-item {{ in_array(Route::currentRouteName(), $activeRoutes) ? 'active' : '' }}">
-                    <a class="nav-link" href="{{ route('admin.users.index') }}">
-                        <span class="nav-link-icon d-md-none d-lg-inline-block">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                stroke-linecap="round" stroke-linejoin="round"
-                                class="icon icon-tabler icons-tabler-outline icon-tabler-user-circle">
-                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" />
-                                <path d="M12 10m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
-                                <path d="M6.168 18.849a4 4 0 0 1 3.832 -2.849h4a4 4 0 0 1 3.834 2.855" />
-                            </svg>
-                        </span>
-                        <span class="nav-link-title">
-                            Setting Admin
-                        </span>
-                    </a>
-                </li>
+                @if (auth()->user()->role == 'Administrator')
+                    <li class="nav-item {{ in_array(Route::currentRouteName(), $activeRoutes) ? 'active' : '' }}">
+                        <a class="nav-link" href="{{ route('admin.users.index') }}">
+                            <span class="nav-link-icon d-md-none d-lg-inline-block">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round"
+                                    class="icon icon-tabler icons-tabler-outline icon-tabler-user-circle">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                    <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" />
+                                    <path d="M12 10m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
+                                    <path d="M6.168 18.849a4 4 0 0 1 3.832 -2.849h4a4 4 0 0 1 3.834 2.855" />
+                                </svg>
+                            </span>
+                            <span class="nav-link-title">
+                                Setting Admin
+                            </span>
+                        </a>
+                    </li>
+                @endif
                 @php
                     $activeRoutes = ['admin.researches.index', 'admin.researches.create', 'admin.researches.edit'];
                 @endphp

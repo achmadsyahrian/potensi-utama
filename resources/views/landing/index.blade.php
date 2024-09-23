@@ -119,7 +119,7 @@
                         <div class="stats-item d-flex align-items-center w-100 h-100">
                             <i class="fas fa-user-graduate text-primary flex-shrink-0"></i>
                             <div>
-                                <span data-purecounter-start="0" data-purecounter-end="26693" data-purecounter-duration="1"
+                                <span data-purecounter-start="0" data-purecounter-end="27605" data-purecounter-duration="1"
                                     class="purecounter"></span>
                                 <p>Mahasiswa</p>
                             </div>
@@ -130,7 +130,7 @@
                         <div class="stats-item d-flex align-items-center w-100 h-100">
                             <i class="fas fa-chalkboard-teacher text-primary flex-shrink-0"></i>
                             <div>
-                                <span data-purecounter-start="0" data-purecounter-end="392" data-purecounter-duration="1"
+                                <span data-purecounter-start="0" data-purecounter-end="385" data-purecounter-duration="1"
                                     class="purecounter"></span>
                                 <p>Tenaga Pengajar</p>
                             </div>
@@ -240,7 +240,7 @@
             <div class="container" data-aos="fade-up">
                 <div class=" section-header">
                     <h2>UPU TV</h2>
-                    <p>In commodi voluptatem excepturi quaerat nihil error autem voluptate ut et officia consequuntu</p>
+                    <p>Saksikan liputan acara, seminar, dan kegiatan mahasiswa di Channel kami</p>
                 </div>
 
                 <div class="row justify-content-center gy-4">

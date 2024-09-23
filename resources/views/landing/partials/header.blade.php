@@ -38,28 +38,6 @@
                         <li><a href="#" target="_blank">SKPI</a></li>
                         <li><a href="https://spmi.potensi-utama.ac.id/" target="_blank">SPMI</a></li>
                         <li><a href="https://repository.potensi-utama.ac.id/" target="_blank">Repository</a></li>
-                        <li class="dropdown">
-                            <a href="#"><span>Download</span>
-                                <i class="bi bi-chevron-down dropdown-indicator"></i>
-                            </a>
-                            <ul>
-                                <li><a href="#">Izin Perkuliahan Shift</a></li>
-                                <li><a href="#">Pindah Jadwal Kuliah</a></li>
-                                <li><a href="#">Permohonan SK Kuliah</a></li>
-                                <li><a href="#">Permohonan Aktif/Cuti Kuliah</a></li>
-                                <li><a href="#">Panduan dan Lampiran Skripsi</a></li>
-                                <li><a href="#">Panduan dan Lampiran PKL</a></li>
-                            </ul>
-                        </li>
-                        <li class="dropdown">
-                            <a href="#"><span>Surat</span>
-                                <i class="bi bi-chevron-down dropdown-indicator"></i>
-                            </a>
-                            <ul>
-                                <li><a href="#">Surat Pengantar PKL</a></li>
-                                <li><a href="#">Surat Riset</a></li>
-                            </ul>
-                        </li>
                     </ul>
                 </li>
                 <li class="dropdown">
@@ -85,7 +63,7 @@
                     <ul>
                         {{-- <li><a href="#">Kalender Akademik</a></li> --}}
                         <li><a href="{{ route('landing.community.index') }}">Pengabdian Masyarakat</a></li>
-                        <li><a href="#">Penelitian</a></li>
+                        <li><a href="{{route('landing.research.index')}}">Penelitian</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">

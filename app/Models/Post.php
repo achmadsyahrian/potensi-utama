@@ -35,6 +35,21 @@ class Post extends Model
     }
 
 
+    public function getTypeLabel()
+    {
+        switch ($this->type) {
+            case 'news':
+                return 'Berita';
+            case 'announcement':
+                return 'Pengumuman';
+            case 'community_service':
+                return 'Pengabdian Masyarakat';
+            default:
+                return 'Tidak Diketahui';
+        }
+    }
+
+    
     public static function boot()
     {
         parent::boot();

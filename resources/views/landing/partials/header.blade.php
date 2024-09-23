@@ -94,7 +94,7 @@
                         <i class="bi bi-chevron-down dropdown-indicator"></i>
                     </a>
                     <ul>
-                        <li><a href="#">Fakulas Ilmu Sosial dan Kependidikan</a></li>
+                        <li><a href="#">Fakultas Ilmu Sosial dan Kependidikan</a></li>
                         <li><a href="#">Fakultas Psikologi</a></li>
                         <li><a href="#">Fakultas Hukum</a></li>
                         <li><a href="#">Fakultas Teknik dan Ilmu Komputer</a></li>

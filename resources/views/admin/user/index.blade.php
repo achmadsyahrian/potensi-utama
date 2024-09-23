@@ -73,7 +73,7 @@
                                         <i class="fas fa-edit text-primary"></i> 
                                         <a href="{{ route('admin.users.edit', $item) }}" class="fw-bold text-primary">Edit</a>
                                         <i class="fas fa-key text-yellow ms-3"></i>
-                                        <a href="#" class="fw-bold text-yellow" data-bs-toggle="modal" data-bs-target="#modal-reset" data-id="{{ $item->id }}" data-action="{{ route('admin.users.resetPassword', $item->id) }}" data-message="Anda yakin ingin mereset password untuk {{ $item->name }}?">Reset</a>
+                                        <a href="#" class="fw-bold text-yellow" data-bs-toggle="modal" data-bs-target="#modal-reset" data-id="{{ $item->id }}" data-action="{{ route('admin.users.resetPassword', $item->id) }}" data-message="Anda yakin ingin mereset password untuk {{ $item->name }}?" >Reset</a>
                                     </td>
                                 </tr>
                             @empty

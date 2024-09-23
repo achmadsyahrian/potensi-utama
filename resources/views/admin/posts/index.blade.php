@@ -15,7 +15,7 @@
                     </h2>
                 </div>
                 <div class="col-auto">
-                    <a href="{{route('admin.posts.create')}}" class="btn btn-primary">
+                    <a href="{{ route('admin.posts.create') }}" class="btn btn-primary">
                         Post Baru
                     </a>
                 </div>
@@ -32,13 +32,16 @@
                         <div class="col-6 d-flex align-items-center">
                             <form action="{{ route('admin.posts.index') }}" method="get" class="w-100">
                                 <div class="input-icon d-flex">
-                                    <input type="text" name="search" value="{{ request('search') }}" class="form-control form-control-rounded" placeholder="Cari…">
+                                    <input type="text" name="search" value="{{ request('search') }}"
+                                        class="form-control form-control-rounded" placeholder="Cari…">
                                     <span class="input-icon-addon">
-                                      <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                                        <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" />
-                                        <path d="M21 21l-6 -6" />
-                                      </svg>
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
+                                            viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                                            stroke-linecap="round" stroke-linejoin="round">
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                            <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" />
+                                            <path d="M21 21l-6 -6" />
+                                        </svg>
                                     </span>
                                 </div>
                             </form>
@@ -48,11 +51,12 @@
                                 Reset Pencarian <i class="fas fa-undo ms-2"></i>
                             </a>
                             <div class="cursor-pointer" data-bs-toggle="modal" data-bs-target="#modal-search">
-                                <i class="fas fa-filter fs-2 ms-3"></i>
+                                <i class="fas fa-filter fs-2 ms-3" title="Filter Pencarian" data-bs-toggle="tooltip"
+                                    data-bs-placement="right"></i>
                             </div>
                         </div>
                     </div>
-                </div>                
+                </div>
                 <div class="table-responsive">
                     <table class="table card-table table-vcenter text-nowrap">
                         <thead>
@@ -69,43 +73,63 @@
                         <tbody>
                             @forelse ($data as $item)
                                 <tr>
-                                    <td><span class="text-muted">{{ ($data->currentPage() - 1) * $data->perPage() + $loop->iteration }}</span></td>
-                                    <td>
-                                       <img src="{{asset($item->thumbnail)}}" width="70" height="50" style="object-fit: cover" alt="">
+                                    <td><span
+                                            class="text-muted">{{ ($data->currentPage() - 1) * $data->perPage() + $loop->iteration }}</span>
                                     </td>
-                                    <td>{{ \Illuminate\Support\Str::limit($item->title, 30, '...') }}</td>
+                                    <td>
+                                        <img src="{{ asset($item->thumbnail) }}" width="70" height="50"
+                                            style="object-fit: cover" alt="">
+                                    </td>
+                                    <td>
+                                        <div class="d-flex py-1 align-items-center">
+                                            <div class="flex-fill">
+                                                <div class="font-weight-medium" title="{{$item->title}}" data-bs-toggle="tooltip"
+                                                data-bs-placement="bottom">{{ \Illuminate\Support\Str::limit($item->title, 30, '...') }}</div>
+                                                <div class="text-muted fs-5"><a href="#" class="text-reset">{{ $item->getTypeLabel() }}</a></div>
+                                            </div>
+                                        </div>
+                                    </td>
                                     <td>
                                         @if (Auth::check() && Auth::user()->id === $item->user->id)
-                                            <i class="fas fa-user-circle me-1 text-success"></i>
-                                            <span class="text-success">Anda</span>
+                                            <i class="fas fa-user-circle me-1 text-cyan"></i>
+                                            <span class="text-cyan">Anda</span>
                                         @else
                                             <i class="fas fa-user-circle me-1"></i>
                                             {{ $item->user->name }}
                                         @endif
-                                    </td>                                    
+                                    </td>
                                     <td>
-                                        @if($item->is_published)
+                                        @if ($item->is_published)
                                             <span class="badge bg-success-lt">Published</span>
                                         @else
                                             <span class="badge bg-danger-lt">Unpublished</span>
                                         @endif
-                                    </td>                                    
-                                    <td>{{ \Carbon\Carbon::parse($item->created_at)->format('j F, Y') }}</td>
+                                    </td>
+                                    <td>
+                                        <span title="Diupdate pada {{ \Carbon\Carbon::parse($item->updated_at)->format('j F, Y') }}" data-bs-toggle="tooltip"
+                                            data-bs-placement="bottom">{{ \Carbon\Carbon::parse($item->created_at)->format('j F, Y') }}</span>
+                                    </td>
                                     <td class="text-center">
                                         <i class="fas fa-eye text-secondary"></i>
-                                        <a href="{{route('admin.posts.show', $item->id)}}" class="fw-bold text-secondary detail-button">View</a>
+                                        <a href="{{ route('admin.posts.show', $item->id) }}"
+                                            class="fw-bold text-secondary detail-button">View</a>
 
                                         <i class="fas fa-edit text-primary ms-3"></i>
-                                        <a href="{{route('admin.posts.edit', $item->id)}}" class="fw-bold text-primary edit-button">Edit</a>
-                                        
+                                        <a href="{{ route('admin.posts.edit', $item->id) }}"
+                                            class="fw-bold text-primary edit-button">Edit</a>
+
 
                                         <i class="fas fa-trash-alt text-danger ms-3"></i>
-                                        <a href="#" class="fw-bold text-danger" data-bs-toggle="modal" data-bs-target="#modal-delete" data-id="{{ $item->id }}" data-action="{{ route('admin.posts.destroy', $item->id) }}" data-message="Anda yakin ingin menghapus postingan '{{ \Illuminate\Support\Str::limit($item->title, 30, '...') }}'?">Hapus</a>
+                                        <a href="#" class="fw-bold text-danger" data-bs-toggle="modal"
+                                            data-bs-target="#modal-delete" data-id="{{ $item->id }}"
+                                            data-action="{{ route('admin.posts.destroy', $item->id) }}"
+                                            data-message="Anda yakin ingin menghapus postingan '{{ \Illuminate\Support\Str::limit($item->title, 30, '...') }}'?">Hapus</a>
                                     </td>
                                 </tr>
                             @empty
                                 <tr>
-                                    <td colspan="100" class="text-center">Tidak ada data <i class="far fa-sad-cry"></i></td>
+                                    <td colspan="100" class="text-center">Tidak ada data <i class="far fa-sad-cry"></i>
+                                    </td>
                                 </tr>
                             @endforelse
 
@@ -119,8 +143,7 @@
 
     {{-- Modal Delete --}}
     @include('admin.posts.modal.delete')
-    
+
     {{-- Modal Search --}}
     @include('admin.posts.modal.search')
-
 @endsection

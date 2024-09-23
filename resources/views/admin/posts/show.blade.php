@@ -25,20 +25,7 @@
             <div class="card mb-5">
                 <div class="card-header">
                     <h3 class="card-title">
-                        Informasi 
-                        @switch($post->type)
-                            @case('news')
-                                Berita
-                                @break
-                            @case('announcement')
-                                Pengumuman
-                                @break
-                            @case('community_service')
-                                Pengabdian Masyarakat
-                                @break
-                            @default
-                                Tidak Diketahui
-                        @endswitch
+                        Informasi {{ $post->getTypeLabel() }}
                     </h3>                    
                 </div>
                 <div class="card-body">
@@ -93,6 +80,30 @@
                                     <p>Tidak ada thumbnail.</p>
                                 @endif
                             </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            @if ($post->is_published == 1)
+                                <a class="btn btn-primary" href="{{ route('landing.news.show', $post->slug) }}" target="_blank">
+                                    <span class="nav-link-icon d-md-none d-lg-inline-block">
+                                        <i class="fas fa-eye text-white"></i>
+                                    </span>
+                                    <span class="nav-link-title">
+                                        Lihat Postingan
+                                    </span>
+                                </a>
+                            @else
+                                <a class="btn btn-secondary" title="Postingan tidak dipublish!" data-bs-toggle="tooltip"
+                                data-bs-placement="right">
+                                    <span class="nav-link-icon d-md-none d-lg-inline-block">
+                                        <i class="far fa-eye-slash text-white"></i>
+                                    </span>
+                                    <span class="nav-link-title">
+                                        Lihat Postingan
+                                    </span>
+                                </a>
+                            @endif
                         </div>
                     </div>
                 </div>

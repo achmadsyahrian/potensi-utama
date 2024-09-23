@@ -51,7 +51,7 @@
                         <div class="row g-3 mt-1">
                             <div class="col-md">
                                 <label class="form-label required">Type</label>
-                                <select type="text" class="form-select @error('type') is-invalid @enderror" name="type" id="select-categories"
+                                <select type="text" class="form-select @error('type') is-invalid @enderror" name="type" id="select-types"
                                     value="">
                                     <option selected disabled>Pilih Type</option>
                                     <option value="news">Berita</option>

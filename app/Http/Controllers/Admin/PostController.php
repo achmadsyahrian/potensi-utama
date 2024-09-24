@@ -79,7 +79,7 @@ class PostController extends Controller
             'slug' => 'required|string|unique:posts,slug',
             'category_id' => 'required|exists:categories,id',
             'tags_id' => 'array|exists:tags,id',
-            'thumbnail' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'thumbnail' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'is_published' => 'nullable|boolean',
             'content' => 'required|string',
             'type' => 'required',

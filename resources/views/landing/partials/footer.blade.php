@@ -104,4 +104,5 @@
 </footer>
 
 <a href="#" class="scroll-top d-flex align-items-center justify-content-center text-white"><i class="bi bi-arrow-up-short text-white"></i></a>
-{{-- <div id="preloader"></div> --}}
+
+<div id="preloader"></div>

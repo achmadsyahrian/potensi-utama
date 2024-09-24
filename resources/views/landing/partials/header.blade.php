@@ -1,4 +1,4 @@
-<header id="header" class="header d-flex align-items-center">
+<header id="header" class="header d-flex align-items-center" style="{{ request()->routeIs('landing.home') ? 'margin-top: 200px;' : '' }}">
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
 
         <a href="index.html" class="logo d-flex align-items-center">

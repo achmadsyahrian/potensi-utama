@@ -42,8 +42,10 @@
                         <article class="news-details">
 
                             <div class="post-img">
-                                <img src="{{ asset($post->thumbnail) }}" alt=""
+                                @if ($post->thumbnail)
+                                    <img src="{{ asset($post->thumbnail) }}" alt=""
                                     style="width: 850px; height:500px; object-fit:cover;" class="img-fluid">
+                                @endif
                             </div>
 
                             <h2 class="title">{{ $post->title }}</h2>
@@ -153,8 +155,13 @@
 
                                     @foreach ($dataRecent as $item)
                                         <div class="post-item mt-3">
-                                            <img src="{{ asset($item->thumbnail) }}" alt=""
+                                            @if ($item->thumbnail)
+                                                <img src="{{ asset($item->thumbnail) }}" alt=""
                                                 style="width: 100px; height:60px; object-fit:cover;">
+                                            @else
+                                                <img src="{{ asset('landing/assets/img/Logopotensiutama.png') }}" alt=""
+                                                    style="width: 100px; height:60px; object-fit:cover;">
+                                            @endif
                                             <div>
                                                 <h4><a
                                                         href="{{ route($route . '.show', $item->slug) }}">{{ \Illuminate\Support\Str::limit($item->title, 40, '...') }}</a>

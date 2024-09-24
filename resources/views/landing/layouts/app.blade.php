@@ -34,7 +34,9 @@
 </head>
 
 <body>
-
+  
+  
+  
   <!-- ======= Header ======= -->
   @include('landing.partials.header')
   <!-- End Header -->

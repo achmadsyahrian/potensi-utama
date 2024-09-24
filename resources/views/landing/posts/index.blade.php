@@ -47,8 +47,13 @@
                                 <div class="col-lg-6 col-md-6">
                                     <div class="post-item position-relative h-100">
                                         <div class="post-img position-relative overflow-hidden">
-                                            <img src="{{ asset($item->thumbnail) }}" class="img-fluid"
+                                            @if ($item->thumbnail)
+                                                <img src="{{ asset($item->thumbnail) }}" class="img-fluid"
                                                 style="width: 415px; height:310px; object-fit:cover;"alt="">
+                                            @else
+                                                <img src="{{ asset('landing/assets/img/Logopotensiutama.png') }}" class="img-fluid"
+                                                style="width: 415px; height:310px; object-fit:cover;"alt="">
+                                            @endif
                                             <span class="post-date">{{ $item->updated_at->format('F j') }}</span>
                                         </div>
                                         <div class="post-content d-flex flex-column">
@@ -101,8 +106,13 @@
 
                                         @foreach ($dataRecent as $item)
                                             <div class="post-item mt-3">
-                                                <img src="{{ asset($item->thumbnail) }}" alt=""
+                                                @if ($item->thumbnail)
+                                                    <img src="{{ asset($item->thumbnail) }}" alt=""
                                                     style="width: 100px; height:60px; object-fit:cover;">
+                                                @else
+                                                    <img src="{{ asset('landing/assets/img/Logopotensiutama.png') }}" alt=""
+                                                        style="width: 100px; height:60px; object-fit:cover;">
+                                                @endif
                                                 <div>
                                                     <h4><a
                                                             href="{{ route($route . '.show', $item->slug) }}">{{ \Illuminate\Support\Str::limit($item->title, 40, '...') }}</a>

@@ -3,10 +3,14 @@
 @section('title', 'Beranda - Universitas Potensi Utama')
 @section('app')
 
+<div>
+    <img src="{{asset('landing/assets/img/banner/top-banner1.jpg')}}" alt="" style="width:100%; height:200px; object-fit:cover;">
+  </div>
+    
     <!-- ======= Hero Section ======= -->
     <section id="hero" class="hero">
 
-        <div class="info d-flex align-items-center">
+        <div class="info d-flex align-items-center" style="margin-top: 400px;">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-lg-6 text-center">
@@ -81,8 +85,8 @@
                                 </div>
                             </div>
                             <div class="col-lg-6 order-1 order-lg-2 text-center" data-aos="fade-up" data-aos-delay="200">
-                                <img src="{{ asset('landing/assets/img/hero/gedung-upu.jpg') }}" alt="Gedung Potensi Utama" title="Gedung Utama Potensi Utama"
-                                    class="img-fluid">
+                                <img src="{{ asset('landing/assets/img/hero/gedung-upu.jpg') }}" alt="Gedung Potensi Utama"
+                                    title="Gedung Utama Potensi Utama" class="img-fluid">
                             </div>
                         </div>
                     </div>
@@ -101,7 +105,8 @@
                         <div class="stats-item d-flex align-items-center w-100 h-100">
                             <i class="fas fa-handshake text-primary flex-shrink-0"></i>
                             <div>
-                                <span data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="1" class="purecounter"></span>
+                                <span data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="1"
+                                    class="purecounter"></span>
                                 <p>Mitra</p>
                             </div>
                         </div>
@@ -158,14 +163,24 @@
                         <div class="col-xl-3 col-md-4" data-aos="fade-up" data-aos-delay="100">
                             <div class="post-item position-relative h-100">
                                 <div class="post-img position-relative overflow-hidden">
-                                    <img src="{{ asset($item->thumbnail) }}" style="width:400px; height:200px; object-fit:cover;" class="img-fluid"
-                                        alt="">
-                                    <span class="post-date">{{ \Carbon\Carbon::parse($item->created_at)->translatedFormat('d F Y') }}</span>
+                                    @if ($item->thumbnail)
+                                        <img src="{{ asset($item->thumbnail) }}"
+                                        style="width:400px; height:200px; object-fit:cover;" class="img-fluid"
+                                        alt="">         
+                                    @else        
+                                        <img src="{{ asset('landing/assets/img/Logopotensiutama.png') }}"
+                                            style="width:400px; height:200px; object-fit:cover;" class="img-fluid"
+                                            alt="">                         
+                                    @endif
+                                    <span
+                                        class="post-date">{{ \Carbon\Carbon::parse($item->created_at)->translatedFormat('d F Y') }}</span>
                                 </div>
                                 <div class="post-content d-flex flex-column">
-                                    <h3 class="post-title" title="{{ $item->title }}">{{ \Illuminate\Support\Str::limit($item->title, 50, '...') }}</h3>
+                                    <h3 class="post-title" title="{{ $item->title }}">
+                                        {{ \Illuminate\Support\Str::limit($item->title, 50, '...') }}</h3>
                                     <hr>
-                                    <a href="{{ route('landing.news.show', $item->slug) }}" class="readmore stretched-link"><span>Baca Selengkapnya</span><i
+                                    <a href="{{ route('landing.news.show', $item->slug) }}"
+                                        class="readmore stretched-link"><span>Baca Selengkapnya</span><i
                                             class="bi bi-arrow-right"></i></a>
                                 </div>
                             </div>
@@ -177,9 +192,8 @@
                 <div class="row mt-3">
                     <div class="col-lg-12 col-md-12 mt-3">
                         <div class="text-center">
-                            <a data-aos="fade-up" data-aos-delay="200"
-                                href="{{route('landing.news.index')}}" target="_blank"
-                                class="btn-get-all text-uppercase">Lihat Selengkapnya</a>
+                            <a data-aos="fade-up" data-aos-delay="200" href="{{ route('landing.news.index') }}"
+                                target="_blank" class="btn-get-all text-uppercase">Lihat Selengkapnya</a>
                         </div>
                     </div>
                 </div>
@@ -200,10 +214,12 @@
                         <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
                             <div class="post-item position-relative h-100">
                                 <div class="post-content d-flex flex-column">
-                                    <h3 class="post-title" title="{{ $item->title }}">{{ \Illuminate\Support\Str::limit($item->title, 60, '...') }}</h3>
+                                    <h3 class="post-title" title="{{ $item->title }}">
+                                        {{ \Illuminate\Support\Str::limit($item->title, 60, '...') }}</h3>
                                     <div class="meta d-flex align-items-center">
                                         <div class="d-flex align-items-center">
-                                            <i class="far fa-newspaper"></i> <span class="ps-2">{{$item->category->name}}</span>
+                                            <i class="far fa-newspaper"></i> <span
+                                                class="ps-2">{{ $item->category->name }}</span>
                                         </div>
                                         <span class="px-3 text-black-50">/</span>
                                         <div class="d-flex align-items-center">
@@ -213,10 +229,11 @@
                                             @empty
                                                 <span>Tidak ada tags</span>
                                             @endforelse
-                                        </div>                                        
+                                        </div>
                                     </div>
                                     <hr>
-                                    <a href="{{ route('landing.announcement.show', $item->slug) }}" class="readmore stretched-link"><span>Baca Selengkapnya</span><i
+                                    <a href="{{ route('landing.announcement.show', $item->slug) }}"
+                                        class="readmore stretched-link"><span>Baca Selengkapnya</span><i
                                             class="bi bi-arrow-right"></i></a>
                                 </div>
                             </div>
@@ -228,9 +245,8 @@
                 <div class="row mt-3">
                     <div class="col-lg-12 col-md-12 mt-3">
                         <div class="text-center">
-                            <a data-aos="fade-up" data-aos-delay="200"
-                                href="{{route('landing.announcement.index')}}" target="_blank"
-                                class="btn-get-all text-uppercase">Lihat Selengkapnya</a>
+                            <a data-aos="fade-up" data-aos-delay="200" href="{{ route('landing.announcement.index') }}"
+                                target="_blank" class="btn-get-all text-uppercase">Lihat Selengkapnya</a>
                         </div>
                     </div>
                 </div>
@@ -359,9 +375,8 @@
                     <div class="row">
                         <div class="col-lg-12 col-md-12 mt-3">
                             <div class="text-center">
-                                <a data-aos="fade-up" data-aos-delay="200"
-                                    href="{{route('landing.facility')}}" target="_blank"
-                                    class="btn-get-all text-uppercase">Lihat Selengkapnya</a>
+                                <a data-aos="fade-up" data-aos-delay="200" href="{{ route('landing.facility') }}"
+                                    target="_blank" class="btn-get-all text-uppercase">Lihat Selengkapnya</a>
                             </div>
                         </div>
                     </div>
@@ -372,4 +387,29 @@
         {{-- End Fasilitas --}}
 
     </main><!-- End #main -->
+
+    {{-- Modal Banner --}}
+    <div class="modal fade" id="bannerModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">
+                        {{-- Judul --}}
+                    </h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <img src="{{ asset('landing/assets/img/banner/bannermodal1.jpg') }}" alt="Gambar" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        window.addEventListener('load', function() {
+            var bannerModal = new bootstrap.Modal(document.getElementById('bannerModal'));
+            bannerModal.show();
+        });
+    </script>
+
 @endsection

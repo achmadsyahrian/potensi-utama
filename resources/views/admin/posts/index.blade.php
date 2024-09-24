@@ -77,8 +77,11 @@
                                             class="text-muted">{{ ($data->currentPage() - 1) * $data->perPage() + $loop->iteration }}</span>
                                     </td>
                                     <td>
-                                        <img src="{{ asset($item->thumbnail) }}" width="70" height="50"
-                                            style="object-fit: cover" alt="">
+                                        @if ($item->thumbnail)
+                                            <img src="{{ asset($item->thumbnail) }}" width="70" height="50"style="object-fit: cover" alt="">
+                                        @else
+                                            <img src="{{ asset('landing/assets/img/Logopotensiutama.png') }}" width="70" height="50"style="object-fit: cover" alt="">
+                                        @endif
                                     </td>
                                     <td>
                                         <div class="d-flex py-1 align-items-center">

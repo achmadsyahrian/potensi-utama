@@ -6,7 +6,7 @@
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
   <title>@yield('title', 'Universitas Potensi Utama')</title>
-  <meta name="description" content="@yield('meta_description', 'Ta. 2024/2025 Pendaftaran Mahasiswa Baru Bergabunglah bersama kami sebagai salah satu perguruang tinggi terbaik di Sumatera Utara Lihat Informasi Pendaftaran Services Fasilitas. Aula Universitas Learn More Ruang Peradilan Semu Learn More International Relation Lab Learn More Hj. Nuriandy, BA founder Dosen Tenaga Pengajar. News Feed Pengumuman.')">
+  <meta name="description" content="@yield('meta_description', 'Ta. 2024/2025 Pendaftaran Mahasiswa Baru Bergabunglah bersama kami sebagai salah satu perguruan tinggi terbaik di Sumatera Utara Lihat Informasi Pendaftaran Services Fasilitas. Aula Universitas Learn More Ruang Peradilan Semu Learn More International Relation Lab Learn More Hj. Nuriandy, BA founder Dosen Tenaga Pengajar. News Feed Pengumuman.')">
   <meta name="keywords" content="@yield('meta_keywords', 'universitas potensi utama, potensiutama, potensi utama, kampus, pendidikan, upu medan')">
   <link rel="canonical" href="@yield('canonical', 'https://potensi-utama.ac.id/')">
   

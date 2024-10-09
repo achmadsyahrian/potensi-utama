@@ -3,9 +3,9 @@
 @section('title', 'Beranda - Universitas Potensi Utama')
 @section('app')
 
-<div>
-    <img src="{{asset('landing/assets/img/banner/top-banner1.jpg')}}" alt="" style="width:100%; height:200px; object-fit:cover;">
-  </div>
+    <div style="margin-bottom: 50px;">
+        <img src="{{asset('landing/assets/img/banner/top-banner1.jpg')}}" alt="" style="width:100%; height:200px; object-fit:cover;">
+    </div>
     
     <!-- ======= Hero Section ======= -->
     <section id="hero" class="hero">

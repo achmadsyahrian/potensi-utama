@@ -31,6 +31,9 @@
 
   <!-- Template Main CSS File -->
   <link href="{{ asset('landing/assets/css/main.css')}}" rel="stylesheet">
+  @if (request()->is('/')) 
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"EducationalOrganization","name":"{{ env('APP_NAME') }}","url":"{{ env('APP_URL') }}","address":{"@type":"PostalAddress","addressLocality":"Medan","addressRegion":"Sumatera Utara","postalCode":"20241","streetAddress":"Jl. K.L Yos Sudarso, Km. 6,5 , No. 3-a, Tj. Mulia, Kec. Medan Deli"}}</script> 
+@endif
 </head>
 
 <body>

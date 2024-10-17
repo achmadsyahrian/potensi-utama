@@ -1,6 +1,6 @@
 @extends('landing.layouts.app')
 {{-- Head --}}
-@section('title', $title . ' - Universitas Potensi Utama')
+@section('title', $post->title . ' - Universitas Potensi Utama')
 @section('meta_description',  Str::limit($post->title, 100))
 @if ($title == 'Berita')
     @section('meta_keywords', 'berita upu, berita potensi utama, berita pendidikan, berita kampus upu')

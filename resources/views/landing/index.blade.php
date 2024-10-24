@@ -3,14 +3,17 @@
 @section('title', 'Beranda - Universitas Potensi Utama')
 @section('app')
 
-    <div style="margin-bottom: 50px;">
-        <img src="{{asset('landing/assets/img/banner/top-banner1.jpg')}}" alt="" style="width:100%; height:200px; object-fit:cover;">
-    </div>
+<div class="text-center" style="margin-bottom: 50px;">
+    <a href="https://pendaftaran.potensi-utama.ac.id/">
+        <img src="{{asset('landing/assets/img/banner/banner-top-header.jpg')}}" alt="" class="img-fluid" style="object-fit:contain; max-height:200px;">
+    </a>
+</div>
+
     
     <!-- ======= Hero Section ======= -->
     <section id="hero" class="hero">
 
-        <div class="info d-flex align-items-center" style="margin-top: 400px;">
+        <div class="info d-flex align-items-center" style="margin-top: 600px;">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-lg-6 text-center">
@@ -103,11 +106,12 @@
 
                     <div class="col-lg-3 col-md-6">
                         <div class="stats-item d-flex align-items-center w-100 h-100">
-                            <i class="fas fa-handshake text-primary flex-shrink-0"></i>
+                            {{-- <i class="fas fa-handshake text-primary flex-shrink-0"></i> --}}
+                            <i class="fas fa-university text-primary flex-shrink-0"></i>
                             <div>
-                                <span data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="1"
+                                <span data-purecounter-start="0" data-purecounter-end="6" data-purecounter-duration="1"
                                     class="purecounter"></span>
-                                <p>Mitra</p>
+                                <p>Fakultas</p>
                             </div>
                         </div>
                     </div><!-- End Stats Item -->
@@ -116,7 +120,7 @@
                         <div class="stats-item d-flex align-items-center w-100 h-100">
                             <i class="fas fa-book text-primary flex-shrink-0"></i>
                             <div>
-                                <span data-purecounter-start="0" data-purecounter-end="18" data-purecounter-duration="1"
+                                <span data-purecounter-start="0" data-purecounter-end="14" data-purecounter-duration="1"
                                     class="purecounter"></span>
                                 <p>Program Studi</p>
                             </div>
@@ -399,7 +403,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body text-center">
-                    <img src="{{ asset('landing/assets/img/banner/bannermodal1.jpg') }}" alt="Gambar" class="img-fluid">
+                    <img src="{{ asset('landing/assets/img/banner/Web-Header-pendaftaran.jpg') }}" alt="Gambar" class="img-fluid">
                 </div>
             </div>
         </div>

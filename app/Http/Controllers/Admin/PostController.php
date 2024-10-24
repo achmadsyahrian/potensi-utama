@@ -83,7 +83,7 @@ class PostController extends Controller
             'is_published' => 'nullable|boolean',
             'content' => 'required|string',
             'type' => 'required',
-            'files.*' => 'nullable|mimes:pdf,doc,docx,xlsx,jpeg,png,jpg|max:2048',
+            'files.*' => 'nullable|mimes:pdf,doc,docx,xlsx,jpeg,png,jpg|max:5120',
         ]);
 
         // Simpan thumbnail
@@ -286,7 +286,7 @@ class PostController extends Controller
     public function upload(Request $request)
     {
         $request->validate([
-            'file' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'file' => 'required|image|mimes:jpeg,png,jpg,gif|max:5120',
         ]);
 
         $file = $request->file('file');

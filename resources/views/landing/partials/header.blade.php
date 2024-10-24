@@ -1,7 +1,7 @@
 <header id="header" class="header d-flex align-items-center" style="{{ request()->routeIs('landing.home') ? 'margin-top: 250px;' : '' }}">
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
 
-        <a href="index.html" class="logo d-flex align-items-center">
+        <a href="{{route('landing.home')}}" class="logo d-flex align-items-center">
             <img src="{{ asset('landing/assets/img/Logopotensiutama.png') }}" alt="">
             <h1 style="scale: 0.8">UNIVERSITAS POTENSI UTAMA</h1>
         </a>

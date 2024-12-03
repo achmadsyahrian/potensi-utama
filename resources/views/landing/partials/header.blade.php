@@ -35,7 +35,7 @@
                         <li><a href="https://upu.siakadcloud.com/" target="_blank">Siakad UPU</a></li>
                         <li><a href="http://portal.potensi-utama.ac.id/" target="_blank">Portal Mahasiswa/Dosen</a></li>
                         <li><a href="https://sista.potensi-utama.ac.id/" target="_blank">Sista</a></li>
-                        <li><a href="#" target="_blank">SKPI</a></li>
+                        <li><a href="https://skpi.potensi-utama.ac.id/" target="_blank">SKPI</a></li>
                         <li><a href="https://spmi.potensi-utama.ac.id/" target="_blank">SPMI</a></li>
                         <li><a href="https://repository.potensi-utama.ac.id/" target="_blank">Repository</a></li>
                     </ul>

@@ -11,8 +11,7 @@
   <link rel="canonical" href="@yield('canonical', 'https://potensi-utama.ac.id/')">
   
   <!-- Favicons -->
-  <link href="{{ asset('favicon.png')}}" rel="icon">
-  <link href="{{ asset('landing/assets/img/apple-touch-icon.png')}}" rel="apple-touch-icon">
+  <link rel="icon" href="{{ asset('favicon.png') }}" type="image/x-icon">
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">

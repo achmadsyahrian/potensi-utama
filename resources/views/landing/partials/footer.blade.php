@@ -96,7 +96,7 @@
     <div class="footer-legal text-center position-relative">
         <div class="container">
             <div class="copyright">
-                &copy;2024 Copyright <strong><span>Achmad Syahrian</span></strong>. All Rights Reserved
+                <a href="http://potensi-utama.ac.id/" class="link-secondary">Universitas Potensi Utama</a>.
             </div>
         </div>
     </div>

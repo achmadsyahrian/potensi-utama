@@ -68,7 +68,13 @@
                                     object-fit: cover;
                                     display: block;
                                 }
-
+                                .content video {
+                                    min-width: 50%;
+                                    height: 300px;
+                                    object-fit: cover;
+                                    display: block;
+                                    /* margin: 0 auto; */
+                                }
                                 .content .attachment__caption .attachment__name {
                                     display: block;
                                     margin: 0 auto;
@@ -87,7 +93,20 @@
                                 }
                             </style>
                             <div class="content">
-                                {!! $post->content !!}
+                                {!! preg_replace_callback(
+                                    '/<figure[^>]*data-trix-attachment="([^"]+)"[^>]*>.*?<\/figure>/',
+                                    function ($matches) {
+                                        $attachment = json_decode(html_entity_decode($matches[1]), true);
+                                        if ($attachment && $attachment['contentType'] === 'video/mp4') {
+                                            return "<video controls>
+                                                        <source src='{$attachment['url']}' type='video/mp4'>
+                                                        Your browser does not support the video tag.
+                                                    </video>";
+                                        }
+                                        return $matches[0];
+                                    },
+                                    $post->content
+                                ) !!}
 
                                 {{-- File Tambahan yg bisa diunduh users --}}
                                 @if ($post->files->isNotEmpty())

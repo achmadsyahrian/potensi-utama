@@ -11,33 +11,33 @@
         <nav id="navbar" class="navbar">
             <ul>
                 <li><a href="{{ route('landing.home') }}"
-                        class="{{ Route::currentRouteName() == 'landing.home' ? 'active' : '' }}">Beranda</a></li>
+                        class="{{ Route::currentRouteName() == 'landing.home' ? 'active' : '' }}">{{ __('partials/navbar.navbar.home') }}</a></li>
                 <li class="dropdown">
                     @php
                         $activeRoutes = ['landing.history', 'landing.purpose', 'landing.accreditation', 'landing.facility'];
                     @endphp
                     <a href="#" class="{{ in_array(Route::currentRouteName(), $activeRoutes) ? 'active' : '' }}">
-                        <span>Tentang Upu</span>
+                        <span>{{ __('partials/navbar.navbar.about_upu') }}</span>
                         <i class="bi bi-chevron-down dropdown-indicator"></i>
                     </a>
                     <ul>
-                        <li><a href="{{ route('landing.history') }}">Sejarah</a></li>
-                        <li><a href="{{ route('landing.purpose') }}">Visi & Misi</a></li>
-                        <li><a href="{{ route('landing.accreditation') }}">Akreditasi</a></li>
-                        <li><a href="{{ route('landing.facility') }}">Fasilitas</a></li>
+                        <li><a href="{{ route('landing.history') }}">{{ __('partials/navbar.navbar.history') }}</a></li>
+                        <li><a href="{{ route('landing.purpose') }}">{{ __('partials/navbar.navbar.purpose') }}</a></li>
+                        <li><a href="{{ route('landing.accreditation') }}">{{ __('partials/navbar.navbar.accreditation') }}</a></li>
+                        <li><a href="{{ route('landing.facility') }}">{{ __('partials/navbar.navbar.facility') }}</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">
-                    <a href="#"><span>Layanan Digital</span>
+                    <a href="#"><span>{{ __('partials/navbar.navbar.service') }}</span>
                         <i class="bi bi-chevron-down dropdown-indicator"></i>
                     </a>
                     <ul>
-                        <li><a href="https://upu.siakadcloud.com/" target="_blank">Siakad UPU</a></li>
-                        <li><a href="http://portal.potensi-utama.ac.id/" target="_blank">Portal Mahasiswa/Dosen</a></li>
-                        <li><a href="https://sista.potensi-utama.ac.id/" target="_blank">Sista</a></li>
-                        <li><a href="https://skpi.potensi-utama.ac.id/" target="_blank">SKPI</a></li>
-                        <li><a href="https://spmi.potensi-utama.ac.id/" target="_blank">SPMI</a></li>
-                        <li><a href="https://repository.potensi-utama.ac.id/" target="_blank">Repository</a></li>
+                        <li><a href="https://upu.siakadcloud.com/" target="_blank">{{ __('partials/navbar.navbar.siakad') }}</a></li>
+                        <li><a href="http://portal.potensi-utama.ac.id/" target="_blank">{{ __('partials/navbar.navbar.portal') }}</a></li>
+                        <li><a href="https://sista.potensi-utama.ac.id/" target="_blank">{{ __('partials/navbar.navbar.sista') }}</a></li>
+                        <li><a href="https://skpi.potensi-utama.ac.id/" target="_blank">{{ __('partials/navbar.navbar.skpi') }}</a></li>
+                        <li><a href="https://spmi.potensi-utama.ac.id/" target="_blank">{{ __('partials/navbar.navbar.spmi') }}</a></li>
+                        <li><a href="https://repository.potensi-utama.ac.id/" target="_blank">{{ __('partials/navbar.navbar.repository') }}</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">
@@ -45,40 +45,52 @@
                         $activeRoutes = ['landing.news.index', 'landing.news.show', 'landing.announcement.index', 'landing.announcement.show'];
                     @endphp
                     <a href="#" class="{{ in_array(Route::currentRouteName(), $activeRoutes) ? 'active' : '' }}">
-                        <span>Informasi</span>
+                        <span>{{ __('partials/navbar.navbar.information') }}</span>
                         <i class="bi bi-chevron-down dropdown-indicator"></i>
                     </a>
                     <ul>
-                        <li><a href="{{ route('landing.news.index') }}">Berita</a></li>
-                        <li><a href="{{ route('landing.announcement.index') }}">Pengumuman</a></li>
+                        <li><a href="{{ route('landing.news.index') }}">{{ __('partials/navbar.navbar.news') }}</a></li>
+                        <li><a href="{{ route('landing.announcement.index') }}">{{ __('partials/navbar.navbar.announcement') }}</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">
                     @php
                         $activeRoutes = ['landing.community.index', 'landing.community.show'];
                     @endphp
-                    <a href="#" class="{{ in_array(Route::currentRouteName(), $activeRoutes) ? 'active' : '' }}"><span>Akademik</span>
+                    <a href="#" class="{{ in_array(Route::currentRouteName(), $activeRoutes) ? 'active' : '' }}"><span>{{ __('partials/navbar.navbar.academic') }}</span>
                         <i class="bi bi-chevron-down dropdown-indicator"></i>
                     </a>
                     <ul>
                         {{-- <li><a href="#">Kalender Akademik</a></li> --}}
-                        <li><a href="{{ route('landing.community.index') }}">Pengabdian Masyarakat</a></li>
-                        <li><a href="{{route('landing.research.index')}}">Penelitian</a></li>
+                        <li><a href="{{ route('landing.community.index') }}">{{ __('partials/navbar.navbar.community') }}</a></li>
+                        <li><a href="{{route('landing.research.index')}}">{{ __('partials/navbar.navbar.research') }}</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">
-                    <a href="#"><span>Fakultas</span>
+                    <a href="#"><span>{{ __('partials/navbar.navbar.faculty') }}</span>
                         <i class="bi bi-chevron-down dropdown-indicator"></i>
                     </a>
                     <ul>
-                        <li><a href="#">Fakultas Ilmu Sosial dan Kependidikan</a></li>
-                        <li><a href="#">Fakultas Psikologi</a></li>
-                        <li><a href="#">Fakultas Hukum</a></li>
-                        <li><a href="#">Fakultas Teknik dan Ilmu Komputer</a></li>
-                        <li><a href="#">Fakultas Seni dan Desain</a></li>
-                        <li><a href="#">Fakultas Ekonomi dan Bisnis</a></li>
+                        <li><a href="https://fisk.potensi-utama.ac.id/" target="_blank">{{ __('partials/navbar.navbar.fisk') }}</a></li>
+                        <li><a href="https://fpsi.potensi-utama.ac.id/" target="_blank">{{ __('partials/navbar.navbar.fpsi') }}</a></li>
+                        <li><a href="https://fh.potensi-utama.ac.id/" target="_blank">{{ __('partials/navbar.navbar.fhukum') }}</a></li>
+                        <li><a href="https://ftik.potensi-utama.ac.id/" target="_blank">{{ __('partials/navbar.navbar.ftik') }}</a></li>
+                        <li><a href="https://fsd.potensi-utama.ac.id/" target="_blank">{{ __('partials/navbar.navbar.fsd') }}</a></li>
+                        <li><a href="https://feb.potensi-utama.ac.id/" target="_blank">{{ __('partials/navbar.navbar.feb') }}</a></li>
                     </ul>
                 </li>
+
+                
+                @if(App::getLocale() == 'id')
+                    <li><a href="{{ route('change.language', ['lang' => 'en']) }}" title="Ubah Bahasa">
+                        <span><img src="{{ asset('landing/assets/img/flag/flag-inggris2.jpg') }}" width="25" alt=""> EN</span>
+                    </a></li>
+                @else
+                    <li><a href="{{ route('change.language', ['lang' => 'id']) }}" title="Change Language">
+                        <span><img src="{{ asset('landing/assets/img/flag/flag-indonesia.png') }}" width="25" alt=""> ID</span>
+                    </a></li>
+                @endif
+           
                 {{-- <li class="d-none d-lg-block">
                   <a href="https://pmb.potensi-utama.ac.id/" target="_blank" class="btn btn-primary py-2 px-4 text-light">
                      DAFTAR

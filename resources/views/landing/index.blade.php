@@ -17,13 +17,12 @@
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-lg-6 text-center">
-                        <h2 data-aos="fade-down">Pendaftaran <span>Mahasiswa Baru</span> <br>
-                            <p class="mt-3">Ta. 2024/2025</p>
+                        <h2 data-aos="fade-down">{{ __('messages.home.hero_section.title') }} <br>
+                            <p class="mt-3">{{ __('messages.home.hero_section.academic_year') }}</p>
                         </h2>
-                        <p data-aos="fade-up ">Selamat datang di Universitas Potensi Utama! Bergabunglah dengan kami untuk
-                            memulai perjalanan akademis Anda di salah satu perguruan tinggi terbaik di Sumatera Utara.</p>
+                        <p data-aos="fade-up ">{{ __('messages.home.hero_section.content') }}</p>
                         <a data-aos="fade-up" data-aos-delay="200" href="https://pendaftaran.potensi-utama.ac.id/"
-                            target="_blank" class="btn-get-started text-uppercase">Lihat Informasi Pendaftaran</a>
+                            target="_blank" class="btn-get-started text-uppercase">{{ __('messages.home.hero_section.btn') }}</a>
                     </div>
                 </div>
             </div>
@@ -60,7 +59,7 @@
             <div class="container" data-aos="fade-up">
                 <ul class="nav nav-tabs row  g-2 d-flex">
                     <li class="nav-item col-6">
-                        <h4>Tentang Kami</h4>
+                        <h4>{{ __('messages.home.about_section.title') }}</h4>
                     </li>
                 </ul>
                 <div class="tab-content">
@@ -68,14 +67,9 @@
                         <div class="row">
                             <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0 d-flex flex-column justify-content-center"
                                 data-aos="fade-up" data-aos-delay="100">
-                                <h3>Sejak 1994.</h3>
+                                <h3>{{ __('messages.home.about_section.year_history') }}</h3>
                                 <p class="fst-italic">
-                                    Universitas Potensi Utama merupakan salah satu Perguruan Tinggi Swasta (PTS) dibawah
-                                    naungan Yayasan Potensi Utama Medan. Universitas Potensi Utama bermula dari Kursus
-                                    Komputer dan Bahasa Inggris pada tahun 1994 dengan nama PLSM (Pendidikan Luar Sekolah
-                                    Masyarakat) Potensi Utama, dan pada tahun 2003 berdasarkan izin dari Direktorat Jendral
-                                    Pendidikan Tinggi (DIKTI), PLSM Potensi Utama meningkatkan status menjadi STMIK (Sekolah
-                                    Tinggi Manajemen Informatika dan Komputer) Potensi Utama.
+                                    {{ __('messages.home.about_section.content') }}
                                 </p>
                                 <div class="icon-box d-flex justify-content-start position-relative mt-4" data-aos="fade-up"
                                     data-aos-delay="200">
@@ -89,7 +83,7 @@
                             </div>
                             <div class="col-lg-6 order-1 order-lg-2 text-center" data-aos="fade-up" data-aos-delay="200">
                                 <img src="{{ asset('landing/assets/img/hero/gedung-upu.jpg') }}" alt="Gedung Potensi Utama"
-                                    title="Gedung Utama Potensi Utama" class="img-fluid">
+                                    title="{{ __('messages.home.about_section.img_title') }}" class="img-fluid">
                             </div>
                         </div>
                     </div>
@@ -110,7 +104,7 @@
                             <div>
                                 <span data-purecounter-start="0" data-purecounter-end="6" data-purecounter-duration="1"
                                     class="purecounter"></span>
-                                <p>Fakultas</p>
+                                <p>{{ __('messages.home.stats_section.faculty') }}</p>
                             </div>
                         </div>
                     </div><!-- End Stats Item -->
@@ -121,7 +115,7 @@
                             <div>
                                 <span data-purecounter-start="0" data-purecounter-end="14" data-purecounter-duration="1"
                                     class="purecounter"></span>
-                                <p>Program Studi</p>
+                                <p>{{ __('messages.home.stats_section.academics') }}</p>
                             </div>
                         </div>
                     </div><!-- End Stats Item -->
@@ -132,7 +126,7 @@
                             <div>
                                 <span data-purecounter-start="0" data-purecounter-end="27605" data-purecounter-duration="1"
                                     class="purecounter"></span>
-                                <p>Mahasiswa</p>
+                                <p>{{ __('messages.home.stats_section.student') }}</p>
                             </div>
                         </div>
                     </div><!-- End Stats Item -->
@@ -143,7 +137,7 @@
                             <div>
                                 <span data-purecounter-start="0" data-purecounter-end="385" data-purecounter-duration="1"
                                     class="purecounter"></span>
-                                <p>Tenaga Pengajar</p>
+                                <p>{{ __('messages.home.stats_section.teacher') }}</p>
                             </div>
                         </div>
                     </div><!-- End Stats Item -->
@@ -159,7 +153,7 @@
             <div class="container" data-aos="fade-up">
                 <div class=" section-header">
                     <h2>UPU NEWS</h2>
-                    <p>Informasi terkini mengenai kegiatan dan perkembangan di Universitas Potensi Utama</p>
+                    <p>{{ __('messages.home.news_section.content') }}</p>
                 </div>
                 <div class="row gy-5">
                     @forelse ($news as $item)
@@ -179,24 +173,25 @@
                                         class="post-date">{{ \Carbon\Carbon::parse($item->created_at)->translatedFormat('d F Y') }}</span>
                                 </div>
                                 <div class="post-content d-flex flex-column">
-                                    <h3 class="post-title" title="{{ $item->title }}">
-                                        {{ \Illuminate\Support\Str::limit($item->title, 50, '...') }}</h3>
+                                    <h3 class="post-title" title="{{ app()->getLocale() == 'en' ? $item->title_en : $item->title }}">
+                                        {{ app()->getLocale() == 'en' ? \Illuminate\Support\Str::limit($item->title_en, 50, '...') : \Illuminate\Support\Str::limit($item->title, 50, '...') }}
+                                    </h3>
                                     <hr>
                                     <a href="{{ route('landing.news.show', $item->slug) }}"
-                                        class="readmore stretched-link"><span>Baca Selengkapnya</span><i
+                                        class="readmore stretched-link"><span>{{ __('messages.home.news_section.btn') }}</span><i
                                             class="bi bi-arrow-right"></i></a>
-                                </div>
+                                </div>                                
                             </div>
                         </div>
                     @empty
-                        <p class="text-center">Belum ada pengumuman yg tersedia <i class="far fa-sad-tear"></i></p>
+                        <p class="text-center">{{ __('messages.home.news_section.empty') }} <i class="far fa-sad-tear"></i></p>
                     @endforelse
                 </div>
                 <div class="row mt-3">
                     <div class="col-lg-12 col-md-12 mt-3">
                         <div class="text-center">
                             <a data-aos="fade-up" data-aos-delay="200" href="{{ route('landing.news.index') }}"
-                                target="_blank" class="btn-get-all text-uppercase">Lihat Selengkapnya</a>
+                                target="_blank" class="btn-get-all text-uppercase">{{ __('messages.home.news_section.btn') }}</a>
                         </div>
                     </div>
                 </div>
@@ -209,7 +204,7 @@
             <div class="container" data-aos="fade-up"">
                 <div class=" section-header">
                     <h2>UPU INFO</h2>
-                    <p>Pengumuman terkini dan informasi penting dari Universitas Potensi Utama untuk Anda</p>
+                    <p>{{ __('messages.home.announcement_section.content') }}</p>
                 </div>
 
                 <div class="row gy-5">
@@ -217,39 +212,31 @@
                         <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
                             <div class="post-item position-relative h-100">
                                 <div class="post-content d-flex flex-column">
-                                    <h3 class="post-title" title="{{ $item->title }}">
-                                        {{ \Illuminate\Support\Str::limit($item->title, 60, '...') }}</h3>
+                                    <h3 class="post-title" title="{{ app()->getLocale() == 'en' ? $item->title_en : $item->title }}">
+                                        {{ app()->getLocale() == 'en' ? \Illuminate\Support\Str::limit($item->title_en, 50, '...') : \Illuminate\Support\Str::limit($item->title, 50, '...') }}
+                                    </h3>
                                     <div class="meta d-flex align-items-center">
                                         <div class="d-flex align-items-center">
-                                            <i class="far fa-newspaper"></i> <span
+                                            <i class="fas fa-folder-open"></i> <span
                                                 class="ps-2">{{ $item->category->name }}</span>
-                                        </div>
-                                        <span class="px-3 text-black-50">/</span>
-                                        <div class="d-flex align-items-center">
-                                            <i class="fas fa-tags"></i>
-                                            @forelse ($item->tags as $tag)
-                                                <span class="tag ms-1">{{ $tag->name }}</span>,
-                                            @empty
-                                                <span>Tidak ada tags</span>
-                                            @endforelse
                                         </div>
                                     </div>
                                     <hr>
                                     <a href="{{ route('landing.announcement.show', $item->slug) }}"
-                                        class="readmore stretched-link"><span>Baca Selengkapnya</span><i
+                                        class="readmore stretched-link"><span>{{ __('messages.home.announcement_section.empty') }}</span><i
                                             class="bi bi-arrow-right"></i></a>
                                 </div>
                             </div>
                         </div>
                     @empty
-                        <p class="text-center">Belum ada pengumuman yg tersedia <i class="far fa-sad-tear"></i></p>
+                        <p class="text-center">{{ __('messages.home.announcement_section.empty') }} <i class="far fa-sad-tear"></i></p>
                     @endforelse
                 </div>
                 <div class="row mt-3">
                     <div class="col-lg-12 col-md-12 mt-3">
                         <div class="text-center">
                             <a data-aos="fade-up" data-aos-delay="200" href="{{ route('landing.announcement.index') }}"
-                                target="_blank" class="btn-get-all text-uppercase">Lihat Selengkapnya</a>
+                                target="_blank" class="btn-get-all text-uppercase">{{ __('messages.home.announcement_section.btn') }}</a>
                         </div>
                     </div>
                 </div>
@@ -262,7 +249,7 @@
             <div class="container" data-aos="fade-up">
                 <div class=" section-header">
                     <h2>UPU TV</h2>
-                    <p>Saksikan liputan acara, seminar, dan kegiatan mahasiswa di Channel kami</p>
+                    <p>{{ __('messages.home.channel_section.content') }}</p>
                 </div>
 
                 <div class="row justify-content-center gy-4">
@@ -290,7 +277,7 @@
                         <div class="text-center">
                             <a data-aos="fade-up" data-aos-delay="200"
                                 href="https://www.youtube.com/@PotensiUtamaUniversitas" target="_blank"
-                                class="btn-get-all text-uppercase">Lihat Channel</a>
+                                class="btn-get-all text-uppercase">{{ __('messages.home.channel_section.btn') }}</a>
                         </div>
                     </div>
                 </div>
@@ -304,15 +291,15 @@
                 <div class="row gy-4 w-100">
                     <div class="col-lg-6 d-flex flex-column align-items-center justify-content-center text-center mx-auto">
                         <div class="section-header p-0">
-                            <p class="text-secondary font-weight-bold text-uppercase mb-3">Kamu Memiliki Pertanyaan ?</p>
-                            <h1 class="text-white">Menerima Pendaftaran Mahasiswa Baru Tahun Ajaran 2024/2025.</h1>
+                            <p class="text-secondary font-weight-bold text-uppercase mb-3">{{ __('messages.home.banner_section.title') }}</p>
+                            <h1 class="text-white">{{ __('messages.home.banner_section.content') }}</h1>
                         </div>
                     </div>
                     <div class="col-lg-12 d-flex justify-content-center">
                         <div class="text-center">
                             <a data-aos="fade-up" data-aos-delay="200"
                                 href="https://api.whatsapp.com/send?phone=6282124018525&text=Halo%20Bapak%2Fibu%20saya%20tertarik%20untuk%20mendaftar%20di%20Universitas%20Potensi%20Utama"
-                                target="_blank" class="btn-get-all text-uppercase">Whatsapp Kami</a>
+                                target="_blank" class="btn-get-all text-uppercase">{{ __('messages.home.banner_section.btn') }}</a>
                         </div>
                     </div>
                 </div>
@@ -325,8 +312,8 @@
             <div class="container" data-aos="fade-up">
 
                 <div class="section-header-responsive">
-                    <h2>Fasilitas</h2>
-                    <p>Fasilitas modern untuk mendukung pembelajaran dan kesejahteraan mahasiswa.</p>
+                    <h2>{{ __('messages.home.facility.title') }}</h2>
+                    <p>{{ __('messages.home.facility.content') }}</p>
                 </div>
 
                 <div class="portfolio-isotope" data-portfolio-filter="*" data-portfolio-layout="masonry"
@@ -337,9 +324,9 @@
                                 <img src="{{ asset('landing/assets/img/fasilitas/aula-gedung-B.jpg') }}"
                                     class="img-fluid" alt="">
                                 <div class="portfolio-info">
-                                    <h4>Aula Utama Universitas</h4>
+                                    <h4>{{ __('messages.home.facility.data.hall') }}</h4>
                                     <a href="{{ asset('landing/assets/img/fasilitas/aula-gedung-B.jpg') }}"
-                                        title="Aula Utama Universitas" data-gallery="portfolio-gallery-remodeling"
+                                        title="{{ __('messages.home.facility.data.hall') }}" data-gallery="portfolio-gallery-remodeling"
                                         class="glightbox preview-link">
                                         <i class="bi bi-eye"></i>
                                     </a>
@@ -351,9 +338,9 @@
                                 <img src="{{ asset('landing/assets/img/fasilitas/Lab-Komputer.jpg') }}" class="img-fluid"
                                     alt="">
                                 <div class="portfolio-info">
-                                    <h4>Lab Computer</h4>
+                                    <h4>{{ __('messages.home.facility.data.computer_lab') }}</h4>
                                     <a href="{{ asset('landing/assets/img/fasilitas/Lab-Komputer.jpg') }}"
-                                        title="Lab Computer" data-gallery="portfolio-gallery-remodeling"
+                                        title="{{ __('messages.home.facility.data.computer_lab') }}" data-gallery="portfolio-gallery-remodeling"
                                         class="glightbox preview-link">
                                         <i class="bi bi-eye"></i>
                                     </a>
@@ -365,9 +352,9 @@
                                 <img src="{{ asset('landing/assets/img/fasilitas/library.jpg') }}" class="img-fluid"
                                     alt="">
                                 <div class="portfolio-info">
-                                    <h4>Perpustakaan</h4>
+                                    <h4>{{ __('messages.home.facility.data.library') }}</h4>
                                     <a href="{{ asset('landing/assets/img/fasilitas/library.jpg') }}"
-                                        title="Perpustakaan" data-gallery="portfolio-gallery-remodeling"
+                                        title="{{ __('messages.home.facility.data.library') }}" data-gallery="portfolio-gallery-remodeling"
                                         class="glightbox preview-link">
                                         <i class="bi bi-eye"></i>
                                     </a>
@@ -379,7 +366,7 @@
                         <div class="col-lg-12 col-md-12 mt-3">
                             <div class="text-center">
                                 <a data-aos="fade-up" data-aos-delay="200" href="{{ route('landing.facility') }}"
-                                    target="_blank" class="btn-get-all text-uppercase">Lihat Selengkapnya</a>
+                                    target="_blank" class="btn-get-all text-uppercase">{{ __('messages.home.facility.btn') }}</a>
                             </div>
                         </div>
                     </div>
@@ -397,7 +384,6 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="exampleModalLabel">
-                        {{-- Judul --}}
                     </h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>

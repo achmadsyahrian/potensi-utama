@@ -11,7 +11,7 @@ class CommunityController extends Controller
 {
     public function index(Request $request)
     {
-        $title = "Pengabdian Masyarakat";
+        $title = __('partials/navbar.navbar.community');
         $route = "landing.community";
         
         // Ambil nilai dari query string
@@ -67,7 +67,7 @@ class CommunityController extends Controller
     }
 
     public function show($slug) {
-        $title = "Pengabdian Masyarakat";
+        $title = __('partials/navbar.navbar.community');
         $route = "landing.community";
 
         $post = Post::with('category', 'user', 'files')->where('slug', $slug)->firstOrFail();

@@ -27,7 +27,7 @@
 
                 <h2>{{$title}}</h2>
                 <ol>
-                    <li><a href="{{ route('landing.home') }}">Beranda</a></li>
+                    <li><a href="{{ route('landing.home') }}">{{ __('partials/navbar.navbar.home') }}</a></li>
                     <li>{{$title}}</li>
                 </ol>
 
@@ -57,25 +57,28 @@
                                             <span class="post-date">{{ $item->updated_at->format('F j') }}</span>
                                         </div>
                                         <div class="post-content d-flex flex-column">
-                                            <h3 class="post-title" title="{{ $item->title }}">
-                                                {{ \Illuminate\Support\Str::limit($item->title, 50, '...') }}</h3>
+                                            <h3 class="post-title" title="{{ app()->getLocale() == 'en' ? $item->title_en : $item->title }}">
+                                                {{ app()->getLocale() == 'en' ? \Illuminate\Support\Str::limit($item->title_en, 50, '...') : \Illuminate\Support\Str::limit($item->title, 50, '...') }}
+                                            </h3>
                                             <div class="meta d-flex align-items-center">
                                                 <div class="d-flex align-items-center">
                                                     <i class="bi bi-person"></i> <span
                                                         class="ps-2">{{ $item->user->name }}</span>
                                                 </div>
-                                                <span class="px-3 text-black-50">/</span>
+                                            </div>
+
+                                            <x-filtered-content :content="app()->getLocale() == 'en' ? $item->content_en : $item->content" class="mt-4" />
+
+                                            <hr>
+                                            <div class="meta d-flex align-items-center">
                                                 <div class="d-flex align-items-center">
                                                     <i class="bi bi-folder2"></i> <span
                                                         class="ps-2">{{ $item->category->name }}</span>
                                                 </div>
                                             </div>
-
-                                            <x-filtered-content :content="$item->content" class="mt-4" />
-
                                             <hr>
                                             <a href="{{ route( $route . '.show', $item->slug) }}"
-                                                class="readmore stretched-link"><span>Baca Selengkapnya</span><i
+                                                class="readmore stretched-link"><span>{{__('messages.read_more')}}</span><i
                                                     class="bi bi-arrow-right"></i></a>
                                         </div>
                                     </div>
@@ -90,9 +93,9 @@
                             <div class="sidebar">
 
                                 <div class="sidebar-item search-form">
-                                    <h3 class="sidebar-title">Pencarian</h3>
+                                    <h3 class="sidebar-title">{{__('posts/messages.search_input')}}</h3>
                                     <form action="{{ route($route . '.index') }}" method="GET" class="mt-3">
-                                        <input type="text" name="search" placeholder="Masukkan judul"
+                                        <input type="text" name="search" placeholder="{{__('posts/messages.text_input')}}"
                                             value="{{ request('search') }}">
                                         <input type="hidden" name="category" value="{{ request('category') }}">
                                         <input type="hidden" name="tag" value="{{ request('tag') }}">
@@ -148,7 +151,7 @@
                             </div>
                         </div>
                     @else
-                        <p class="text-center">Belum ada pengumuman yg tersedia <i class="far fa-sad-tear"></i></p>
+                        <p class="text-center">{{__('messages.empty_post')}} <i class="far fa-sad-tear"></i></p>
                     @endif
 
                 </div>

@@ -12,7 +12,7 @@ class AnnouncementController extends Controller
 {
     public function index(Request $request)
     {
-        $title = "Pengumuman";
+        $title = __('partials/navbar.navbar.announcement');
         $route = "landing.announcement";
         
         // Ambil nilai dari query string
@@ -40,9 +40,20 @@ class AnnouncementController extends Controller
             });
         }
 
-        // Terakhir, tambahkan filter pencarian berdasarkan judul
+        // Mendapatkan bahasa aktif dari aplikasi
+        $lang = app()->getLocale();
+
+        // Terakhir, tambahkan filter pencarian berdasarkan judul sesuai dengan bahasa aktif
         if ($search) {
-            $query->where('title', 'like', '%' . $search . '%');
+            $query->where(function($query) use ($search, $lang) {
+                if ($lang === 'en') {
+                    // Pencarian menggunakan title_en untuk bahasa Inggris
+                    $query->where('title_en', 'like', '%' . $search . '%');
+                } else {
+                    // Pencarian menggunakan title untuk bahasa lainnya (misalnya Bahasa Indonesia)
+                    $query->where('title', 'like', '%' . $search . '%');
+                }
+            });
         }
 
         // Ambil data dengan paginasi
@@ -69,7 +80,7 @@ class AnnouncementController extends Controller
 
 
     public function show($slug) {
-        $title = "Pengumuman";
+        $title = __('partials/navbar.navbar.announcement');
         $route = "landing.announcement";
 
         $post = Post::with('category', 'user')->where('slug', $slug)->firstOrFail();

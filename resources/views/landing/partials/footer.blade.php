@@ -10,15 +10,19 @@
                             <img src="{{asset('landing/assets/img/Logopotensiutama.png')}}" class="me-2" width="50px" alt="">
                             <h4 class="d-flex align-items-center mt-3">UNIVERSITAS <br>POTENSI UTAMA</h4>
                         </a>
-                        <h4 class="mb-0">Gedung A</h4>
+                        <h4 class="mb-0">{{ __('partials/footer.footer.building_a') }}</h4>
                         <p>
-                            Jl. K.L Yos Sudarso, Km. 6,5 , No. 3-a, Tj. Mulia, Kec. Medan Deli <br>
-                            Kota Medan, Sumatera Utara 20241<br><br>
+                            <a href="https://maps.app.goo.gl/vYfbq2hS8vZ4EH2U8" class="text-white" target="_blank">
+                                Jl. K.L Yos Sudarso, Km. 6,5 , No. 3-a, Tj. Mulia, Kec. Medan Deli <br>
+                                Kota Medan, Sumatera Utara 20241<br><br>
+                            </a>
                         </p>
-                        <h4 class="mb-0">Gedung B</h4>
+                        <h4 class="mb-0">{{ __('partials/footer.footer.building_b') }}</h4>
                         <p>
-                            Jl. K.L Yos Sudarso, Gg. Famili No.247, Tj. Mulia, Kec. Medan Deli <br>
-                            Kota Medan, Sumatera Utara 20241<br><br>
+                            <a href="https://maps.app.goo.gl/GNamZHcTmjubhPNS8" class="text-white" target="_blank">
+                                Jl. K.L Yos Sudarso, Gg. Famili No.247, Tj. Mulia, Kec. Medan Deli <br>
+                                Kota Medan, Sumatera Utara 20241<br><br>
+                            </a>
                         </p>
                         <p>
                             <strong>Telp/Wa:</strong> +62 821-2401-8525<br>
@@ -35,33 +39,33 @@
                 </div><!-- End footer info column-->
 
                 <div class="col-lg-2 col-md-3 footer-links">
-                    <h4>Tentang Kami</h4>
+                    <h4>{{ __('partials/navbar.navbar.about_upu') }}</h4>
                     <ul>
-                        <li><a href="#">Beranda</a></li>
-                        <li><a href="{{route('landing.history')}}">Sejarah</a></li>
-                        <li><a href="{{route('landing.purpose')}}">Visi & Misi</a></li>
-                        <li><a href="{{route('landing.facility')}}">Fasilitas</a></li>
+                        <li><a href="#">{{ __('partials/navbar.navbar.home') }}</a></li>
+                        <li><a href="{{route('landing.history')}}">{{ __('partials/navbar.navbar.history') }}</a></li>
+                        <li><a href="{{route('landing.purpose')}}">{{ __('partials/navbar.navbar.purpose') }}</a></li>
+                        <li><a href="{{route('landing.facility')}}">{{ __('partials/navbar.navbar.facility') }}</a></li>
                     </ul>
                 </div><!-- End footer links column-->
 
                 <div class="col-lg-2 col-md-3 footer-links">
-                    <h4>Layanan Digital</h4>
+                    <h4>{{ __('partials/navbar.navbar.service') }}</h4>
                     <ul>
-                        <li><a href="https://upu.siakadcloud.com/" target="_blank">Siakad UPU</a></li>
-                        <li><a href="http://portal.potensi-utama.ac.id/" target="_blank">Portal</a></li>
-                        <li><a href="https://sista.potensi-utama.ac.id/" target="_blank">Sista</a></li>
-                        <li><a href="#" target="_blank">SKPI</a></li>
-                        <li><a href="https://spmi.potensi-utama.ac.id/" target="_blank">SPMI</a></li>
-                        <li><a href="https://repository.potensi-utama.ac.id/" target="_blank">Repository</a></li>
+                        <li><a href="https://upu.siakadcloud.com/" target="_blank">{{ __('partials/navbar.navbar.siakad') }}</a></li>
+                        <li><a href="http://portal.potensi-utama.ac.id/" target="_blank">{{ __('partials/navbar.navbar.portal') }}</a></li>
+                        <li><a href="https://sista.potensi-utama.ac.id/" target="_blank">{{ __('partials/navbar.navbar.sista') }}</a></li>
+                        <li><a href="#" target="_blank">{{ __('partials/navbar.navbar.skpi') }}</a></li>
+                        <li><a href="https://spmi.potensi-utama.ac.id/" target="_blank">{{ __('partials/navbar.navbar.spmi') }}</a></li>
+                        <li><a href="https://repository.potensi-utama.ac.id/" target="_blank">{{ __('partials/navbar.navbar.repository') }}</a></li>
                     </ul>
                 </div><!-- End footer links column-->
 
                 <div class="col-lg-2 col-md-3 footer-links">
-                    <h4>Informasi</h4>
+                    <h4>{{ __('partials/navbar.navbar.information') }}</h4>
                     <ul>
-                        <li><a href="{{route('landing.news.index')}}">Berita</a></li>
-                        <li><a href="{{route('landing.announcement.index')}}">Pengumuman</a></li>
-                        <li><a href="{{route('landing.community.index')}}">Pengabdian Masyarakat</a></li>
+                        <li><a href="{{route('landing.news.index')}}">{{ __('partials/navbar.navbar.news') }}</a></li>
+                        <li><a href="{{route('landing.announcement.index')}}">{{ __('partials/navbar.navbar.announcement') }}</a></li>
+                        <li><a href="{{route('landing.community.index')}}">{{ __('partials/navbar.navbar.community') }}</a></li>
                     </ul>
                 </div><!-- End footer links column-->
 
@@ -96,7 +100,7 @@
     <div class="footer-legal text-center position-relative">
         <div class="container">
             <div class="copyright">
-                <a href="http://potensi-utama.ac.id/" class="link-secondary">Universitas Potensi Utama</a>.
+                ©2024 Copyright <strong><span>Universitas Potensi Utama</span></strong>. All Rights Reserved
             </div>
         </div>
     </div>

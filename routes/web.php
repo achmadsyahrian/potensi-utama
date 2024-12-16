@@ -15,6 +15,14 @@ Route::get('sitemap.xml', function () {
     return response()->file(public_path('sitemap.xml'));
 });
 
+// Ubah Bahasa
+Route::get('/lang/{lang}', function ($lang) {
+    if (in_array($lang, ['id', 'en'])) {
+        session()->put('locale', $lang);
+    }
+    return redirect()->back();
+})->name('change.language');
+
 
 Route::group(['namespace' => 'Landing', 'as' => 'landing.'], function() {
     Route::get('/', [HomeController::class, 'index'])->name('home');

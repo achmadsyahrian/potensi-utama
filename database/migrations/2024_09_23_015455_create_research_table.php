@@ -14,7 +14,9 @@ return new class extends Migration
         Schema::create('researches', function (Blueprint $table) {
             $table->id();
             $table->string('title');
+            $table->string('title_en')->nullable();
             $table->text('content')->nullable();
+            $table->text('content_en')->nullable();
             $table->timestamps();
         });
     }

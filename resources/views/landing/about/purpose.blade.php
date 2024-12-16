@@ -14,10 +14,10 @@
             style="background-image: url({{ asset('landing/assets/img/breadcrumbs/gedung-upu.jpg') }});">
             <div class="container position-relative d-flex flex-column align-items-center" data-aos="fade">
 
-                <h2>Visi & Misi</h2>
+                <h2>{{ __('partials/navbar.navbar.purpose') }}</h2>
                 <ol>
-                    <li><a href="{{ route('landing.home') }}">Beranda</a></li>
-                    <li>Visi & Misi</li>
+                    <li><a href="{{ route('landing.home') }}">{{ __('partials/navbar.navbar.home') }}</a></li>
+                    <li>{{ __('partials/navbar.navbar.purpose') }}</li>
                 </ol>
 
             </div>
@@ -31,41 +31,36 @@
                 <div class="row gy-4">
 
                     <div class="col-lg-8">
-                        <img src="{{asset('landing/assets/img/hero/gedung-upu.jpg')}}" alt="" class="img-fluid services-img">
-                        <h3>Visi</h3>
-                        <p>
-                            Visi adalah pandangan atau tujuan jangka panjang yang diinginkan oleh sebuah organisasi atau lembaga. Visi menggambarkan gambaran ideal tentang keadaan di masa depan yang ingin dicapai oleh organisasi tersebut.
-                        </p>
+                        <img src="{{ asset('landing/assets/img/hero/gedung-upu.jpg') }}" alt="{{ __('about/purpose.purpose.img_title') }}" title="{{ __('about/purpose.purpose.img_title') }}" class="img-fluid services-img">
+                    
+                        <!-- Visi Section -->
+                        <h3>{{ __('about/purpose.purpose.visi.title') }}</h3>
+                        <p>{{ __('about/purpose.purpose.visi.description') }}</p>
                         <blockquote>
-                            <p>
-                                Pada Tahun 2035 Menjadi Universitas yang unggul dalam bidang IPTEKS (Ilmu Pengetahuan Teknologi dan Seni) di Tingkat Nasional dan Berperan Aktif di Tingkat Internasional
-                            </p>
+                            <p>{{ __('about/purpose.purpose.visi.quote') }}</p>
                         </blockquote>
-
-                        <h3>Misi</h3>
-                        <p>
-                            Misi adalah pernyataan tujuan atau tujuan jangka pendek yang menggambarkan fungsi utama atau tujuan utama dari sebuah organisasi atau lembaga. Misi memberikan arah dan fokus bagi kegiatan organisasi serta menentukan cara organisasi tersebut beroperasi untuk mencapai visinya.
-                        </p>
+                    
+                        <!-- Misi Section -->
+                        <h3>{{ __('about/purpose.purpose.misi.title') }}</h3>
+                        <p>{{ __('about/purpose.purpose.misi.description') }}</p>
                         <ul>
-                            <li><i class="bi bi-check-circle"></i> <span>Melaksanakan Pendidikan yang Berkualitas di tinggat Sumatera.</span></li>
-                            <li><i class="bi bi-check-circle"></i> <span>Melaksanakan Penelitian yang Dapat di Publikasikan pada Tingkat Nasional.</span>
-                            </li>
-                            <li><i class="bi bi-check-circle"></i> <span>Melaksanakan Kegiatan dan layanan yang Bermanfaat bagi Masyarakat. </span></li>
+                            @foreach(__('about/purpose.purpose.misi.items') as $misiItem)
+                            <li><i class="bi bi-check-circle"></i> <span>{{ $misiItem }}</span></li>
+                            @endforeach
                         </ul>
-
-                        <h3>Kebijakan Mutu</h3>
-                        <p>
-                            Pimpinan dan sivitas akademika Universitas Potensi Utama berkomitmen menyelenggarakan Pendidikan. Penelitian dan Pengabdian kepada Masyarakat serta menyediakan sumber daya yang berkualitas sesuai dengan perkembangan Ilmu Pengetahuan, Teknologi dan Seni dengan melakukan perbaikan terus menerus dalam sisem manajemen.
-                        </p>
+                    
+                        <!-- Kebijakan Mutu Section -->
+                        <h3>{{ __('about/purpose.purpose.quality_policy.title') }}</h3>
+                        <p>{{ __('about/purpose.purpose.quality_policy.description') }}</p>
                     </div>
 
                     <div class="col-lg-4">
                         <h4>Tentang Kami</h4>
                         <div class="services-list">
-                            <a href="{{route('landing.history')}}">Sejarah</a>
-                            <a href="#" class="active">Visi & Misi</a>
-                            <a href="{{route('landing.accreditation')}}">Akreditasi</a>
-                            <a href="{{route('landing.facility')}}">Fasilitas</a>
+                            <a href="{{route('landing.history')}}">{{ __('partials/navbar.navbar.history') }}</a>
+                            <a href="#" class="active">{{ __('partials/navbar.navbar.purpose') }}</a>
+                            <a href="{{route('landing.accreditation')}}">{{ __('partials/navbar.navbar.accreditation') }}</a>
+                            <a href="{{route('landing.facility')}}">{{ __('partials/navbar.navbar.facility') }}</a>
                         </div>
 
                         <img src="{{asset('landing/assets/img/bilboard/dapatkan_750.jpg')}}" width="100%" alt="">

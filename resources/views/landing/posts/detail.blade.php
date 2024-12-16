@@ -23,7 +23,7 @@
 
                 <h2>{{$title}}</h2>
                 <ol>
-                    <li><a href="{{ route('landing.home') }}">Beranda</a></li>
+                    <li><a href="{{ route('landing.home') }}">{{ __('partials/navbar.navbar.home') }}</a></li>
                     <li><a href="{{ route($route . '.index') }}">{{$title}}</a></li>
                     <li>Detail</li>
                 </ol>
@@ -48,7 +48,7 @@
                                 @endif
                             </div>
 
-                            <h2 class="title">{{ $post->title }}</h2>
+                            <h2 class="title">{{ app()->getLocale() == 'en' ? $post->title_en : $post->title }}</h2>
 
                             <div class="meta-top">
                                 <ul>
@@ -105,12 +105,12 @@
                                         }
                                         return $matches[0];
                                     },
-                                    $post->content
+                                    app()->getLocale() == 'en' ? $post->content_en : $post->content
                                 ) !!}
 
                                 {{-- File Tambahan yg bisa diunduh users --}}
                                 @if ($post->files->isNotEmpty())
-                                    <h3>File Tambahan</h3>
+                                    <h3>{{__('messages.other_files')}}</h3>
                                     <ul>
                                         @foreach($post->files as $file)
                                             <li>
@@ -121,7 +121,7 @@
                                 @endif
                             </div>
 
-                            <div class="meta-bottom">
+                            <div class="meta-bottom mt-3">
                                 <i class="bi bi-folder"></i>
                                 <ul class="cats">
                                     <li>
@@ -159,9 +159,9 @@
                         <div class="sidebar">
 
                             <div class="sidebar-item search-form">
-                                <h3 class="sidebar-title">Pencarian</h3>
+                                <h3 class="sidebar-title">{{__('posts/messages.search_input')}}</h3>
                                 <form action="{{ route($route . '.index') }}" method="GET" class="mt-3">
-                                    <input type="text" name="search" placeholder="Masukkan judul"
+                                    <input type="text" name="search" placeholder="{{__('posts/messages.text_input')}}"
                                         value="{{ request('search') }}">
                                     <button type="submit"><i class="bi bi-search text-white"></i></button>
                                 </form>
@@ -183,7 +183,7 @@
                                             @endif
                                             <div>
                                                 <h4><a
-                                                        href="{{ route($route . '.show', $item->slug) }}">{{ \Illuminate\Support\Str::limit($item->title, 40, '...') }}</a>
+                                                        href="{{ route($route . '.show', $item->slug) }}">{{ app()->getLocale() == 'en' ? \Illuminate\Support\Str::limit($item->title_en, 40, '...') : \Illuminate\Support\Str::limit($item->title, 40, '...') }}</a>
                                                 </h4>
                                                 <time datetime="{{ $item->updated_at->format('Y-m-d') }}">
                                                     {{ $item->updated_at->format('M j, Y') }}

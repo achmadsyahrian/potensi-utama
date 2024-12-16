@@ -14,10 +14,10 @@
             style="background-image: url({{ asset('landing/assets/img/breadcrumbs/gedung-upu.jpg') }});">
             <div class="container position-relative d-flex flex-column align-items-center" data-aos="fade">
 
-                <h2>Sejarah</h2>
+                <h2>{{ __('partials/navbar.navbar.history') }}</h2>
                 <ol>
-                    <li><a href="{{ route('landing.home') }}">Beranda</a></li>
-                    <li>Sejarah</li>
+                    <li><a href="{{ route('landing.home') }}">{{ __('partials/navbar.navbar.home') }}</a></li>
+                    <li>{{ __('partials/navbar.navbar.history') }}</li>
                 </ol>
 
             </div>
@@ -36,21 +36,16 @@
                     <div class="col-lg-7">
                         <h2>Universitas Potensi Utama</h2>
                         <div class="our-story">
-                            <h4>Sejak 1994</h4>
-                            <h3>Sejarah Kami</h3>
-                            <p>Universitas Potensi Utama merupakan salah satu Perguruan Tinggi Swasta (PTS) dibawah naungan
-                                Yayasan Potensi Utama Medan. Universitas Potensi Utama bermula dari Kursus Komputer dan
-                                Bahasa Inggris pada tahun 1994 dengan nama PLSM (Pendidikan Luar Sekolah Masyarakat) Potensi
-                                Utama, dan pada tahun 2003 berdasarkan izin dari Direktorat Jendral Pendidikan Tinggi
-                                (DIKTI), PLSM Potensi Utama meningkatkan status menjadi STMIK (Sekolah Tinggi Manajemen
-                                Informatika dan Komputer) Potensi Utama.</p>
-
+                            <h4>{{ __('about/history.history.our_story.year_history') }}</h4>
+                            <h3>{{ __('about/history.history.our_story.title') }}</h3>
+                            <p>{{ __('about/history.history.our_story.content') }}</p>
+                        
                             <div class="watch-video d-flex align-items-center position-relative">
                                 <i class="bi bi-play-circle"></i>
                                 <a href="https://youtu.be/T4JAUHn9lB4?si=kL4myZTdRPyaEhVQ"
-                                    class="glightbox stretched-link">Profile Video</a>
+                                    class="glightbox stretched-link">{{ __('about/history.history.our_story.btn_video') }}</a>
                             </div>
-                        </div>
+                        </div>                        
                     </div>
 
                 </div>
@@ -65,38 +60,20 @@
 
                 <div class="row justify-content-around gy-4">
                     <div class="col-lg-5 d-flex flex-column justify-content-center">
-                        <h3>Perkembangan Universitas Potensi Utama</h3>
-                        <p>Pada tahun 2014, STMIK Potensi Utama berubah bentuk menjadi Universitas Potensi Utama berdasarkan
-                            izin Kementerian Pendidikan dan Kebudayaan dengan SK nomor: 424/E/O/2014 dengan motto <b>“Kami
-                                hadir untuk mencerdaskan kehidupan bangsa”</b>. Saat ini, Universitas Potensi Utama memiliki 6
-                            Fakultas yang terdiri dari 18 Program Studi, yaitu:</p>
+                        <h3>{{ __('about/history.history.university_growth.title') }}</h3>
+                        <p>{!! __('about/history.history.university_growth.content') !!}</p>
+                    
+                        @foreach(__('about/history.history.university_growth.faculties') as $faculty)
                         <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="100">
-                            <i class="fas fa-laptop-code flex-shrink-0"></i>
+                            <i class="{{ $faculty['icon'] }} flex-shrink-0"></i>
                             <div>
-                                <h4><a href="#" class="stretched-link">Fakultas Teknik & Ilmu Komputer</a></h4>
-                                <p>Program Studi: Teknik Industri (S-1), Teknik Informatika (S-1), Sistem Informasi (S-1),
-                                    Rekayasa Perangkat Lunak (S-1), Rekayasa Sistem Komputer, Sistem Informasi (D-3), dan
-                                    Ilmu Komputer (S-2)</p>
+                                <h4><a href="#" class="stretched-link">{{ $faculty['title'] }}</a></h4>
+                                <p>{{ $faculty['content'] }}</p>
                             </div>
                         </div>
-
-                        <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="200">
-                            <i class="fas fa-paint-brush flex-shrink-0"></i>
-                            <div>
-                                <h4><a href="#" class="stretched-link">Fakultas Seni & Desain</a></h4>
-                                <p>Program Studi: Desain Komunikasi Visual (S-1), Televisi dan Film (S-1), dan Desain
-                                    Interior (S-1)</p>
-                            </div>
-                        </div>
-
-                        <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="300">
-                            <i class="fas fa-heartbeat flex-shrink-0"></i>
-                            <div>
-                                <h4><a href="#" class="stretched-link">Fakultas Psikologi</a></h4>
-                                <p>Program Studi: Psikologi (S-1)</p>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
+                    
 
                     <div class="col-lg-6 img-bg"
                         style="background-image: url({{ asset('landing/assets/img/about/founder.jpeg') }});"
@@ -110,44 +87,26 @@
             <div class="container" data-aos="fade-up">
 
                 <div class="row justify-content-around gy-4">
-                    <div class="col-lg-6 img-bg" style="background-image: url({{asset('landing/assets/img/about/Universitas-Potensi-Utama_1.jpg')}});"
-                        data-aos="zoom-in" data-aos-delay="100"></div>
+                    <div class="col-lg-6 img-bg" style="background-image: url({{asset('landing/assets/img/about/Universitas-Potensi-Utama_1.jpg')}});" data-aos="zoom-in" data-aos-delay="100"></div>
 
                     <div class="col-lg-5 d-flex flex-column justify-content-center">
-                            <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="300">
-                                <i class="fas fa-balance-scale flex-shrink-0"></i>
-                                <div>
-                                    <h4><a href="#" class="stretched-link">Fakultas Hukum</a></h4>
-                                    <p>Program Studi: Hukum (S-1)</p>
-                                </div>
-                            </div>
-    
-                            <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="400">
-                                <i class="fas fa-globe flex-shrink-0"></i>
-                                <div>
-                                    <h4><a href="#" class="stretched-link">Fakultas Ilmu Politik & Kependidikan</a></h4>
-                                    <p>Program Studi: Ilmu Hubungan Internasional (S-1) dan Pendidikan Bahasa Inggris (S-1)</p>
-                                </div>
-                            </div>
-    
-                            <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="500">
-                                <i class="fas fa-chart-line flex-shrink-0"></i>
-                                <div>
-                                    <h4><a href="#" class="stretched-link">Fakultas Ekonomi & Bisnis</a></h4>
-                                    <p>Program Studi: Ekonomi Syariah (S-1), Perbankan Syariah (S-1), Manajemen (S-1), dan
-                                        Akuntansi (S-1)</p>
-                                </div>
-                            </div>
 
-                            <p class="mt-5" data-aos="fade-up" data-aos-delay="600">Masing-masing Program Studi sudah diakreditasi oleh Badan Akreditasi Nasional
-                                Perguruan Tinggi
-                                (BAN-PT). Penyelenggaraan pendidikan sudah melaksanakan Tridharma Perguruan Tinggi yaitu
-                                melaksanakan Pendidikan, melaksanakan Penelitian dan Pengabdian kepada Masyarakat, dan
-                                penyelenggaraan manajemen disesuaikan dengan peraturan yang berlaku serta diselaraskan dengan
-                                Visi, Misi dan Tujuan Universitas Potensi Utama.
-                            </p>
-
+                        @foreach(__('about/history.history.university_growth.faculties_more') as $faculty)
+                        <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="{{ $loop->iteration * 100 + 200 }}">
+                            <i class="{{ $faculty['icon'] }} flex-shrink-0"></i>
+                            <div>
+                                <h4><a href="#" class="stretched-link">{{ $faculty['title'] }}</a></h4>
+                                <p>{{ $faculty['content'] }}</p>
+                            </div>
+                        </div>
+                        @endforeach
+                    
+                        <p class="mt-5" data-aos="fade-up" data-aos-delay="600">
+                            {{ __('about/history.history.university_growth.accreditation_note') }}
+                        </p>
+                    
                     </div>
+                        
                 </div>
 
             </div>

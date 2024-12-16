@@ -14,8 +14,10 @@ return new class extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
             $table->string('title');
+            $table->string('title_en')->nullable();
             $table->string('slug')->unique();
             $table->text('content');
+            $table->text('content_en')->nullable();
             $table->enum('type', ['news', 'announcement', 'community_service']);
             $table->foreignId('category_id')->nullable()->constrained()->onDelete('set null');
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
